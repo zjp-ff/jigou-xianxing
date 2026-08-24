@@ -854,11 +854,7 @@ function refresh(){
   for(var i=1;i<=5;i++){ unlocked[i] = (currentCount >= thresholds[i]); }
   for(var i=1;i<=5;i++){ applyUnlock(i); }
 }
-<script>
-if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode')==='1'){
-  var p=document.getElementById('adminPanel');if(p)p.style.display='';
-}
-</script>
+
 function setCount(n){
   currentCount = Math.max(0, parseInt(n) || 0);
   if(document.getElementById('countInput')) document.getElementById('countInput').value=currentCount;
@@ -886,5 +882,10 @@ function demoReset(){ setCount(0); }
 refresh();
 </script>
 </div>
+<script>
+if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode')==='1'){
+  var p=document.getElementById('adminPanel');if(p)p.style.display='';
+}
+</script>
 </body>
 </html>
