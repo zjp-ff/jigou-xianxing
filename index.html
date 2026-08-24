@@ -290,71 +290,6 @@
   .stamps .stamp{width:36px;height:36px;font-size:11px;}
 }
 
-
-/* ===== AI章节内容样式 ===== */
-.ai-section{
-  margin:14px 0;border-radius:8px;
-  background:rgba(255,255,255,.06);
-  border-left:3px solid var(--mc, #FFD700);
-  overflow:hidden;
-}
-.ai-section > summary{
-  padding:12px 16px;font-weight:800;font-size:16px;
-  color:var(--mc, #FFD700);cursor:pointer;
-  background:rgba(0,0,0,.15);
-  list-style:none;
-  display:flex;align-items:center;justify-content:space-between;
-  user-select:none;
-}
-.ai-section > summary::after{
-  content:'▼';font-size:12px;transition:transform .2s;color:var(--mc, #FFD700);
-}
-.ai-section[open] > summary::after{transform:rotate(180deg);}
-.ai-section > summary:hover{background:rgba(255,255,255,.08);}
-.ai-section > summary::-webkit-details-marker{display:none;}
-.section-body{padding:14px 18px;color:rgba(255,255,255,.92);}
-.ai-h5{
-  font-size:15px;font-weight:800;margin:14px 0 8px;
-  color:var(--mc, #FFD700);
-  padding:6px 12px;background:rgba(0,0,0,.2);
-  border-radius:6px;border-left:3px solid var(--mc, #FFD700);
-}
-.ai-h6{
-  font-size:13px;font-weight:700;margin:12px 0 6px;
-  color:rgba(255,255,255,.85);
-}
-.ai-p{font-size:14px;line-height:1.85;margin:8px 0;color:rgba(255,255,255,.92);}
-.ai-p strong{color:var(--mc, #FFD700);font-weight:800;}
-.ai-quote{
-  margin:12px 0;padding:12px 16px;
-  background:rgba(0,0,0,.25);
-  border-left:3px solid var(--mc, #FFD700);
-  border-radius:6px;font-size:13px;line-height:1.7;
-  color:rgba(255,255,255,.95);font-style:italic;
-}
-.ai-quote strong{color:var(--mc, #FFD700);font-style:normal;}
-.ai-ul{margin:8px 0 12px;padding-left:22px;}
-.ai-ul li{font-size:14px;line-height:1.8;margin:4px 0;}
-.ai-ul li strong{color:var(--mc, #FFD700);}
-.ai-table{
-  width:100%;border-collapse:collapse;margin:12px 0;
-  font-size:13px;background:rgba(0,0,0,.2);
-  border-radius:6px;overflow:hidden;
-}
-.ai-table th,.ai-table td{padding:8px 12px;text-align:left;border:1px solid rgba(255,255,255,.12);}
-.ai-table th{background:rgba(0,0,0,.3);color:var(--mc, #FFD700);font-weight:800;}
-.ai-table td{color:rgba(255,255,255,.9);}
-
-/* 移动端 */
-@media (max-width:768px){
-  .ai-section > summary{font-size:15px;padding:10px 12px;}
-  .section-body{padding:10px 12px;}
-  .ai-p{font-size:13px;}
-  .ai-h5{font-size:14px;padding:5px 10px;}
-  .ai-table{font-size:12px;}
-  .ai-table th,.ai-table td{padding:6px 8px;}
-}
-
 </style>
 </head>
 <body>
@@ -396,63 +331,103 @@
     <div class="lock lock-pulse" id="lock1">🔒</div>
   </div>
   <div class="body">
-<details class="ai-section"><summary>AI机构：吸筹现形</summary><div class="section-body">
-<h5 class="ai-h5">开篇：一场你全程缺席的比赛</h5>
-<blockquote class="ai-quote">想象一座万人体育馆，中央堆着金币山。"隐形大户"不喊"我要买"，而是凑到每个观众耳边，3秒说一次"我买你1枚"。整场下来，金币山悄悄进了他的口袋，K线图却纹丝不动。你在场外说："这游戏没人玩。"——可你已错过了整场比赛。这就是AI建仓：大单被切成看不见的微粒，混进散户杂单，3-5秒一次试探。你还在等放量信号，他早已吸完一半——<strong>你还在等信号，信号已经在你眼前跑完了</strong>。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>一、本质：从&quot;偷偷买&quot;到&quot;隐形买&quot;</summary><div class="section-body">
-<p class="ai-p">王叔炒股15年，最得意"看底部横盘找主力"。2025年他盯上一只跌了60%、横盘近三个月的票，9.1元满仓杀入，结果阴跌18%，割肉第二天放量大涨35%。他问：主力是不是成心跟我作对？——不是作对，是AI时代的建仓跟他以为的根本不是一回事。</p>
-<p class="ai-p">2015年以前操盘手是人，一单一单打，有节奏、有痕迹；2023年后机构全面AI化，建仓第一原则从"隐蔽"升级为"隐形"——不是藏起来让你找，而是把你找得到的痕迹全部抹掉：不再温和放量（算法拆单混进散户单）、不再规律横盘（专挑最像随机的形态）、不留节奏痕迹（机器没有性格）。</p>
-<p class="ai-p">王叔看到的横盘不是AI建仓本身，而是AI建仓的副产品——故意制造的"假静"。K线温和平静，分时下AI却在以3-5秒一次的频率吸货。机构建仓从"看得见的痕迹"变成"看不见的水流"：不是老方法变难了，是老方法死了。</p>
-<p class="ai-p">建仓前还有一套系统准备：大数据选标的（低关注、低估值、机构持仓少）、算法定计划、智能择时（专挑大盘低迷、散户恐慌时）、反侦察设计（专门避开所有传统建仓特征）。</p>
-<table class="ai-table"><thead><tr><th>资金类型</th><th>AI化程度</th><th>建仓特征</th></tr></thead><tbody><tr><td>量化私募</td><td>全AI化</td><td>拆单、冰山、择时全交算法，完全隐形</td></tr><tr><td>公募/险资</td><td>AI辅助</td><td>下单节奏优化，报告期前会显形</td></tr><tr><td>游资</td><td>半AI</td><td>AI打板，但情绪化痕迹还在</td></tr><tr><td>散户</td><td>无AI</td><td>你就是被吸的那个</td></tr></tbody></table>
-<blockquote class="ai-quote">💡 <strong>一句话记牢</strong>：老股民死于"我看见的就是全部"——AI时代，你看见的，恰恰是它不想让你看见的那部分。</blockquote>
-<details class="ai-section"><summary>二、操作手法：六种武器</summary><div class="section-body">
-<p class="ai-p">老股民听过"拆单"，以为是把100万分成10个10万——那是2010年的拆单。AI时代的拆单是六种武器：前三种让你看不见，后三种让你等不到。</p>
-<p class="ai-p">1. <strong>冰山单</strong>：想买1000万股，盘口只挂100万，被吃光自动补货。盘口永远是小单，成交却源源不断——你永远不知道水下还藏着多少。 2. <strong>算法拆单</strong>：大单切成几万笔100-500股的小单，随机时间、随机价位、多账户多席位撒进市场。L2数据像"一堆散户在买"，聚合起来却是一只每秒3-5单的"看不见的手"。AI还动态调整：抛压大时少买，尾盘接货最干净。 3. <strong>全天候吸筹</strong>：AI不睡觉，专挑早盘前15分钟（市场迷糊）、午休（散户吃饭）、尾盘30分钟（接不想过夜的筹码）三个时段。 4. <strong>大数据选时</strong>：用盘口情绪、抛压预测模型算出"抛压最轻的一秒"，0.3秒内下单。散户还在犹豫要不要割，AI已把割肉盘接走。 5. <strong>借势吸筹</strong>：利空一出，恐慌盘涌出的头5分钟AI大举接货——这就是"利空当天不跌反涨"的原因。散户的恐慌，正是AI的廉价筹码。 6. <strong>反侦察</strong>：AI把你常用的识别指标列出来再反向设计——你等温和放量它忽大忽小，你等底部抬升它砸一下再拉回，把均线、换手率全做成"看不出有主力"的样子。</p>
-<p class="ai-p">六种武器叠出的，正是王叔看见的"标准横盘形态"——你看见的是结果，AI看见的是计算。</p>
-<details class="ai-section"><summary>三、三种方式：机构实战套路</summary><div class="section-body">
-<p class="ai-p"><strong>方式一：横盘吸筹</strong>（最经典，最难识别）。AI把价格压在窄幅区间，不需要放量，只需要时间——2-4周甚至2-3个月慢慢收。盘面特征：K线"标准得不正常"、地量（但那是拆单的结果）、偶有异动K线被压回。识别要点：不看放量看"拆单规律"——地量之下有没有持续不断的小单流入；真正能识别的工具是AI行为数据，不是K线本身。</p>
-<p class="ai-p"><strong>方式二：打压吸筹</strong>（最狠，最反人性）。AI主动制造恐慌：放量急跌砸破关键技术位（20日线、前低、整数关口），逼技术派止损，再在低点接走带血的筹码。特征："跌得准、收得快"（人工砸盘收不了这么快）、低点同一价位反复承接（托底）、全程只1-2周。这是"挖坑-填坑-蓄势-启动"四步走——散户看到的是放量下跌，不知道放量的另一端是AI在买。</p>
-<p class="ai-p"><strong>方式三：拉高吸筹</strong>（最反常，但确实存在）。先小幅拉高制造"突破"假象吸引跟风盘，再在高位慢慢换手：把套牢盘"解放"出来，在他们解套想卖的瞬间接走。特征：突破后不涨、高位横盘换手率是平时3-4倍、龙虎榜机构席位持续小额净买入；启动标志是"第二次放量"。</p>
-<p class="ai-p">三种方式的共同点：让传统"放量建仓"理论全部失效。</p>
-<details class="ai-section"><summary>四、量价变化：老信号全失效</summary><div class="section-body">
-<p class="ai-p">"地量见地价""温和放量是建仓""放量突破是真启动"——这三句话在AI时代系统性出错：</p>
-<ul class="ai-ul"><li><strong>地量可能是假地量</strong>：AI把大买单切成微粒，每笔小到不触发量能指标。地量≠没人买，地量=AI在吸，你看不见。</li><li><strong>温和放量可能永远不来</strong>：AI不需要放量，它故意把每笔做成小单。温和放量不是"主力在建仓"，温和放量是"主力还是人"。</li><li><strong>等放量确认是毒药</strong>：老流程"看横盘→等放量→跟进→站岗"每一步都被反转——AI横盘时已吸够，放量那天是建仓结束、拉升开始。</li></ul>
-<p class="ai-p">王叔的反思：放量不是建仓的信号，是建仓结束的信号。想靠量价识别建仓，永远慢一拍。真正的信号在"行为层"：拆单规律、冰山单特征、低点承接、机构席位动向——量价是表面，行为是底层，从"看量价"升级到"看行为"不是选做题，是必做题。</p>
-<details class="ai-section"><summary>五、盘面痕迹：怎么让AI现形</summary><div class="section-body">
-<p class="ai-p">AI建仓不是无痕迹，只是痕迹不在K线和成交量上：</p>
-<p class="ai-p">1. <strong>盘口异常小单流</strong>（最经典）：散户小单杂乱，AI小单规律——单笔金额相近、间隔均匀、价位围绕目标价。L2里连续几十笔、每秒3-5单、每单100-300股，就是AI在吸。 2. <strong>低点规律性买盘</strong>：同一支撑位反复"神奇"承接、跌不破；3次以上被守住+撤单再挂，就是AI在托底。 3. <strong>挂单与成交不符</strong>（冰山单特征）：盘口挂单小，成交却持续放大、撤单率高——大单成交但盘口没有大单挂出。 4. <strong>龙虎榜机构席位小额进场</strong>：金额不大但席位多，多专席同时小额净买入、持续多日——这是AI拆单的指纹。 5. <strong>利空不跌</strong>：利空当天"先砸后稳"、尾盘翻红，次日不继续跌——恐慌盘被AI第一时间接走，想卖的人反而少了。</p>
-<table class="ai-table"><thead><tr><th>痕迹</th><th>判定标准</th></tr></thead><tbody><tr><td>小单流</td><td>连续30+笔金额相近、间隔均匀 → ✅</td></tr><tr><td>托底买盘</td><td>支撑位3+次止跌+撤单再挂 → ✅</td></tr><tr><td>冰山单</td><td>挂单小但成交持续+高撤单率 → ✅</td></tr><tr><td>机构席位</td><td>多专席小额同时净买入 → ✅</td></tr><tr><td>利空反应</td><td>先砸后稳+尾盘红盘 → ✅</td></tr></tbody></table>
-<p class="ai-p">满足其中2-3项，大概率有AI在建仓。但记住：这些只是"痕迹"不是"证据"，真正识别还需专业AI行为数据穿透表面。</p>
-<details class="ai-section"><summary>六、散户的坑：老经验正好被反杀</summary><div class="section-body">
-<p class="ai-p">AI时代散户亏钱的根本原因不是不努力，是老经验正好被反杀——越自信、越专业，越容易被利用。四个最致命的坑：</p>
-<p class="ai-p"><strong>坑1 · 等"温和放量"</strong>：王叔等了2个月，放量等来的是买不到的一字涨停；能买到时已在拉升中段，随后阴跌18%止损。AI的建仓期就是"没有放量"——看到放量不是上车信号，是主力发车信号。</p>
-<p class="ai-p"><strong>坑2 · 看K线找建仓</strong>：张哥"底部放量长阳+缩量回踩+再放量突破"的理论前10年赚钱，2024年后90%套在中途——不是形态错了，是形态是AI故意做出来的。AI专门做出散户最喜欢的形态，K线越"标准"，AI越可能在你对面。</p>
-<p class="ai-p"><strong>坑3 · 用量价理论判断</strong>：李哥做了8年量价分析，买入的"放量突破"80%在3个月内跌回原位——他买的不是放量启动，是放量派发。AI把量价配合做成了一门伪装艺术，老经验越熟练，越容易被下套。</p>
-<p class="ai-p"><strong>坑4 · 觉得"这票没救了"</strong>：赵阿姨在阴跌绝望中割肉，割完第二天启动，3周涨40%。AI会刻意做出"没救"的形态吸引割肉盘——你越绝望，AI越开心。你交出去的筹码，正是AI想收的筹码。</p>
-<details class="ai-section"><summary>七、结束信号：启动前兆</summary><div class="section-body">
-<p class="ai-p">建仓结束的信号=启动前兆，识别它才能在火苗阶段看见机会：</p>
-<p class="ai-p">1. <strong>行为数据异动</strong>（最早）：建仓期机构动作压制到最低，吸够后开始"调动资源"——龙虎榜净买入突然放大、多账户协同、大宗交易出现机构身影。此时进入高度关注，但只是前兆，不是买入信号。 2. <strong>放量突破</strong>（最直观）：建仓期没有量，启动期突然放量。真放量=突破关键阻力位+机构席位同步净买入+板块联动；假放量=没破位+机构净卖出+独立异动。 3. <strong>龙虎榜机构大额买入</strong>（最确定）：机构席位从"小额分散"转为"集中发力"，但次日才披露，看到时股价已涨1-2天。</p>
-<p class="ai-p">理想节奏：行为异动→关注→放量突破验证→龙虎榜确认。最差节奏：看到放量才开始关注→追高被套。</p>
-<details class="ai-section"><summary>真实案例：两次&quot;现形&quot;</summary><div class="section-body">
-<p class="ai-p"><strong>案例一 · 低位横盘→放量突破（横盘吸筹教科书）</strong></p>
-<p class="ai-p">某票（脱敏）在12-13.5元横盘三个月，K线窄得像尺子画的，地量频现——90%散户以为"主力没干活"。8月19日地量回踩12.60元后快速收回，尾盘大量小单被吃（AI收尾）；8月20日一字涨停15.12元——上方抛压已在横盘期被吸收干净；8月21日放量长阳16.10元，量能暴增8倍，龙虎榜机构专席净买入4.5亿。放量那天不是建仓开始，而是建仓结束三个月之后。</p>
-<p class="ai-p"><strong>案例二 · 急跌挖坑→快速回升（打压吸筹）</strong></p>
-<p class="ai-p">某票（脱敏）从16元阴跌到13元，某天突然放量急跌至11.80元，跌破关键技术位制造恐慌——盘口看是放量下跌，分时数据却显示急跌尾段大量同价位小单密集成交（AI在接割肉盘）。第二天高开高走，3个交易日收回13元，随后缩量整固压价，半个月后放量启动，3周涨超40%。散户在急跌那天割肉，不知道放量的另一端是AI在买。</p>
-<p class="ai-p">---</p>
-<blockquote class="ai-quote">⚠️ <strong>合规声明：</strong> 本图鉴为投资教育内容，仅作学习参考，<strong>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</strong>。市场有风险，投资需谨慎。</blockquote>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-  </div>
-  <div class="chapter locked theme-purple" id="ch2">
+    <div class="baitou">比喻：AI像"隐形大户"——用程序把大单拆成微粒，混在人群里悄悄收粮食，收完了你都看不见。</div>
+
+    <h4>一、AI建仓的本质：为什么"偷偷买"变成了"隐形买"</h4>
+    <p>机构AI化之后，建仓的第一原则从"隐蔽"升级为"<b>隐形</b>"。以前靠人手操盘，拆单再细也有痕迹；现在AI用<b>算法交易、冰山单、大数据选时</b>，可以把大资金买成"看不见的水流"，传统技术分析里的建仓信号（温和放量、底部横盘）——<b>被AI刻意抹掉了</b>。</p>
+    <ul>
+      <li><b>成本控制</b>：AI在低位用算法精确扫货，成本比人工时代更低</li>
+      <li><b>隐形控盘</b>：筹码收得毫无痕迹，拉升前散户根本不知道有人在吸</li>
+      <li><b>降维打击</b>：你还在等"放量信号"，AI已经把量拆没了——这就是"旧方法死了"的第一个证据</li>
+    </ul>
+    <h5>AI建仓的准备工作（不是人做的，是系统做的）</h5>
+    <ul>
+      <li><b>大数据选标的</b>：AI扫描全市场，从基本面/资金/情绪数据里筛出目标</li>
+      <li><b>算法制定计划</b>：目标价位、吸筹量、时间窗口，全部由程序规划</li>
+      <li><b>智能择时</b>：专挑大盘低迷、板块无人问津、散户恐慌的时刻动手</li>
+    </ul>
+    <h5>AI时代，谁在建仓（先分清对手是谁）</h5>
+    <table>
+      <tr><th>资金类型</th><th>AI化程度</th><th>建仓特征</th></tr>
+      <tr><td><b>量化私募</b></td><td>全AI化</td><td>完全隐形，拆单/冰山/择时全交给算法</td></tr>
+      <tr><td><b>公募/险资</b></td><td>AI辅助</td><td>AI优化下单，仍保留部分人工节奏</td></tr>
+      <tr><td><b>游资</b></td><td>半AI</td><td>用AI打板辅助，但情绪痕迹仍在</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div>AI建仓的本质 = <b>用算法把"人为痕迹"抹掉，让你连"它在买"都发现不了</b>。</div>
+
+    <h4>二、AI建仓的操作手法（机构AI化后具体怎么做）</h4>
+    <ul>
+      <li><b>AI冰山单</b>：挂大单但盘口只显示一小部分，买完一批自动露下一批——"货在买，你看不见"</li>
+      <li><b>算法拆单</b>：把大买单切成无数微粒，按时间/价格随机撒进散户单里——量被拆没了</li>
+      <li><b>全天候吸筹</b>：AI不睡觉，专挑尾盘、盘中低点、无人关注的时刻分批买</li>
+      <li><b>大数据选时</b>：AI实时分析盘口抛压，专在"抛压最轻的一秒"下单</li>
+      <li><b>借势吸筹</b>：利空公告一出、大盘一跌，AI第一时间在恐慌盘里接货</li>
+      <li><b>反侦察</b>：AI刻意避开传统建仓特征（不温和放量、不规律横盘），让你找不到痕迹</li>
+    </ul>
+    <h5>AI拆单的技术细节（怎么做到"零痕迹"）</h5>
+    <ul>
+      <li><b>冰山单算法</b>：大单隐藏90%以上，只露冰山一角，边成交边补充</li>
+      <li><b>VWAP/TWAP算法</b>：按成交量/时间均匀撒单，混在正常交易里毫无异常</li>
+      <li><b>多账户+多通道</b>：算法跨账户分散下单，单一账户永远不显眼</li>
+      <li><b>波动率择时</b>：专挑市场波动最大、散户最慌的时候出手</li>
+    </ul>
+
+    <h4>三、AI建仓的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>AI怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>AI横盘吸筹</b></td><td>程序化控制箱体，把价格压在窄幅区间慢慢收</td><td>横盘极窄、量能被拆没</td><td>横盘+"假地量"（量其实不小，被拆单藏了）</td></tr>
+      <tr><td><b>AI打压吸筹</b></td><td>算法砸出恐慌低点，散户割肉它接货</td><td>急跌后快速收回</td><td>低点规律性承接（AI在托）</td></tr>
+      <tr><td><b>AI拉高吸筹</b></td><td>程序化边拉边换手，收套牢盘筹码</td><td>突破后高位换手</td><td>换手率异常但K线被"做得标准"</td></tr>
+    </table>
+
+    <h4>四、AI时代的量价变化（核心认知：老信号全失效）</h4>
+    <ul>
+      <li><b>"地量"可能是假地量</b>：AI拆单把量藏进散户单里，你看的"地量"其实是机构在吸</li>
+      <li><b>"温和放量"可能永远不来</b>：AI不需要放量，它用算法就把货吸完了</li>
+      <li><b>老经验"等放量确认"</b>：在AI时代，等到放量时建仓早就结束了</li>
+      <li><b>真正的信号在"行为层"</b>：拆单规律、冰山单特征、低点承接——只有行为数据能现形</li>
+    </ul>
+
+    <h4>五、AI建仓的盘面痕迹（怎么让AI现形）</h4>
+    <ul>
+      <li><b>盘口异常小单流</b>：持续不断的小单买入，比正常交易更规律（算法特征）</li>
+      <li><b>尾盘/低点规律性买盘</b>：同一价位反复有承接（AI在托底）</li>
+      <li><b>挂单与成交不符</b>：盘口看不到大单，成交却持续放大（冰山单特征）</li>
+      <li><b>龙虎榜机构席位小额进场</b>：哪怕金额不大，也是AI建仓的指纹</li>
+      <li><b>利空不跌</b>：AI接货接得稳，利空砸不动</li>
+    </ul>
+
+    <h4>六、散户的坑（AI时代，老经验正好被反杀）</h4>
+    <ul>
+      <li><b>坑1 · 等"温和放量"</b>：AI时代等不到——量被算法拆没了，等到放量你已经错过整个建仓期</li>
+      <li><b>坑2 · 看K线找建仓</b>：AI把K线做得标准漂亮，你按图索骥找到的往往是陷阱</li>
+      <li><b>坑3 · 用"量价理论"判断</b>：量价是AI最擅长的伪装手段，你用老经验正好被利用</li>
+      <li><b>坑4 · 觉得"这票没救了"</b>：AI压着价格吸筹，你看到的就是"没救"，转身把筹码交给了AI</li>
+    </ul>
+
+    <h4>七、AI建仓结束的信号（启动前兆）</h4>
+    <ul>
+      <li><b>行为数据异动</b>：机构席位/行为信号突然活跃（AI吸够了的标志）</li>
+      <li><b>放量突破</b>：吸筹完成后AI不再隐藏，放量启动（这时才轮到"量"出现）</li>
+      <li><b>龙虎榜机构专用大额买入</b>：建仓期结束、开始运作的信号</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 低位横盘 → 放量突破</h4>
+      <ul>
+        <li>低位横盘 <b>12.1-13.5元</b>，量能低迷（建仓区）</li>
+        <li><b>8.19 地量回踩</b> 12.60</li>
+        <li><b>8.20 一字涨停</b> 15.12（放量突破平台）</li>
+        <li><b>8.21 放量长阳</b> 16.10，量能暴增<b>509万手（8倍）</b>，机构买入<b>4.5亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">17.24</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">15.74</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">14.23</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">12.73</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">11.23</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="212.5" x2="70.2" y2="268.6" stroke="#E03434" stroke-/><rect x="63.9" y="213.0" width="12.7" height="51.1" fill="#E03434"/><rect x="63.9" y="370.3" width="12.7" height="19.7" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="204.7" x2="90.8" y2="225.0" stroke="#E03434" stroke-/><rect x="84.4" y="206.7" width="12.7" height="9.6" fill="#E03434"/><rect x="84.4" y="375.5" width="12.7" height="14.5" fill="#E03434" opacity="0.45"/><line x1="111.2" y1="186.4" x2="111.2" y2="220.0" stroke="#E03434" stroke-/><rect x="104.9" y="191.8" width="12.7" height="17.5" fill="#E03434"/><rect x="104.9" y="371.7" width="12.7" height="18.3" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="183.5" x2="131.8" y2="209.2" stroke="#1E9E5A" stroke-/><rect x="125.4" y="198.8" width="12.7" height="7.9" fill="#1E9E5A"/><rect x="125.4" y="375.1" width="12.7" height="14.9" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="191.8" x2="152.2" y2="211.3" stroke="#E03434" stroke-/><rect x="145.9" y="198.0" width="12.7" height="2.1" fill="#E03434"/><rect x="145.9" y="377.4" width="12.7" height="12.6" fill="#E03434" opacity="0.45"/><line x1="172.8" y1="170.6" x2="172.8" y2="205.5" stroke="#E03434" stroke-/><rect x="166.4" y="196.8" width="12.7" height="5.0" fill="#E03434"/><rect x="166.4" y="370.9" width="12.7" height="19.1" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="202.2" x2="193.2" y2="227.9" stroke="#1E9E5A" stroke-/><rect x="186.9" y="202.2" width="12.7" height="24.5" fill="#1E9E5A"/><rect x="186.9" y="375.7" width="12.7" height="14.3" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="214.6" x2="213.8" y2="236.2" stroke="#1E9E5A" stroke-/><rect x="207.4" y="224.6" width="12.7" height="10.4" fill="#1E9E5A"/><rect x="207.4" y="379.8" width="12.7" height="10.2" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="220.4" x2="234.2" y2="248.3" stroke="#E03434" stroke-/><rect x="227.9" y="227.1" width="12.7" height="13.3" fill="#E03434"/><rect x="227.9" y="380.3" width="12.7" height="9.7" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="190.5" x2="254.8" y2="239.6" stroke="#E03434" stroke-/><rect x="248.4" y="200.5" width="12.7" height="29.9" fill="#E03434"/><rect x="248.4" y="371.2" width="12.7" height="18.8" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="186.4" x2="275.2" y2="205.9" stroke="#E03434" stroke-/><rect x="268.9" y="198.0" width="12.7" height="2.5" fill="#E03434"/><rect x="268.9" y="371.8" width="12.7" height="18.2" fill="#E03434" opacity="0.45"/><line x1="295.8" y1="175.2" x2="295.8" y2="203.0" stroke="#E03434" stroke-/><rect x="289.4" y="187.2" width="12.7" height="10.8" fill="#E03434"/><rect x="289.4" y="372.3" width="12.7" height="17.7" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="158.9" x2="316.2" y2="195.9" stroke="#E03434" stroke-/><rect x="309.9" y="173.5" width="12.7" height="21.2" fill="#E03434"/><rect x="309.9" y="364.1" width="12.7" height="25.9" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="158.5" x2="336.8" y2="198.0" stroke="#E03434" stroke-/><rect x="330.4" y="165.2" width="12.7" height="18.7" fill="#E03434"/><rect x="330.4" y="368.8" width="12.7" height="21.2" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="172.7" x2="357.2" y2="218.4" stroke="#1E9E5A" stroke-/><rect x="350.9" y="173.1" width="12.7" height="41.5" fill="#1E9E5A"/><rect x="350.9" y="370.3" width="12.7" height="19.7" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="196.3" x2="377.8" y2="225.0" stroke="#E03434" stroke-/><rect x="371.4" y="196.8" width="12.7" height="24.5" fill="#E03434"/><rect x="371.4" y="375.2" width="12.7" height="14.8" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="178.9" x2="398.2" y2="212.5" stroke="#E03434" stroke-/><rect x="391.9" y="179.3" width="12.7" height="22.9" fill="#E03434"/><rect x="391.9" y="371.4" width="12.7" height="18.6" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="171.4" x2="418.8" y2="192.6" stroke="#1E9E5A" stroke-/><rect x="412.4" y="185.5" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="412.4" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="439.2" y1="184.3" x2="439.2" y2="205.9" stroke="#1E9E5A" stroke-/><rect x="432.9" y="191.8" width="12.7" height="3.7" fill="#1E9E5A"/><rect x="432.9" y="377.7" width="12.7" height="12.3" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="197.2" x2="459.8" y2="251.6" stroke="#1E9E5A" stroke-/><rect x="453.4" y="199.2" width="12.7" height="51.1" fill="#1E9E5A"/><rect x="453.4" y="372.2" width="12.7" height="17.8" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="231.7" x2="480.2" y2="264.1" stroke="#E03434" stroke-/><rect x="473.9" y="232.9" width="12.7" height="26.2" fill="#E03434"/><rect x="473.9" y="378.4" width="12.7" height="11.6" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="228.3" x2="500.8" y2="247.9" stroke="#1E9E5A" stroke-/><rect x="494.4" y="232.9" width="12.7" height="15.0" fill="#1E9E5A"/><rect x="494.4" y="380.5" width="12.7" height="9.5" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="235.8" x2="521.2" y2="255.3" stroke="#E03434" stroke-/><rect x="514.9" y="240.0" width="12.7" height="7.1" fill="#E03434"/><rect x="514.9" y="380.8" width="12.7" height="9.2" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="232.5" x2="541.8" y2="249.9" stroke="#E03434" stroke-/><rect x="535.4" y="240.4" width="12.7" height="4.6" fill="#E03434"/><rect x="535.4" y="380.2" width="12.7" height="9.8" fill="#E03434" opacity="0.45"/><line x1="562.2" y1="229.2" x2="562.2" y2="243.3" stroke="#E03434" stroke-/><rect x="555.9" y="234.6" width="12.7" height="6.6" fill="#E03434"/><rect x="555.9" y="381.2" width="12.7" height="8.8" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="232.9" x2="582.8" y2="240.4" stroke="#E03434" stroke-/><rect x="576.4" y="234.6" width="12.7" height="1.2" fill="#E03434"/><rect x="576.4" y="383.8" width="12.7" height="6.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="222.9" x2="603.2" y2="235.4" stroke="#1E9E5A" stroke-/><rect x="596.9" y="232.1" width="12.7" height="1.7" fill="#1E9E5A"/><rect x="596.9" y="380.3" width="12.7" height="9.7" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="219.2" x2="623.8" y2="240.8" stroke="#E03434" stroke-/><rect x="617.4" y="224.6" width="12.7" height="10.4" fill="#E03434"/><rect x="617.4" y="378.7" width="12.7" height="11.3" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="225.8" x2="644.2" y2="244.1" stroke="#1E9E5A" stroke-/><rect x="637.9" y="227.1" width="12.7" height="13.3" fill="#1E9E5A"/><rect x="637.9" y="378.4" width="12.7" height="11.6" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="199.7" x2="664.8" y2="246.2" stroke="#E03434" stroke-/><rect x="658.4" y="200.5" width="12.7" height="41.1" fill="#E03434"/><rect x="658.4" y="367.7" width="12.7" height="22.3" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="194.7" x2="685.2" y2="206.7" stroke="#E03434" stroke-/><rect x="678.9" y="200.9" width="12.7" height="5.4" fill="#E03434"/><rect x="678.9" y="374.5" width="12.7" height="15.5" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="187.2" x2="705.8" y2="205.9" stroke="#E03434" stroke-/><rect x="699.4" y="198.4" width="12.7" height="5.4" fill="#E03434"/><rect x="699.4" y="374.4" width="12.7" height="15.6" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="189.7" x2="726.2" y2="203.4" stroke="#1E9E5A" stroke-/><rect x="719.9" y="198.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="719.9" y="379.7" width="12.7" height="10.3" fill="#1E9E5A" opacity="0.45"/><line x1="746.8" y1="183.0" x2="746.8" y2="209.6" stroke="#E03434" stroke-/><rect x="740.4" y="193.0" width="12.7" height="8.3" fill="#E03434"/><rect x="740.4" y="371.9" width="12.7" height="18.1" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="184.7" x2="767.2" y2="203.0" stroke="#E03434" stroke-/><rect x="760.9" y="194.7" width="12.7" height="2.5" fill="#E03434"/><rect x="760.9" y="377.1" width="12.7" height="12.9" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="190.1" x2="787.8" y2="207.1" stroke="#E03434" stroke-/><rect x="781.4" y="193.8" width="12.7" height="1.0" fill="#E03434"/><rect x="781.4" y="379.8" width="12.7" height="10.2" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="182.2" x2="808.2" y2="205.1" stroke="#1E9E5A" stroke-/><rect x="801.9" y="194.7" width="12.7" height="8.3" fill="#1E9E5A"/><rect x="801.9" y="378.7" width="12.7" height="11.3" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="200.9" x2="828.8" y2="225.4" stroke="#1E9E5A" stroke-/><rect x="822.4" y="206.3" width="12.7" height="16.6" fill="#1E9E5A"/><rect x="822.4" y="378.1" width="12.7" height="11.9" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="118.2" x2="849.2" y2="118.2" stroke="#E03434" stroke-/><rect x="842.9" y="118.2" width="12.7" height="1.0" fill="#E03434"/><rect x="842.9" y="377.5" width="12.7" height="12.5" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="41.4" x2="869.8" y2="110.8" stroke="#E03434" stroke-/><rect x="863.4" y="77.5" width="12.7" height="15.8" fill="#E03434"/><rect x="863.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,213.0 90.8,209.8 111.2,203.8 131.8,204.5 152.2,203.2 172.8,200.0 193.2,204.0 213.8,212.6 234.2,216.7 254.8,217.2 275.2,217.4 295.8,209.6 316.2,197.3 336.8,184.9 357.2,187.7 377.8,187.4 398.2,185.9 418.8,188.4 439.2,194.4 459.8,201.6 480.2,208.8 500.8,222.5 521.2,233.3 541.8,242.3 562.2,239.1 582.8,239.5 603.2,236.6 623.8,233.6 644.2,233.6 664.8,226.8 685.2,220.0 705.8,213.0 726.2,208.0 746.8,198.5 767.2,197.3 787.8,195.9 808.2,196.8 828.8,201.5 849.2,186.5 869.8,163.1" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,213.0 90.8,209.8 111.2,203.8 131.8,204.5 152.2,203.2 172.8,202.2 193.2,205.7 213.8,209.3 234.2,211.3 254.8,210.2 275.2,209.1 295.8,207.3 316.2,204.7 336.8,201.9 357.2,202.7 377.8,202.3 398.2,201.0 418.8,200.1 439.2,199.9 459.8,202.4 480.2,203.4 500.8,205.5 521.2,207.9 541.8,209.6 562.2,211.4 582.8,213.3 603.2,213.6 623.8,213.1 644.2,213.8 664.8,213.8 685.2,213.9 705.8,214.5 726.2,215.8 746.8,217.2 767.2,216.2 787.8,216.1 808.2,217.2 828.8,219.1 849.2,215.2 869.8,206.6" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="849.2" cy="118.2" r="5" fill="none" stroke="#C8102E" stroke-/><text x="849.2" y="108.2" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">一字涨停</text><circle cx="869.8" cy="77.5" r="5" fill="none" stroke="#C8102E" stroke-/><text x="869.8" y="67.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量+机构4.5亿</text></svg>
+    </div>
+
+      </div>
+</div>
+
+<!-- ==================== 第2章 洗盘篇 ==================== -->
+<div class="chapter locked theme-purple" id="ch2">
   <div class="head" onclick="toggleChapter(2)">
     <div>
 <h2>② AI机构：震仓现形<span class="chtitle-sub">对倒造假 · 精准洗盘</span></h2>
@@ -462,69 +437,88 @@
     <div class="lock lock-pulse" id="lock2">🔒</div>
   </div>
   <div class="body">
-<details class="ai-section"><summary>AI机构：震仓现形</summary><div class="section-body">
-<h5 class="ai-h5">对倒造假 · 精准洗盘</h5>
-<blockquote class="ai-quote">老张炒股12年，自认老江湖。那天尾盘跳水，精准砸在他画了三个月的支撑位上，他按了止损。第二天，一字涨停。他不是败给行情，是被"算"了——AI知道：六成散户把止损设在整数关口，三成设在均线，一成设在画线支撑。老张那条线，是和他一样画线的18万人共同画出来的。AI把18万人的止损一平均，得出"最优打击点"，一刀下去，割肉盘涌出，AI在另一头稳稳接走。你越懂技术，它越能用技术杀你。</blockquote>
-<details class="ai-section"><summary>一、AI震仓的本质：从&quot;磨人几个月&quot;到&quot;精准手术几天&quot;</summary><div class="section-body">
-<p class="ai-p">2010年代的主力洗盘靠"磨"：把股价压在窄幅区间，磨你三五个月。散户有条逃生通道——只要拿得住不割肉，洗盘总会过去，因为操盘手是人，会累、会喘气。</p>
-<p class="ai-p">AI时代逻辑换了：AI不靠"磨"，靠"算"。动手前它已算清：你的持仓成本（六成散户的成本区在哪）、你的止损位（多少人在整数位、多少在均线、多少在画线支撑）、你的情绪阈值（什么时候最慌）、你的交易习惯（扛单型还是止损型）。洗盘从"磨人"变成"精准手术"：术前诊断、术中打压、术后收回，短则几天、长则一两周。</p>
-<p class="ai-p">老周62岁，拿一只票四个月，扛住了所有震荡。一根阴线精准打在他画了半年的箱体下沿，他按规矩止损。第二天反弹，第四天涨停。他说："我熬了4个月没被磨走，一天就被洗掉了。"</p>
-<p class="ai-p">更反直觉的是：AI专杀懂行的人。你越自信"这是洗盘不是出货"，它越制造"像出货的洗盘"；你越严格执行止损，它越精准打你的止损位；你越看K线找规律，它越把K线做得"像规律"。</p>
-<p class="ai-p">一句话记牢：从"磨人三个月"到"算你三天"——AI用数据算准你的心理、用算法制造假象，把你精准洗下车。</p>
-<details class="ai-section"><summary>二、AI震仓的操作手法：五把手术刀</summary><div class="section-body">
-<p class="ai-p">刀1·对倒制造恐慌量：同一机构几十个账户互相倒手，制造成交活跃的假象——放量了、量比大了、换手率起来了，但筹码没走，只是从左口袋到右口袋。关键是"恰到好处"：量够大骗过技术派，又不能大到触发监管；专挑大盘调整日、个股利空日，跌得"名正言顺"；节奏一波比一波弱，像真的恐慌盘。这一刀砍的不是钱，是意志。</p>
-<p class="ai-p">刀2·按止损位精准打压：三个渠道算出你的止损位——行为大数据聚合（六成散户止损在整数关口、三成在均线、一成在画线支撑）、舆情反推（股吧雪球讨论出的"心理支撑"）、盘口试探（小单试承接厚度）。三招合一，得出"最优打击点"，一打一个准。</p>
-<p class="ai-p">刀3·大数据心理战：AI实时监控股吧情绪、讨论热度、搜索指数。恐慌时砸，在恐慌盘里捡筹码；贪婪时也砸，利用你的FOMO让你接最后一棒。</p>
-<p class="ai-p">刀4·程序化震仓：一天之内三根阴线、两次假破位、一次尾盘急跌，节奏快到剥夺你的思考时间。六天，你的情绪被完整做过山车，回过神来行情已走完。</p>
-<p class="ai-p">刀5·借消息洗盘：AI提前监控利空，在消息落地前先砸一波，让恐慌盘涌出，落地后反手接货。盘面效果是"利空出尽反而不跌"——其实是AI借利空完成一次完美洗盘。</p>
-<details class="ai-section"><summary>三、AI洗盘的三种方式：打压、横盘、消息</summary><div class="section-body">
-<p class="ai-p">方式1·打压震仓：算出散户止损位后，在其上方发起砸盘，一波一波砸、每砸一波停几秒让承接盘暴露，同时在下方悄悄挂买单接恐慌盘。盘面特征：急跌精准（跌破的正好是大多数人的止损位，"巧到不像巧合"）、跌完快收（1-3天内收复）、砸时放量收时缩量。识别要点：跌破位置太巧、跌完不持续、行为数据无净卖出。</p>
-<p class="ai-p">方式2·横盘震仓：AI用程序化挂单+对倒把价格"钉"在窄幅区间，目的不是蓄势，是磨人。盘面特征：几天振幅不到5%、缩量可能是假的（对倒维持）、K线"标准"得不自然。识别要点：横盘越极致越接近尾声；缩量但行为数据无派发=真洗盘；横盘时筹码集中度反而提升——AI在悄悄收浮筹。</p>
-<p class="ai-p">方式3·消息震仓：监控全网消息，发现即将落地的利空，提前砸一波，等利空落地当天反而稳住、低开高走。盘面效果是"利空出尽=安全"，实际是借利空洗盘。识别要点：利空出尽+行为数据无卖出=借利空洗盘；利空出尽+行为数据净卖出=真出货。</p>
-<details class="ai-section"><summary>四、AI时代的量价变化：量价本身成了AI的武器</summary><div class="section-body">
-<p class="ai-p">老股民信"量为价先"，这套经验在AI时代几乎全失效——AI把量和价都做成了武器。</p>
-<p class="ai-p">放量下跌可能是对倒假量：同一批筹码在机构账户间倒手做出"放量"。判断看行为数据：龙虎榜机构席位无大额净卖出=对倒假量；大额净卖出=真出货。</p>
-<p class="ai-p">缩量回调可能是AI刻意维持的：AI自己买自己卖，把量做成"健康洗盘"的样子。缩量但挂单密度异常=对倒维持；缩量但行为数据有大额承接=AI在接货。</p>
-<p class="ai-p">量价齐升可能是诱多：拉升快急可能真拉升；拉升慢稳、对倒味浓=诱多派发；高位放量滞涨=派发铁证。</p>
-<p class="ai-p">一句话总结：放量可能是假的、缩量可能是假的、量价齐升也可能是假的，唯一不能造假的是行为数据。你以为你在看图，其实AI在画图给你看。</p>
-<details class="ai-section"><summary>五、AI洗盘的盘面痕迹：五处破绽</summary><div class="section-body">
-<p class="ai-p">AI洗盘的目标是"洗到你以为自己判断对了"，所以会留下特定痕迹。</p>
-<p class="ai-p">痕迹1·破位"太精准"：跌破的价位正好是散户止损位——整数关口、均线、画线支撑下方1-3%，巧到不像巧合。先看行为数据：机构无净卖出=借位洗盘；机构净卖出=真破位。</p>
-<p class="ai-p">痕迹2·恐慌量是假的：成交量是真的，筹码没走。看龙虎榜：机构席位无大额净卖出=对倒假量；看分笔：单笔小而密集，不像散户恐慌盘的"大小不一"。</p>
-<p class="ai-p">痕迹3·关键位不破：AI会破"散户以为的支撑"（箱体下沿、前低），但严格守住真正的主力成本区——破了就真崩，AI自己也被埋。"看似破位却始终跌不到某成本区"，那个位置就是AI的真实底线。</p>
-<p class="ai-p">痕迹4·利空砸完更稳：利空落地当天低开高走或收红+行为数据无卖出=借利空洗盘；冲高回落+行为数据有卖出=出货。</p>
-<p class="ai-p">痕迹5·洗盘时间更短：人工是"磨"三五个月，AI是"打"三五天。3-7天内连续多次"破位-收回"，是程序化震仓的特征。</p>
-<p class="ai-p">识别清单：破位太巧、放量但机构无卖出、破散户线守机构线、利空出尽反而不跌、3-7天多次假破位——看到3个以上，大概率是AI洗盘。K线是皮，行为是骨。</p>
-<details class="ai-section"><summary>六、散户的坑：你越懂洗盘，AI越针对你</summary><div class="section-body">
-<p class="ai-p">AI时代的散户陷阱有个特点：经验越丰富，坑越深。</p>
-<p class="ai-p">坑1·用"缩量=洗盘"判断：缩量可能是AI对倒维持的假缩量——看起来安全，其实是AI在等你上车。老周在"缩量横盘"时抄底，横了40天，最后放量阴线才走："我以为缩量是洗盘，结果是出货——我看的是AI想让我看的。"</p>
-<p class="ai-p">坑2·按止损位操作："严格执行纪律"成了AI的提款机。老张的"箱体下沿3%止损"用了9年，前8年好用，2024年开始失灵——AI精准打到他止损的那一下，比他下单还快："我以为我在执行纪律，其实我在执行AI的剧本。"</p>
-<p class="ai-p">坑3·觉得"破了就完了"：AI的假破位比真破位还像真的。老周在"放量破位"那天割肉，第二天反弹、第三天涨停。复盘发现：龙虎榜机构净卖出8000万，其中6000万是对倒。</p>
-<p class="ai-p">坑4·越懂越自信越危险：人工时代"懂洗盘"是护身符，AI时代"懂洗盘"是攻击入口——AI专门制造"像出货的洗盘"。老吕的完整框架（缩量=洗盘、放量滞涨=出货）失灵了：他判断"放量滞涨=出货"的那只票，第二天涨停。</p>
-<p class="ai-p">怎么办？加一层行为数据过滤：经验判断+行为数据验证=双重保险。AI能伪造K线、量价、形态，但伪造不了机构席位的真实买卖——当经验和行为数据冲突时，信行为数据。</p>
-<details class="ai-section"><summary>七、AI洗盘结束的信号：从&quot;伪装&quot;到&quot;真动作&quot;</summary><div class="section-body">
-<p class="ai-p">洗盘结束，就是AI从"伪装"切到"真动作"的那一刻，三个标志：</p>
-<p class="ai-p">信号1·行为数据切换：洗盘期AI双向操作、净买卖接近平衡；结束时，机构行为信号从"震荡"转"强势"，席位从"买卖平衡"转"明显净买入"，对倒密度显著降低——AI不再需要伪装。</p>
-<p class="ai-p">信号2·真地量：洗盘期的缩量是"假缩量"，结束的标志是"真地量"——量能萎缩到高峰期的1/5甚至1/10，持仓账户数下降，讨论度降到冰点。浮筹洗完了，下一波只可能是拉升。</p>
-<p class="ai-p">信号3·重新放量突破：量比放大3-5倍、分笔出现大单、龙虎榜机构大额买入——铁证。</p>
-<p class="ai-p">三个条件同时满足才是真启动，少一个都可能是AI又设的套。节奏：洗盘期不动，行为转强开始关注，真地量加入自选，放量突破小仓位试水。</p>
-<details class="ai-section"><summary>🎯 真实案例 · 深度复盘</summary><div class="section-body">
-<h5 class="ai-h5">案例一 · 缩量横盘+精准假破位→暴力拉升</h5>
-<p class="ai-p">某标的8.6-8.18在29.2-32.4区间缩量震荡，8.14突然急跌砸到28.30——正好在"箱体下沿下方3%"，技术派最经典的止损位，股吧一片"破位了"。但8.15即反弹，8.19放量突破32.50（3倍量），两天拉到37.05，机构买入8.5亿。复盘：AI先用对倒维持横盘、悄悄收浮筹，再借大盘调整急跌制造恐慌、在28.30一线接货，最后暴力拉升。8.14割肉的人交出了带血筹码，8.19追高的人接了最后一棒。</p>
-<h5 class="ai-h5">案例二 · 连板暴涨后的高位滞涨（假洗盘vs真出货）</h5>
-<p class="ai-p">某标的8月上旬连板暴涨89%，8.13见顶（天量滞涨、冲高回落），之后每天105-122万手巨量横盘、不再创新高，8.21跌破平台。盘面结构与案例一几乎一样，但这是真出货：AI在高位对倒维持、天天派发，派完不再维持，价格自由落体。区别在哪？行为数据——案例一机构净买入，案例二机构净卖出。同样的"放量+横盘"，上涨中继是洗盘，拉升末端是出货。</p>
-<blockquote class="ai-quote">⚠️ 合规声明：本图鉴为投资教育内容，仅作学习参考，不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益。市场有风险，投资需谨慎。</blockquote>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-  </div>
-  <div class="chapter locked theme-teal" id="ch3">
+    <div class="baitou">比喻：AI像"精准的猎手"——它知道你的成本价、你的止损位、你什么时候会慌，专门洗你。</div>
+
+    <h4>一、AI震仓的本质：洗盘从"磨人"变成"精准打击"</h4>
+    <p>人工时代的洗盘靠"打压、磨人"，看谁没耐心先跑。AI时代的洗盘完全不一样：<b>AI通过大数据分析散户的持仓成本、止损位、情绪指标</b>，知道你在哪个价位会割肉、什么时候最恐慌——<b>洗盘变成了一次"精准手术"，专洗懂行的人</b>。</p>
+    <ul>
+      <li><b>精准打击</b>：AI按你的止损位设计打压点位，一打一个准</li>
+      <li><b>假量能</b>：AI对倒制造"放量下跌"，让你以为主力在逃</li>
+      <li><b>反杀懂行者</b>：你越懂"洗盘与出货的区别"，AI越制造"像出货的洗盘"骗你</li>
+    </ul>
+    <div class="box green"><div class="t">💡 一句话记牢</div>AI震仓的本质 = <b>用数据算准你的心理，用算法制造假象，把你"精准"洗下车</b>。</div>
+
+    <h4>二、AI震仓的操作手法（机构AI化后怎么洗）</h4>
+    <ul>
+      <li><b>AI对倒制造恐慌量</b>：机器自己卖给自己，做出"放量下跌"的假象——量是假的，恐慌是真的</li>
+      <li><b>按止损位精准打压</b>：AI知道技术派把止损设在哪（支撑位、均线、成本价），专打那里</li>
+      <li><b>大数据心理战</b>：AI监控恐慌盘数据，专在散户情绪最差、割肉最狠时砸</li>
+      <li><b>程序化震仓</b>：AI用算法连续制造阴线/假破位，节奏快、次数多，让人来不及思考</li>
+      <li><b>借消息洗盘</b>：利空一出AI第一时间配合打压，砸完反而不跌（筹码没走）</li>
+    </ul>
+    <h5>AI对倒的技术细节（假量能怎么做出来的）</h5>
+    <ul>
+      <li><b>自买自卖</b>：同一批筹码在多个账户间倒手，制造成交活跃假象</li>
+      <li><b>算法控制量比</b>：AI把"放量"做得恰到好处——大到吓你，小到不触发监管异动</li>
+      <li><b>专挑大盘调整日</b>：大盘本来就跌，AI顺势砸，跌得"名正言顺"</li>
+    </ul>
+
+    <h4>三、AI洗盘的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>AI怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>AI打压震仓</b></td><td>算法精准砸向散户止损位</td><td>急跌精准、跌完快收</td><td>跌破的位置"太巧"（正好是大家止损的地方）</td></tr>
+      <tr><td><b>AI横盘震仓</b></td><td>程序化控制窄幅震荡磨人</td><td>横盘缩量（假缩量）</td><td>磨到极致时反而是洗盘尾声</td></tr>
+      <tr><td><b>AI消息震仓</b></td><td>利空配合+AI打压</td><td>利空砸完不跌反稳</td><td>利空出尽+行为数据无卖出</td></tr>
+    </table>
+
+    <h4>四、AI时代的量价变化（核心认知：量价被AI做成武器）</h4>
+    <ul>
+      <li><b>"放量下跌"可能是对倒的假量</b>：AI自己卖给自己，做出主力出逃的假象</li>
+      <li><b>"缩量回调"可能是AI刻意维持的</b>：让你以为抛压轻、安全，实际在等你上车再洗</li>
+      <li><b>传统"缩量=洗盘"判断</b>：在AI时代，量能真假难辨——量本身变成了AI的武器</li>
+      <li><b>看"筹码有没有真走"</b>：龙虎榜机构席位无大额卖出、行为数据无派发迹象，才是真洗盘</li>
+    </ul>
+
+    <h4>五、AI洗盘的盘面痕迹（怎么让AI现形）</h4>
+    <ul>
+      <li><b>破位位置"太精准"</b>：跌破的价位正好是大多数人的止损位——人工洗盘做不到这么巧</li>
+      <li><b>恐慌量是假的</b>：放量下跌但行为数据显示筹码没走（对倒特征）</li>
+      <li><b>关键位不破</b>：洗盘可以跌，但AI严格守住真正的关键支撑（破了就真崩了）</li>
+      <li><b>利空砸完更稳</b>：消息面失灵，利空出尽反而不跌</li>
+      <li><b>洗盘时间更短</b>：AI洗盘快、频、狠，不像人工时代磨几个月</li>
+    </ul>
+
+    <h4>六、散户的坑（AI时代，洗的就是"懂洗盘"的人）</h4>
+    <ul>
+      <li><b>坑1 · 用"缩量=洗盘"判断</b>：AI制造的假缩量/假放量，让你把洗盘当出货、把出货当洗盘</li>
+      <li><b>坑2 · 按止损位操作</b>：你的止损设在哪，AI就打哪——"严格执行止损"成了AI的提款机</li>
+      <li><b>坑3 · 觉得"破了就完了"</b>：AI的假破位做得比人工更逼真，你卖在拉升前夜</li>
+      <li><b>坑4 · 越懂洗盘越自信</b>：你自信"这是洗盘不是出货"——AI正好利用这份自信完成出货</li>
+    </ul>
+
+    <h4>七、AI洗盘结束的信号（洗完了的标志）</h4>
+    <ul>
+      <li><b>行为数据洗盘终止</b>：AI停止对倒打压，行为信号转多</li>
+      <li><b>缩量到极致的"真地量"</b>：浮筹真的洗完，抛压枯竭</li>
+      <li><b>重新放量突破</b>：AI不再伪装，开始真动作</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 缩量洗盘 → 放量突破</h4>
+      <ul>
+        <li><b>8.6-8.18 缩量震荡</b>（29.2-32.4，量能萎缩）</li>
+        <li><b>8.14 挖坑假破位</b> 砸到28.30但快速收回</li>
+        <li><b>8.19 放量突破</b> 32.50（3倍放量）</li>
+        <li><b>8.20-8.21 连续拉升</b> 35.30→37.05，机构买入<b>8.5亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">37.95</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">33.84</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">29.73</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">25.63</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">21.52</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="250.1" x2="70.2" y2="266.4" stroke="#E03434" stroke-/><rect x="63.9" y="253.4" width="12.7" height="7.9" fill="#E03434"/><rect x="63.9" y="355.7" width="12.7" height="34.3" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="257.2" x2="90.8" y2="268.6" stroke="#E03434" stroke-/><rect x="84.4" y="260.4" width="12.7" height="4.1" fill="#E03434"/><rect x="84.4" y="360.4" width="12.7" height="29.6" fill="#E03434" opacity="0.45"/><line x1="111.2" y1="252.3" x2="111.2" y2="266.0" stroke="#E03434" stroke-/><rect x="104.9" y="258.7" width="12.7" height="3.0" fill="#E03434"/><rect x="104.9" y="362.4" width="12.7" height="27.6" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="234.8" x2="131.8" y2="253.1" stroke="#E03434" stroke-/><rect x="125.4" y="243.8" width="12.7" height="5.8" fill="#E03434"/><rect x="125.4" y="331.8" width="12.7" height="58.2" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="208.8" x2="152.2" y2="229.8" stroke="#E03434" stroke-/><rect x="145.9" y="214.9" width="12.7" height="10.5" fill="#E03434"/><rect x="145.9" y="306.0" width="12.7" height="84.0" fill="#E03434" opacity="0.45"/><line x1="172.8" y1="195.9" x2="172.8" y2="223.0" stroke="#E03434" stroke-/><rect x="166.4" y="219.3" width="12.7" height="1.0" fill="#E03434"/><rect x="166.4" y="330.5" width="12.7" height="59.5" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="222.7" x2="193.2" y2="235.5" stroke="#1E9E5A" stroke-/><rect x="186.9" y="226.5" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="186.9" y="358.6" width="12.7" height="31.4" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="220.7" x2="213.8" y2="241.7" stroke="#E03434" stroke-/><rect x="207.4" y="236.7" width="12.7" height="3.8" fill="#E03434"/><rect x="207.4" y="358.0" width="12.7" height="32.0" fill="#E03434" opacity="0.45"/><line x1="234.2" y1="235.1" x2="234.2" y2="252.8" stroke="#E03434" stroke-/><rect x="227.9" y="239.6" width="12.7" height="4.6" fill="#E03434"/><rect x="227.9" y="352.7" width="12.7" height="37.3" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="214.0" x2="254.8" y2="244.1" stroke="#E03434" stroke-/><rect x="248.4" y="229.2" width="12.7" height="7.0" fill="#E03434"/><rect x="248.4" y="347.6" width="12.7" height="42.4" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="235.6" x2="275.2" y2="245.7" stroke="#1E9E5A" stroke-/><rect x="268.9" y="238.5" width="12.7" height="5.9" fill="#1E9E5A"/><rect x="268.9" y="361.5" width="12.7" height="28.5" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="224.0" x2="295.8" y2="255.5" stroke="#E03434" stroke-/><rect x="289.4" y="224.6" width="12.7" height="29.7" fill="#E03434"/><rect x="289.4" y="349.7" width="12.7" height="40.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="221.1" x2="316.2" y2="237.1" stroke="#1E9E5A" stroke-/><rect x="309.9" y="225.6" width="12.7" height="7.8" fill="#1E9E5A"/><rect x="309.9" y="361.0" width="12.7" height="29.0" fill="#1E9E5A" opacity="0.45"/><line x1="336.8" y1="221.0" x2="336.8" y2="239.3" stroke="#E03434" stroke-/><rect x="330.4" y="232.3" width="12.7" height="5.6" fill="#E03434"/><rect x="330.4" y="359.9" width="12.7" height="30.1" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="235.5" x2="357.2" y2="255.1" stroke="#1E9E5A" stroke-/><rect x="350.9" y="239.1" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="350.9" y="344.3" width="12.7" height="45.7" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="235.5" x2="377.8" y2="250.8" stroke="#E03434" stroke-/><rect x="371.4" y="237.4" width="12.7" height="11.7" fill="#E03434"/><rect x="371.4" y="352.8" width="12.7" height="37.2" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="212.2" x2="398.2" y2="237.7" stroke="#E03434" stroke-/><rect x="391.9" y="215.4" width="12.7" height="19.3" fill="#E03434"/><rect x="391.9" y="338.1" width="12.7" height="51.9" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="188.3" x2="418.8" y2="210.2" stroke="#E03434" stroke-/><rect x="412.4" y="192.1" width="12.7" height="18.1" fill="#E03434"/><rect x="412.4" y="318.6" width="12.7" height="71.4" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="181.6" x2="439.2" y2="198.2" stroke="#E03434" stroke-/><rect x="432.9" y="191.8" width="12.7" height="2.4" fill="#E03434"/><rect x="432.9" y="333.2" width="12.7" height="56.8" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="200.3" x2="459.8" y2="215.4" stroke="#1E9E5A" stroke-/><rect x="453.4" y="207.1" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="453.4" y="345.8" width="12.7" height="44.2" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="203.6" x2="480.2" y2="214.1" stroke="#1E9E5A" stroke-/><rect x="473.9" y="205.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="473.9" y="361.9" width="12.7" height="28.1" fill="#1E9E5A" opacity="0.45"/><line x1="500.8" y1="203.3" x2="500.8" y2="217.0" stroke="#E03434" stroke-/><rect x="494.4" y="204.2" width="12.7" height="11.0" fill="#E03434"/><rect x="494.4" y="363.2" width="12.7" height="26.8" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="188.0" x2="521.2" y2="211.1" stroke="#E03434" stroke-/><rect x="514.9" y="193.1" width="12.7" height="16.9" fill="#E03434"/><rect x="514.9" y="357.3" width="12.7" height="32.7" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="173.8" x2="541.8" y2="189.6" stroke="#1E9E5A" stroke-/><rect x="535.4" y="185.2" width="12.7" height="2.4" fill="#1E9E5A"/><rect x="535.4" y="347.0" width="12.7" height="43.0" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="171.8" x2="562.2" y2="187.7" stroke="#E03434" stroke-/><rect x="555.9" y="179.9" width="12.7" height="7.6" fill="#E03434"/><rect x="555.9" y="350.6" width="12.7" height="39.4" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="180.2" x2="582.8" y2="197.9" stroke="#1E9E5A" stroke-/><rect x="576.4" y="182.9" width="12.7" height="5.0" fill="#1E9E5A"/><rect x="576.4" y="363.1" width="12.7" height="26.9" fill="#1E9E5A" opacity="0.45"/><line x1="603.2" y1="186.3" x2="603.2" y2="198.6" stroke="#1E9E5A" stroke-/><rect x="596.9" y="191.0" width="12.7" height="5.9" fill="#1E9E5A"/><rect x="596.9" y="360.0" width="12.7" height="30.0" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="167.9" x2="623.8" y2="196.5" stroke="#E03434" stroke-/><rect x="617.4" y="168.5" width="12.7" height="23.7" fill="#E03434"/><rect x="617.4" y="337.5" width="12.7" height="52.5" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="141.5" x2="644.2" y2="162.4" stroke="#1E9E5A" stroke-/><rect x="637.9" y="144.4" width="12.7" height="8.7" fill="#1E9E5A"/><rect x="637.9" y="324.7" width="12.7" height="65.3" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="145.0" x2="664.8" y2="158.6" stroke="#E03434" stroke-/><rect x="658.4" y="145.2" width="12.7" height="10.2" fill="#E03434"/><rect x="658.4" y="348.0" width="12.7" height="42.0" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="123.6" x2="685.2" y2="151.7" stroke="#E03434" stroke-/><rect x="678.9" y="130.1" width="12.7" height="13.2" fill="#E03434"/><rect x="678.9" y="336.9" width="12.7" height="53.1" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="113.7" x2="705.8" y2="152.6" stroke="#1E9E5A" stroke-/><rect x="699.4" y="119.0" width="12.7" height="32.7" fill="#1E9E5A"/><rect x="699.4" y="325.3" width="12.7" height="64.7" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="131.2" x2="726.2" y2="149.7" stroke="#E03434" stroke-/><rect x="719.9" y="137.0" width="12.7" height="12.8" fill="#E03434"/><rect x="719.9" y="345.6" width="12.7" height="44.4" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="129.8" x2="746.8" y2="161.8" stroke="#1E9E5A" stroke-/><rect x="740.4" y="131.9" width="12.7" height="28.2" fill="#1E9E5A"/><rect x="740.4" y="342.6" width="12.7" height="47.4" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="160.1" x2="767.2" y2="176.8" stroke="#E03434" stroke-/><rect x="760.9" y="162.5" width="12.7" height="12.8" fill="#E03434"/><rect x="760.9" y="359.3" width="12.7" height="30.7" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="145.6" x2="787.8" y2="156.1" stroke="#1E9E5A" stroke-/><rect x="781.4" y="149.6" width="12.7" height="1.4" fill="#1E9E5A"/><rect x="781.4" y="361.7" width="12.7" height="28.3" fill="#1E9E5A" opacity="0.45"/><line x1="808.2" y1="137.7" x2="808.2" y2="152.3" stroke="#E03434" stroke-/><rect x="801.9" y="143.2" width="12.7" height="3.2" fill="#E03434"/><rect x="801.9" y="357.6" width="12.7" height="32.4" fill="#E03434" opacity="0.45"/><line x1="828.8" y1="107.3" x2="828.8" y2="157.1" stroke="#E03434" stroke-/><rect x="822.4" y="112.9" width="12.7" height="43.5" fill="#E03434"/><rect x="822.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="849.2" y1="63.3" x2="849.2" y2="91.6" stroke="#E03434" stroke-/><rect x="842.9" y="70.3" width="12.7" height="17.8" fill="#E03434"/><rect x="842.9" y="295.7" width="12.7" height="94.3" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="41.4" x2="869.8" y2="77.9" stroke="#E03434" stroke-/><rect x="863.4" y="43.6" width="12.7" height="18.3" fill="#E03434"/><rect x="863.4" y="309.7" width="12.7" height="80.3" fill="#E03434" opacity="0.45"/><polyline points="70.2,253.4 90.8,256.9 111.2,257.5 131.8,254.1 152.2,246.3 172.8,239.4 193.2,234.3 213.8,229.9 234.2,229.0 254.8,231.9 275.2,236.9 295.8,234.9 316.2,234.2 336.8,232.8 357.2,236.4 377.8,235.0 398.2,233.2 418.8,224.9 439.2,216.8 459.8,210.2 480.2,204.0 500.8,201.8 521.2,202.0 541.8,201.2 562.2,194.3 582.8,190.6 603.2,189.1 623.8,184.2 644.2,177.3 664.8,170.3 685.2,158.8 705.8,149.7 726.2,143.4 746.8,144.8 767.2,148.3 787.8,152.5 808.2,150.8 828.8,145.9 849.2,128.0 869.8,104.2" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,253.4 90.8,256.9 111.2,257.5 131.8,254.1 152.2,246.3 172.8,241.7 193.2,240.8 213.8,240.2 234.2,240.2 254.8,239.1 275.2,239.6 295.8,238.3 316.2,237.9 336.8,237.5 357.2,238.2 377.8,238.1 398.2,236.8 418.8,234.3 439.2,232.1 459.8,231.2 480.2,228.9 500.8,226.0 521.2,222.8 541.8,220.0 562.2,218.2 582.8,216.6 603.2,214.7 623.8,211.3 644.2,207.0 664.8,202.8 685.2,197.1 705.8,193.5 726.2,188.6 746.8,185.0 767.2,180.8 787.8,176.5 808.2,172.8 828.8,168.9 849.2,162.8 869.8,154.3" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="767.2" cy="162.5" r="5" fill="none" stroke="#C8102E" stroke-/><text x="767.2" y="152.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">挖坑28.3</text><circle cx="828.8" cy="112.9" r="5" fill="none" stroke="#C8102E" stroke-/><text x="828.8" y="102.9" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量突破</text></svg>
+    </div>
+
+      </div>
+</div>
+
+<!-- ==================== 第3章 试盘篇 ==================== -->
+<div class="chapter locked theme-teal" id="ch3">
   <div class="head" onclick="toggleChapter(3)">
     <div>
 <h2>③ AI机构：试探现形<span class="chtitle-sub">秒级试盘 · 隐秘探测</span></h2>
@@ -534,69 +528,87 @@
     <div class="lock lock-pulse" id="lock3">🔒</div>
   </div>
   <div class="body">
-<blockquote class="ai-quote"><strong>开篇比喻</strong></blockquote>
-<p class="ai-p">></p>
-<blockquote class="ai-quote">想象你站在田野里仰望星空：繁星点点，肉眼大致可数。可当望远镜对准那片天空，你才发现每颗"星星"背后，都有数不清的尘埃在绕转。老股民盯K线看一天，等于"肉眼数星星"；AI机构用算法在毫秒级试探盘口，等于"望远镜看尘埃"。星星没变多，可你已经看不见它们了。这一章讲的，就是那台看不见的望远镜。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>一、AI试盘的本质</summary><div class="section-body">
-<p class="ai-p">AI试盘的本质，是用机器替代人手，在肉眼看不见的频率上试探盘口。所谓试盘，就是机构想知道"这只票现在是什么状态"：上方有没有套牢盘？下方有没有承接？多空哪边更强？答案决定"砸钱进去"还是"再等等"。</p>
-<p class="ai-p">过去人工操盘，一天挑两三个时点挂笔大单试探，已算勤奋。今天的AI每秒对盘口做几百次微调，靠挂单、撤单、小额吃单，从盘口细微变化中提取信息。老王盯了一天盘，结论是"今天没动静，主力在观望"；实际上，AI在这只票上已试探了几万次。因为AI的试探是故意的"无动静"：买一挂3手，0.2秒撤；卖一挂2手，0.1秒撤。单笔是噪声，统计是信号，K线纹丝不动。</p>
-<p class="ai-p">关键两点：其一，试盘是机器干的活，人的眼睛跟不上；其二，试探账面可能亏钱——目的不是赚差价，是赚信息。信息赚到手，才有下一步决策。</p>
-<details class="ai-section"><summary>二、AI试盘的操作手法</summary><div class="section-body">
-<p class="ai-p">AI的招式，是五种"假动作"，每种问一个不同的问题：</p>
-<ul class="ai-ul"><li><strong>试探性挂单</strong>（测上方阻力）：在卖一到卖三挂几笔小买单，看多久被吃光。0.1秒被吃光，说明卖盘薄、拉升便宜；几秒没人吃，说明压得厚。</li><li><strong>试探性撤单</strong>（测下方承接）：在买一挂一笔大买单，吃到一半撤掉。价格回稳，说明有买盘撑着；快速下跌，说明下方没承接。</li><li><strong>试探性吃单</strong>（测情绪温度）：突然吃进一笔小单，立刻在上方挂出卖单，看有没有人追。有人追，拉升阻力就小。</li><li><strong>盘口扫货</strong>（测能否脱离成本区）：连续吃光买盘后撤掉剩余买单，看价格能否稳住。</li><li><strong>微型砸盘</strong>（测恐慌盘）：关键价位砸出一笔卖单，看几秒内是否引发恐慌抛售——有恐慌盘，反可借机低位吸筹。</li></ul>
-<p class="ai-p">机器与人眼的差距：</p>
-<table class="ai-table"><thead><tr><th>维度</th><th>人工操盘</th><th>AI操盘</th></tr></thead><tbody><tr><td>试探频率</td><td>每天1-2次</td><td>每秒几百次</td></tr><tr><td>试探姿势</td><td>3-5种</td><td>几百种</td></tr><tr><td>决策依据</td><td>直觉+经验</td><td>概率模型+历史回测</td></tr></tbody></table>
-<p class="ai-p">老王问："我们看的'主力动向'，是不是都是AI故意让我们看到的？"答案：假动作给你看，真动作不给你看。</p>
-<details class="ai-section"><summary>三、AI试盘的三种方式</summary><div class="section-body">
-<p class="ai-p">手法是"怎么做"，方式是"为什么做"。方向不同，意图也不同：</p>
-<p class="ai-p"><strong>向上探——拉升前的摸顶</strong>：测试上方抛压，判断拉升成本。在卖一到卖五密集挂试探单，吃掉卖盘后观察回补速度：回补慢，说明抛压轻，拉升"划算"；回补快，说明筹码锁得紧，继续观望。</p>
-<p class="ai-p"><strong>向下探——洗盘前的探底</strong>：测试下方承接，判断洗盘深度。在关键支撑位砸出试探性卖单，观察买盘回补速度。回补快，说明下方有承接，不能砸太深；回补慢，说明下方空虚，可借势洗盘。散户眼里的"金针探底"，下影线长度往往是AI先测过承接再算好的。</p>
-<p class="ai-p"><strong>横向扫——震荡前的测密度</strong>：测试筹码密度，划定震荡区间。在窄幅区间反复"高抛低吸"，不为赚差价，只为测挂单密度——密度3倍于相邻区间的价位，就是未来的箱体。老王说："以前以为横盘是主力不玩了，现在才知道，那是AI在做'地图测绘'。"</p>
-<p class="ai-p">三者本质：<strong>向上探测"能涨多少"，向下探测"能跌多少"，横向扫测"在哪能稳多久"</strong>。同一个逻辑——先把地形摸清楚，再决定怎么走。散户没有"摸地形"的能力，只能在机构画好的地图上走。</p>
-<details class="ai-section"><summary>四、AI时代的量价变化</summary><div class="section-body">
-<p class="ai-p">AI时代最让老股民崩溃的，是以前管用的经验全失效了。</p>
-<p class="ai-p"><strong>脉冲量被微缩</strong>：过去"突然放量是主力进场"，因为人工脉冲量几十万股起步，肉眼可辨。AI试探每次只吃几百、几千股，占全天成交量的0.5%，又分散在不同时段——总量上根本看不出放量。如今看到长阳放量，得先想：是真放量，还是AI分时试探拼出来的假放量？</p>
-<p class="ai-p"><strong>影线被做标准</strong>：过去"长下影线是金针探底"。AI在关键价位砸出一笔大单制造下影，再立刻拉回——一根完美的"金针"就做好了，且精准到分位，几千次做下来像复制粘贴。当你发现所有"金针"都长得一模一样，就该警惕。</p>
-<p class="ai-p"><strong>分时图被做平滑</strong>：人工操盘的分时图有毛刺，AI节奏恒定、几乎无毛刺。老王说："第一眼看平不平，太平滑的我反而怀疑。"</p>
-<p class="ai-p">一句话：<strong>AI在制造"真实感"，真实反而成了"假信号"。</strong></p>
-<details class="ai-section"><summary>五、AI试盘的盘面痕迹</summary><div class="section-body">
-<p class="ai-p">AI试盘隐蔽，但不是没有痕迹：</p>
-<ul class="ai-ul"><li><strong>瞬时挂单</strong>：盘口突然出现一笔大单，不到0.5秒就撤，反复出现在固定价位。盯Level-2十档盘口，闪单方向一致，多半是AI。</li><li><strong>零碎成交</strong>：某价位反复出现1手、2手、3手的小额成交，节奏规律——越来越像"程序在买卖"，而非散户。</li><li><strong>密集撤单</strong>：同一价位反复挂撤，撤单率超80%且集中在短时间。</li><li><strong>隐形托盘/压盘</strong>：买一价下方、卖一价上方几个分位，反复出现小额挂单，挂出即撤、撤完又挂——看似散户托底或出货，实为AI试探。</li></ul>
-<p class="ai-p"><strong>识别清单</strong>（满足3条以上，大概率有AI在试探）：①Level-2频繁闪单；②成交明细出现规律零碎成交；③同一价位撤单率超80%；④买一/卖一附近小额挂单反复挂撤；⑤分时图异常平滑。</p>
-<details class="ai-section"><summary>六、散户的坑</summary><div class="section-body">
-<p class="ai-p">四个坑，本质都是信息差。</p>
-<p class="ai-p"><strong>看不见</strong>：盯盘一整天，等于看一场无声电影。AI在分秒级做的试探，肉眼捕捉不到。用Level-2能看见吗？它3秒才刷新一次，AI是毫秒级，等于慢镜头看快进。你以为"看到的就是真实的"，其实那是AI让你看到的：想让你看的清清楚楚，不想让你看的完全消失。</p>
-<p class="ai-p"><strong>跟不上</strong>：AI的决策链是"试探→记录→分析→决策→执行"，全链条毫秒级、1秒内完成；散户是"盯盘几小时→看K线几分钟→看新闻几十分钟→决策几小时"。等你决定"明天开盘买"，AI早就执行完了。</p>
-<p class="ai-p"><strong>读不懂</strong>：AI会留下"假信号"，最典型的是假突破——突破关键技术位，散户追进去，AI反手出货。量价配合、技术形态做得比教科书还标准，真假难辨。</p>
-<p class="ai-p"><strong>控不住</strong>：AI反复试探散户的情绪阈值：小幅拉升看追不追，杀跌看割不割，横盘看熬不熬得住。一旦识别出你的脾性，就专挑你最忍不住的时候动手。老王说："以前以为是我在跟主力博弈，现在才知道，是主力在跟我博弈。"</p>
-<details class="ai-section"><summary>七、AI试盘结束的信号</summary><div class="section-body">
-<p class="ai-p">AI试盘不会无限进行，三个信号标志它收手：</p>
-<p class="ai-p"><strong>决策收敛</strong>：试探频率骤降，盘口异常安静——没有闪单和零碎成交。这是AI做完判断、准备动手的前兆，盘口变"静"反而要警惕。</p>
-<p class="ai-p"><strong>量能突变</strong>：突然出现连续扫货或砸盘，把一边盘口扫光——拉升或洗盘/出货的信号，但往往几秒到几十秒就完成，散户反应不过来。老王说："等我看到量能突变，价格已经涨了5%。"</p>
-<p class="ai-p"><strong>方向锁定</strong>：试探只朝一个方向，或固定在某个价位反复试探——方向已定，下一步就是执行。这是散户最后的识别窗口，但通常只有几十秒到几分钟。</p>
-<p class="ai-p">从试盘到拉升的转折点，是整个链条最难抓的节点：时间极短、特征隐蔽、方向不明。</p>
-<details class="ai-section"><summary>真实案例</summary><div class="section-body">
-<p class="ai-p">为保护当事人，股票名称与代码均已隐去。</p>
-<h5 class="ai-h5">案例一：科技股拉升前的向上探（编号Tech-0421）</h5>
-<p class="ai-p">某科技股连续3天缩量横盘。9:30-10:42，AI在卖一到卖四挂撤试探单超8000次，卖盘回补越来越慢——上方筹码稀缺。随后试探骤降，盘口异常安静。11:15方向锁定向上，第一笔扫货单直接把价格拉到涨停。盘面痕迹：密集"闪单"、零碎成交、分时图平滑。散户以为"主力没动"，拉升后才追，次日高开回落被套。复盘要点：拉升前的"盘口安静"，恰是动手信号。</p>
-<h5 class="ai-h5">案例二：老王的踩坑经历（编号Wang-0815）</h5>
-<p class="ai-p">老王炒了十几年股，盯上一只横盘近两个月的票，认定"洗盘后必拉"，反复做T降低成本。可AI早已把所有地形测完，得出"不拉升"的结论。第三个月股价向下突破，他认定"假突破"又扛一个月；第四个月股价腰斩，终于割肉离场——此后虽缓慢拉升，高度还不到成本一半。他踩了全部四个坑：看不见、跟不上、读不懂、控不住。他说："不是经验不够，是维度不一样。AI是显微镜，我是肉眼。"</p>
-<details class="ai-section"><summary>一句话记牢</summary><div class="section-body">
-<blockquote class="ai-quote"><strong>AI在分秒级做你看不见的事，在你没反应过来时做出决策，在你想追的时候已经走完。散户不是输在技术，是输在维度。</strong></blockquote>
-<p class="ai-p">---</p>
-<p class="ai-p"><strong>合规声明</strong>：本文为投资者教育内容，仅用于讲解市场机制，不构成任何投资建议；不推荐任何股票，不指导具体交易，不承诺任何收益。市场有风险，投资需谨慎。</p>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-  </div>
-  <div class="chapter locked theme-red" id="ch4">
+    <div class="baitou">比喻：AI像"全自动试水机"——分秒级试探，一分钟做几百次，快到你根本感觉不到它试过。</div>
+
+    <h4>一、AI试盘的本质：试盘从"偶尔为之"变成"高频常态"</h4>
+    <p>人工时代，试盘是操盘手偶尔拉一下、砸一下，试探抛压。AI时代，<b>试盘变成了程序化、全天候、分秒级的高频动作</b>——AI自动测试抛压、承接、跟风，一分钟能做几百次试探。<b>你还没反应过来，AI已经把市场"测"完了</b>。</p>
+    <ul>
+      <li><b>分秒级试探</b>：AI每秒都在测，抛压/承接数据实时更新</li>
+      <li><b>几乎无痕迹</b>：试探的量被算法做得极小，人眼捕捉不到</li>
+      <li><b>试盘=决策依据</b>：AI根据试探结果决定"拉升/继续洗/再等"——全自动决策</li>
+    </ul>
+    <div class="box green"><div class="t">💡 一句话记牢</div>AI试盘的本质 = <b>用机器的高频试探，把"要不要拉、怎么拉"测得一清二楚，而你一无所知</b>。</div>
+
+    <h4>二、AI试盘的操作手法（机构AI化后怎么试）</h4>
+    <ul>
+      <li><b>程序化抛压测试</b>：AI瞬间拉高一小段，测上方有多少卖单（抛压数据）</li>
+      <li><b>程序化承接测试</b>：AI瞬间砸低一小段，测下方有多少买盘（承接数据）</li>
+      <li><b>高频微试盘</b>：一次试探只用极小单量，连续几百次，单次几乎无痕迹</li>
+      <li><b>智能择时</b>：AI选在抛压最小、流动性最好的时刻试盘，干扰最小</li>
+      <li><b>试盘与洗盘联动</b>：AI边洗边试，洗盘的最后阶段就是试盘的最佳窗口</li>
+    </ul>
+    <h5>AI试盘的技术细节（为什么你看不到）</h5>
+    <ul>
+      <li><b>微量试探</b>：试探单量小到盘口无感，但AI能从成交数据里读到结果</li>
+      <li><b>分时规律识别</b>：AI把一天的试盘数据汇总，形成"抛压-时间"模型</li>
+      <li><b>机器学习预判</b>：AI根据历史数据预测"这个位置拉升会不会被砸"</li>
+    </ul>
+
+    <h4>三、AI试盘的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>AI怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>AI微拉升试盘</b></td><td>瞬间小幅拉高测抛压</td><td>盘中突然小脉冲</td><td>脉冲极小、快拉快回（无消息）</td></tr>
+      <tr><td><b>AI微砸盘试盘</b></td><td>瞬间小幅砸低测承接</td><td>盘中突然小下探</td><td>小下探快速收回（有承接）</td></tr>
+      <tr><td><b>AI盘口试盘</b></td><td>算法挂撤大单试探</td><td>挂单突然出现又消失</td><td>大单挂撤异常（试探跟风盘）</td></tr>
+    </table>
+
+    <h4>四、AI时代的量价变化（核心认知：试盘信号被"微缩"了）</h4>
+    <ul>
+      <li><b>脉冲量更小更短</b>：AI试盘的量被算法控制在极小范围，传统"脉冲放量"信号几乎失效</li>
+      <li><b>上下影线更"标准"</b>：AI把试盘造成的影线做得恰到好处，K线上看不出异动</li>
+      <li><b>老经验"试盘=长上下影"</b>：在AI时代，等你看到长影线，试盘早就结束进入拉升了</li>
+      <li><b>看行为数据</b>：只有AI级别的行为追踪（机构透视）才能捕捉分秒级试盘</li>
+    </ul>
+
+    <h4>五、AI试盘的盘面痕迹（怎么让AI现形）</h4>
+    <ul>
+      <li><b>盘中频繁小脉冲</b>：无消息却反复出现快速小拉/小砸（AI在试）</li>
+      <li><b>盘口挂单异常</b>：大单突然出现又撤掉，反复试探（AI盘口试盘）</li>
+      <li><b>关键位反复测试</b>：AI反复测试同一价位，一次比一次轻松（抛压在减少）</li>
+      <li><b>试盘后行为数据异动</b>：机构行为信号在拉升前频繁活跃</li>
+    </ul>
+
+    <h4>六、散户的坑（AI时代，你根本看不见试盘）</h4>
+    <ul>
+      <li><b>坑1 · 把试盘当"出货"</b>：AI的小砸盘你以为主力在跑，被吓得提前下车</li>
+      <li><b>坑2 · 把试盘当"启动"</b>：AI的小拉升你以为行情来了，追进去被套在试盘高位</li>
+      <li><b>坑3 · 等"明显信号"</b>：AI时代试盘无痕迹，等你看出来时拉升已经开始了</li>
+      <li><b>坑4 · 频繁进出</b>：被AI的高频微试盘来回打脸，进进出出全在给AI送手续费</li>
+    </ul>
+
+    <h4>七、AI试盘结束的信号（拉升前兆）</h4>
+    <ul>
+      <li><b>试盘越来越轻松</b>：同样的试探，抛压一次比一次小（浮筹清完了）</li>
+      <li><b>行为数据转强</b>：AI试盘转为连续真买（不再试探，开始真动作）</li>
+      <li><b>放量突破</b>：试盘确认完毕，AI点火拉升</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 放量异动 → 冲高回落（试盘特征）</h4>
+      <ul>
+        <li><b>8.6-8.19 地量横盘</b>（每天仅12-27万手，建仓区）</li>
+        <li><b>8.20 突然8倍放量</b> 冲到14.47（拉升试盘：试探上方抛压）</li>
+        <li><b>8.21 冲高回落</b> 冲13.58后收13.03（试盘遇抛压回落，确认压力）</li>
+      </ul>
+      <p style="font-size:16px;color:var(--gray);">判读：无消息突然放量冲高→冲高回落回踩——典型的<b>拉升试盘</b>动作（试探上方抛压和跟风盘）。试盘后若缩量企稳、再次放量突破，就是拉升前兆。</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例二</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">14.66</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">13.62</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">12.59</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">11.55</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">10.51</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="197.5" x2="70.2" y2="268.6" stroke="#E03434" stroke-/><rect x="63.9" y="215.6" width="12.7" height="40.4" fill="#E03434"/><rect x="63.9" y="368.3" width="12.7" height="21.7" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="212.0" x2="90.8" y2="234.9" stroke="#1E9E5A" stroke-/><rect x="84.4" y="215.0" width="12.7" height="15.1" fill="#1E9E5A"/><rect x="84.4" y="377.0" width="12.7" height="13.0" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="190.9" x2="111.2" y2="242.1" stroke="#E03434" stroke-/><rect x="104.9" y="193.9" width="12.7" height="37.4" fill="#E03434"/><rect x="104.9" y="367.6" width="12.7" height="22.4" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="174.6" x2="131.8" y2="207.7" stroke="#1E9E5A" stroke-/><rect x="125.4" y="196.9" width="12.7" height="9.6" fill="#1E9E5A"/><rect x="125.4" y="373.3" width="12.7" height="16.7" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="190.3" x2="152.2" y2="211.4" stroke="#1E9E5A" stroke-/><rect x="145.9" y="197.5" width="12.7" height="2.4" fill="#1E9E5A"/><rect x="145.9" y="375.9" width="12.7" height="14.1" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="181.2" x2="172.8" y2="206.5" stroke="#E03434" stroke-/><rect x="166.4" y="192.1" width="12.7" height="11.5" fill="#E03434"/><rect x="166.4" y="371.3" width="12.7" height="18.7" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="199.3" x2="193.2" y2="225.8" stroke="#1E9E5A" stroke-/><rect x="186.9" y="199.3" width="12.7" height="24.1" fill="#1E9E5A"/><rect x="186.9" y="375.4" width="12.7" height="14.6" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="215.6" x2="213.8" y2="235.5" stroke="#1E9E5A" stroke-/><rect x="207.4" y="225.2" width="12.7" height="4.8" fill="#1E9E5A"/><rect x="207.4" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="215.6" x2="234.2" y2="239.7" stroke="#E03434" stroke-/><rect x="227.9" y="228.8" width="12.7" height="6.6" fill="#E03434"/><rect x="227.9" y="378.8" width="12.7" height="11.2" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="187.9" x2="254.8" y2="241.5" stroke="#E03434" stroke-/><rect x="248.4" y="199.3" width="12.7" height="33.2" fill="#E03434"/><rect x="248.4" y="369.2" width="12.7" height="20.8" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="187.3" x2="275.2" y2="204.7" stroke="#E03434" stroke-/><rect x="268.9" y="197.5" width="12.7" height="1.8" fill="#E03434"/><rect x="268.9" y="371.5" width="12.7" height="18.5" fill="#E03434" opacity="0.45"/><line x1="295.8" y1="160.1" x2="295.8" y2="204.1" stroke="#E03434" stroke-/><rect x="289.4" y="177.6" width="12.7" height="22.3" fill="#E03434"/><rect x="289.4" y="367.9" width="12.7" height="22.1" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="139.0" x2="316.2" y2="189.7" stroke="#E03434" stroke-/><rect x="309.9" y="149.9" width="12.7" height="34.4" fill="#E03434"/><rect x="309.9" y="361.3" width="12.7" height="28.7" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="131.2" x2="336.8" y2="169.8" stroke="#E03434" stroke-/><rect x="330.4" y="139.0" width="12.7" height="21.1" fill="#E03434"/><rect x="330.4" y="365.3" width="12.7" height="24.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="136.6" x2="357.2" y2="182.4" stroke="#1E9E5A" stroke-/><rect x="350.9" y="144.5" width="12.7" height="37.4" fill="#1E9E5A"/><rect x="350.9" y="365.7" width="12.7" height="24.3" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="161.3" x2="377.8" y2="187.9" stroke="#E03434" stroke-/><rect x="371.4" y="164.3" width="12.7" height="19.9" fill="#E03434"/><rect x="371.4" y="371.5" width="12.7" height="18.5" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="145.1" x2="398.2" y2="176.4" stroke="#E03434" stroke-/><rect x="391.9" y="171.6" width="12.7" height="1.0" fill="#E03434"/><rect x="391.9" y="371.8" width="12.7" height="18.2" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="156.5" x2="418.8" y2="180.6" stroke="#E03434" stroke-/><rect x="412.4" y="169.8" width="12.7" height="7.2" fill="#E03434"/><rect x="412.4" y="374.7" width="12.7" height="15.3" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="171.0" x2="439.2" y2="190.3" stroke="#1E9E5A" stroke-/><rect x="432.9" y="176.4" width="12.7" height="1.8" fill="#1E9E5A"/><rect x="432.9" y="378.2" width="12.7" height="11.8" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="175.8" x2="459.8" y2="207.1" stroke="#1E9E5A" stroke-/><rect x="453.4" y="183.0" width="12.7" height="24.1" fill="#1E9E5A"/><rect x="453.4" y="378.9" width="12.7" height="11.1" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="183.0" x2="480.2" y2="213.2" stroke="#E03434" stroke-/><rect x="473.9" y="184.2" width="12.7" height="19.3" fill="#E03434"/><rect x="473.9" y="378.5" width="12.7" height="11.5" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="170.4" x2="500.8" y2="189.1" stroke="#1E9E5A" stroke-/><rect x="494.4" y="184.8" width="12.7" height="1.8" fill="#1E9E5A"/><rect x="494.4" y="380.4" width="12.7" height="9.6" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="172.8" x2="521.2" y2="191.5" stroke="#E03434" stroke-/><rect x="514.9" y="173.4" width="12.7" height="12.7" fill="#E03434"/><rect x="514.9" y="377.7" width="12.7" height="12.3" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="156.5" x2="541.8" y2="181.2" stroke="#E03434" stroke-/><rect x="535.4" y="163.7" width="12.7" height="17.5" fill="#E03434"/><rect x="535.4" y="375.3" width="12.7" height="14.7" fill="#E03434" opacity="0.45"/><line x1="562.2" y1="154.7" x2="562.2" y2="171.0" stroke="#E03434" stroke-/><rect x="555.9" y="157.1" width="12.7" height="10.9" fill="#E03434"/><rect x="555.9" y="377.8" width="12.7" height="12.2" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="155.3" x2="582.8" y2="164.3" stroke="#E03434" stroke-/><rect x="576.4" y="157.7" width="12.7" height="1.0" fill="#E03434"/><rect x="576.4" y="381.7" width="12.7" height="8.3" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="146.3" x2="603.2" y2="163.7" stroke="#1E9E5A" stroke-/><rect x="596.9" y="156.5" width="12.7" height="6.0" fill="#1E9E5A"/><rect x="596.9" y="379.0" width="12.7" height="11.0" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="155.3" x2="623.8" y2="168.0" stroke="#E03434" stroke-/><rect x="617.4" y="161.3" width="12.7" height="3.6" fill="#E03434"/><rect x="617.4" y="380.2" width="12.7" height="9.8" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="156.5" x2="644.2" y2="179.4" stroke="#1E9E5A" stroke-/><rect x="637.9" y="160.7" width="12.7" height="15.7" fill="#1E9E5A"/><rect x="637.9" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="137.8" x2="664.8" y2="180.6" stroke="#E03434" stroke-/><rect x="658.4" y="139.0" width="12.7" height="38.0" fill="#E03434"/><rect x="658.4" y="365.1" width="12.7" height="24.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="134.2" x2="685.2" y2="149.3" stroke="#1E9E5A" stroke-/><rect x="678.9" y="140.8" width="12.7" height="4.2" fill="#1E9E5A"/><rect x="678.9" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="127.6" x2="705.8" y2="150.5" stroke="#E03434" stroke-/><rect x="699.4" y="143.8" width="12.7" height="5.4" fill="#E03434"/><rect x="699.4" y="373.6" width="12.7" height="16.4" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="135.4" x2="726.2" y2="152.3" stroke="#1E9E5A" stroke-/><rect x="719.9" y="147.5" width="12.7" height="3.0" fill="#1E9E5A"/><rect x="719.9" y="379.2" width="12.7" height="10.8" fill="#1E9E5A" opacity="0.45"/><line x1="746.8" y1="128.8" x2="746.8" y2="164.3" stroke="#E03434" stroke-/><rect x="740.4" y="143.2" width="12.7" height="8.4" fill="#E03434"/><rect x="740.4" y="369.6" width="12.7" height="20.4" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="120.9" x2="767.2" y2="152.9" stroke="#1E9E5A" stroke-/><rect x="760.9" y="145.1" width="12.7" height="3.6" fill="#1E9E5A"/><rect x="760.9" y="371.8" width="12.7" height="18.2" fill="#1E9E5A" opacity="0.45"/><line x1="787.8" y1="148.1" x2="787.8" y2="169.2" stroke="#1E9E5A" stroke-/><rect x="781.4" y="148.7" width="12.7" height="10.2" fill="#1E9E5A"/><rect x="781.4" y="373.4" width="12.7" height="16.6" fill="#1E9E5A" opacity="0.45"/><line x1="808.2" y1="151.1" x2="808.2" y2="170.4" stroke="#1E9E5A" stroke-/><rect x="801.9" y="160.7" width="12.7" height="6.6" fill="#1E9E5A"/><rect x="801.9" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="163.7" x2="828.8" y2="190.9" stroke="#1E9E5A" stroke-/><rect x="822.4" y="172.2" width="12.7" height="14.5" fill="#1E9E5A"/><rect x="822.4" y="375.6" width="12.7" height="14.4" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="41.4" x2="849.2" y2="99.2" stroke="#E03434" stroke-/><rect x="842.9" y="41.4" width="12.7" height="57.9" fill="#E03434"/><rect x="842.9" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="95.0" x2="869.8" y2="141.4" stroke="#1E9E5A" stroke-/><rect x="863.4" y="117.9" width="12.7" height="10.2" fill="#1E9E5A"/><rect x="863.4" y="313.5" width="12.7" height="76.5" fill="#1E9E5A" opacity="0.45"/><polyline points="70.2,215.6 90.8,222.8 111.2,213.2 131.8,211.5 152.2,209.2 172.8,204.5 193.2,203.2 213.8,210.4 234.2,214.9 254.8,214.7 275.2,215.8 295.8,206.7 316.2,190.6 336.8,172.7 357.2,169.2 377.8,162.5 398.2,161.2 418.8,165.2 439.2,173.0 459.8,178.1 480.2,182.1 500.8,185.2 521.2,185.9 541.8,183.0 562.2,173.0 582.8,167.6 603.2,162.8 623.8,160.4 644.2,162.9 664.8,159.3 685.2,156.9 705.8,153.1 726.2,151.0 746.8,144.3 767.2,146.3 787.8,149.0 808.2,153.7 828.8,161.0 849.2,140.6 869.8,136.5" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,215.6 90.8,222.8 111.2,213.2 131.8,211.5 152.2,209.2 172.8,206.3 193.2,208.8 213.8,211.4 234.2,213.4 254.8,212.0 275.2,210.7 295.8,207.9 316.2,203.4 336.8,198.8 357.2,197.7 377.8,195.6 398.2,194.2 418.8,192.8 439.2,192.0 459.8,192.8 480.2,191.2 500.8,189.1 521.2,188.0 541.8,185.9 562.2,183.8 582.8,182.0 603.2,179.0 623.8,175.5 644.2,172.9 664.8,169.9 685.2,167.3 705.8,165.6 726.2,165.6 746.8,165.8 767.2,164.2 787.8,163.9 808.2,163.7 828.8,164.6 849.2,157.7 869.8,153.8" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="849.2" cy="41.4" r="5" fill="none" stroke="#C8102E" stroke-/><text x="849.2" y="31.4" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">8倍放量</text></svg>
+    </div>
+
+      </div>
+</div>
+
+<!-- ==================== 第4章 拉升篇 ==================== -->
+<div class="chapter locked theme-red" id="ch4">
   <div class="head" onclick="toggleChapter(4)">
     <div>
 <h2>④ AI机构：拉升现形<span class="chtitle-sub">扫单点火 · 量化助推</span></h2>
@@ -606,65 +618,93 @@
     <div class="lock lock-pulse" id="lock4">🔒</div>
   </div>
   <div class="body">
-<details class="ai-section"><summary>AI机构：拉升现形</summary><div class="section-body">
-<blockquote class="ai-quote">老王这辈子最后悔的，是第一次看AI拉升那天——他盯着分时等"回踩均线"，结果眼一眨，菜卖完了、灶也关了，只闻到一股油烟味。AI拉升就是这样：咔哒一下灶眼全开，30分钟走完你等了三天的"回踩"。老股民最爱的"等回调上车"，在AI时代成了最贵的一句话。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>一、AI拉升的本质：从&quot;台阶式&quot;到&quot;火箭式&quot;</summary><div class="section-body">
-<p class="ai-p">人工时代的标准拉升：上午推一波、下午休息、第二天再推，三五天走完一浪，K线上有台阶、有回踩、有买点——那是给技术派留饭吃的年代。AI时代，这个年代结束了。</p>
-<p class="ai-p">建仓期（①章）AI把货收得"看不见"，试盘期（③章）把抛压摸得"分秒级"，到拉升这一步，它已知道上方卖压在哪、跟风盘多深、哪一秒点火代价最小。于是它选代价最小的那一秒，用算法扫单瞬间吃掉五档卖单，再由量化助推程序化跟进——从点火到封板，可能就在一根60分钟K线里走完。</p>
-<table class="ai-table"><thead><tr><th>维度</th><th>人工台阶式</th><th>AI火箭式</th></tr></thead><tbody><tr><td>耗时</td><td>3-5天走完一浪</td><td>30-90分钟</td></tr><tr><td>回调</td><td>10-20%回踩</td><td>1-3%，浅到看不见</td></tr><tr><td>上车机会</td><td>2-3个舒服买点</td><td>0-1个，看到时已飞</td></tr><tr><td>K线形态</td><td>红绿相间有规律</td><td>连续大阳/一字，机器味十足</td></tr></tbody></table>
-<p class="ai-p">老李2014-2015年靠"台阶回调上车"赚三倍，2024年后开始亏："这票突破平台了，我等回踩均线，等了一天两天三天，回踩就是不来，眼睁睁看它冲到顶，然后掉头套我。"不是他技术退步，是对手换了——量化助推的程序不累、不犹豫、不歇。</p>
-<blockquote class="ai-quote">一句话记牢：AI拉升的本质=用算法点火+量化助推，把行情做成"快、急、不给上车机会"，专治所有老经验派的等回调习惯。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>二、操作手法：扫单、助推、联动、护盘</summary><div class="section-body">
-<p class="ai-p">AI拉升不是单一动作，是五道工序毫秒级衔接的流水线：</p>
-<p class="ai-p">1. <strong>扫单点火</strong>：实时扫描五档卖单，选卖压最薄的一瞬，大资金瞬间吃掉卖一至卖五，分时近90度直线。散户的感受是：挂单还没敲完，价格已飞了三个价位。 2. <strong>量化助推</strong>：点火瞬间，成千上万跟随策略的量化账户同时被"突破新高""量比放大"等信号触发，同一秒集体买入，把1%的涨幅放大到涨停。你以为看到的是市场情绪，其实是算法共振。 3. <strong>精确控节奏</strong>：专挑流动性最好的时段——开盘后30分钟、午盘前后、尾盘30分钟。冷清时段的拉升往往不是真拉升，而是诱多。 4. <strong>板块联动</strong>：一个主控账户发起，N个分账户毫秒级响应，多只龙头股同一分钟内齐拉，整个板块翻红，点燃从众情绪。人工时代需要多营业部"协调"，AI时代不需要。 5. <strong>量化护盘</strong>：拉升途中的解套盘、获利盘被另一组程序瞬间接住——回踩超阈值就自动买入。你看到的"回调1-2%就被接住"不是主力仁慈，是机器在执行规则；你等的"均线买点"，被机器从根上抹掉了。</p>
-<blockquote class="ai-quote">一句话总结：扫单点火→量化助推→控节奏→板块联动→量化护盘，五道工序毫秒衔接，呈现出来就是一根陡峭的60分钟K线。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>三、三种方式：火箭、台阶、震荡</summary><div class="section-body">
-<p class="ai-p">AI根据盘子大小、筹码结构、跟风盘热度选方式。</p>
-<p class="ai-p">1. <strong>火箭式——"咔哒一下，灶眼全开"</strong>：常见于小盘题材股、突发利好。点火信号一触发便一鼓作气扫上去，量化助推放大、护盘接住抛压，30分钟到2小时走完从启动到涨停。盘面：连续大阳甚至一字板、启动量是前一日3-10倍、回踩不超3%。识别：启动量必须是前日N倍而非温和放量；中途回踩超5%往往是假火箭。 2. <strong>台阶式——"拉一拉、歇一歇"</strong>：常见于中盘价值股。分阶段拉：拉到阻力位→横盘换手→再上，周期3-5天，每级台阶1-3根小阴小阳、明显缩量、回踩3-7%。识别：节奏极规律，每天涨1-3%；台阶处缩量明显；突然放量突破台阶上沿就是新一波起点。能上车，但只在第一个台阶启动时——等你看出来，它已在第三级台阶。 3. <strong>震荡式——"边洗边拉"</strong>：常见于大盘股、浮盈大的标的。低点不断上移，每次回调都被接住，浮筹反复清洗。盘面：上行通道，高低点双抬高；回调是小阴线或十字星，且时间越来越短（2-3天→1天→盘中完成）、幅度越来越小（5%→3%→1%）。</p>
-<blockquote class="ai-quote">一句话总结：火箭式不给机会、台阶式给一次机会、震荡式给多次假机会——本质都是让散户在犹豫中错过。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>四、量价变化：拉升的量价被AI&quot;导演&quot;</summary><div class="section-body">
-<p class="ai-p">AI时代的量价配合看起来比人工时代更标准、更像教科书，背后却是AI在导演：</p>
-<ul class="ai-ul"><li><strong>量价齐升更快更猛</strong>：人工时代"放量、价升、回调、再放量"，像爬山可以歇脚；AI时代点火爆量、助推放大、护盘不调，30-90分钟走完。你来不及欣赏"量价配合真漂亮"，下一秒它就涨完了。</li><li><strong>缩量回调变浅</strong>：人工时代拉升后有5-15%、1-3天的回踩，是技术派黄金买点；AI时代回踩不超1-3%、盘中就完成。不是主力不想给机会，是策略上不允许深调——深调意味着跟风盘跑光、后续拉升成本更高。</li><li><strong>分时更陡</strong>：机器拉的分时没有"犹豫"，近乎直线；人工拉的总有锯齿感。规律：分时越陡越可能是AI拉升。</li></ul>
-<p class="ai-p"><strong>最重要的伏笔</strong>：拉升末端会出现"放量滞涨"——量能放出自拉升以来的天量，价格却不涨。这是AI开始"边拉边卖"的信号，也是第⑤章派发的起点。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>五、盘面痕迹：怎么让AI现形</summary><div class="section-body">
-<p class="ai-p">AI拉升虽快，但并非无迹可寻。五个痕迹，出现3个以上即典型：</p>
-<p class="ai-p">1. <strong>分时陡峭</strong>：拉升发生在开盘后30分钟内、午盘前后、尾盘30分钟——AI挑的时段；斜率≥75度；途中几乎无回调。分时越陡越要冷静，这种票不是给你追的。 2. <strong>盘口秒扫</strong>：五档卖单同时被清、1-2秒内新卖单又被吃掉、量柱突然拔高N倍。注意：瞬间扫货是拉升不是吸筹——吸筹是慢慢买的。 3. <strong>板块联动</strong>：3只以上个股同一分钟拉升超3%，板块明显跑赢大盘，且无消息驱动。联动一旦发生，龙头往往直接封板，能买到的跟风票幅度持续性远不如龙头。 4. <strong>机构+游资合力</strong>：龙虎榜买方出现机构专用席位大额买入加知名游资席位。关键看净买入还是净卖出——机构席位也可能在派发。 5. <strong>回调被快速接住</strong>：回调时间越来越短（1-2天→1天→盘中）、幅度越来越浅（5-7%→3-5%→1-2%）、低点不断抬高。低位是AI控制力强，高位则是末端信号，要结合位置判断。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>六、散户的坑：拉升专治&quot;等&quot;和&quot;追&quot;</summary><div class="section-body">
-<p class="ai-p">拉升专治两种散户："等回调上车"的，和"忍不住追高"的。</p>
-<p class="ai-p"><strong>坑1 · 等回调</strong>：老股民最爱"等回踩到均线再上车"，人工时代稳赚不赔。AI时代量化护盘不让回踩，你等的买点永远等不到，等放弃再追，行情已到末端。小赵等回踩5日线，第二天却涨停、第三天一字板，第四天忍不住追，正好接在派发起点，三天亏12%。他错在用错了时代的经验。</p>
-<p class="ai-p"><strong>坑2 · 追最高点</strong>：看到放量就追、看到涨停就追。AI拉升太快太短，你看到放量时已涨5-8%，追进去正是拉升末端，AI已在派发。老张追"连续三天涨停"的票，第四天进场当天吃-8%灌肠阴——接的是最后一棒。</p>
-<p class="ai-p"><strong>坑3 · 刚启动就卖</strong>：涨太急拿不住，早早卖出，而火箭式不给你第二次上车机会。小钱第一天涨5%卖了，第二天8%不敢追，第三天12%忍不住追，当天-7%。赚的是鱼头，亏的是鱼尾——AI拉升的盈利模式不是高抛低吸，是拿住整个火箭。</p>
-<p class="ai-p"><strong>坑4 · 把洗盘当见顶</strong>：拉升途中突然一根3-5%大阴线像见顶，第二天马上收回创新高。AI的洗盘专门做给技术派——你越懂见顶信号，它越制造"像见顶的洗盘"。洗盘幅度3-5%，真见顶往往超7%，要分清。</p>
-<blockquote class="ai-quote">一句话总结：等回调（错过）、忍不住追（接盘）、拿不住（赚小亏大）、把洗盘当见顶（下车）——四种坑，本质都是"老经验"被AI时代精准拿捏。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>七、结束信号：拉升结束，危险开始</summary><div class="section-body">
-<p class="ai-p">拉升结束≠行情结束，而是派发的开始。三个信号：</p>
-<p class="ai-p">1. <strong>放量滞涨</strong>：量能放出自拉升以来天量，价格却不涨，上影线越来越长、高点不再抬高。AI已赚够，开始边拉边卖——放量是派发需要量，滞涨是它在控制节奏。看到立即警惕。 2. <strong>龙头滞涨/跳水</strong>：龙头率先熄火、跟风股封不住涨停、板块从共振上涨变分化滞涨。龙头滞涨往往是主力先派发完龙头再轮到跟风股——整个板块都要警惕。 3. <strong>机构席位转净卖出</strong>：龙虎榜机构专用席位从净买入转为净卖出，且金额大于买入——拉升目标位已到，主力落袋为安。</p>
-<p class="ai-p">核心认知：<strong>拉升结束=派发的开始</strong>。散户最危险的时刻不是拉升结束，而是结束后还在幻想——每多拿一天，亏损就多一点。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>真实案例（基于公开行情复述，不构成投资建议）</summary><div class="section-body">
-<p class="ai-p"><strong>案例一 · 台阶+火箭组合（某新能源龙头）</strong>：8月上旬第一波拉升约18%后冲高回落，进入高位震荡洗盘，量能从80万手萎缩到30万手，8.19地量企稳；8.20放量突破平台，8.21放量长阳、机构专用席位买入5.6亿，进入加速段。判读：洗盘期量能萎缩是AI控盘洗浮筹的痕迹；但加速段追高要警惕随后1-2天出现放量滞涨。</p>
-<p class="ai-p"><strong>案例二 · 低位横盘→火箭式（某题材股）</strong>：低位横盘数周后，8.17放量启动、量能放大3倍（典型点火特征）；8.18板块爆发、龙头带动跟风（板块联动）；8.19冲高回落——放量滞涨，拉升末端+派发起点。陷阱：启动日等回调就上不了车；联动日追龙头已涨停；冲高日追涨正好接派发的货。</p>
-<p class="ai-p"><strong>案例三 · 末端放量滞涨（某题材股）</strong>：5个交易日涨超25%后，顶部连续3天放量滞涨——每天80-100万手成交但价格不涨；随后某天冲高7%快速回落收-2%（最后一波诱多）；次日跳空低开，派发正式开始。陷阱：滞涨期"自信还会涨"会错过减仓；诱多当天追涨正好接最后一棒。</p>
-<p class="ai-p">---</p>
-<blockquote class="ai-quote">⚠️ <strong>合规声明</strong>：本章节为投资教育内容，仅作学习参考，<strong>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</strong>。市场有风险，投资需谨慎。文中案例均基于公开行情数据复述，涉及个股与价格仅为讲解形态的示意。</blockquote>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-  </div>
-  <div class="chapter locked theme-gray" id="ch5">
+    <div class="baitou">比喻：AI像"点火系统"——不是慢慢烧，是瞬间点燃，等你看见火光，行情已经冲出去了。</div>
+
+    <h4>一、AI拉升的本质：拉升从"台阶式"变成"火箭式"</h4>
+    <p>人工时代，拉升靠操盘手一单一单推，有台阶、有节奏。AI时代，<b>拉升靠算法扫单点火+量化助推</b>——AI瞬间扫掉卖单点燃行情，量化资金程序化跟进放大趋势。<b>拉升更急促、更连贯、更不给上车机会</b>。</p>
+    <ul>
+      <li><b>AI扫单点火</b>：大单瞬间扫掉盘面卖单，价格直线拉升</li>
+      <li><b>量化助推</b>：程序化买入放大趋势，形成"越涨越买"的惯性</li>
+      <li><b>不给回调</b>：AI控制节奏，回调极浅极短——"等回调上车"等不到</li>
+    </ul>
+    <div class="box green"><div class="t">💡 一句话记牢</div>AI拉升的本质 = <b>用算法点火+量化助推，把行情做得"快、急、不给上车机会"</b>。</div>
+
+    <h4>二、AI拉升的操作手法（机构AI化后怎么拉）</h4>
+    <ul>
+      <li><b>AI扫单点火</b>：算法瞬间扫掉卖盘，制造"抢筹"的紧迫感</li>
+      <li><b>量化助推</b>：程序化买入放大涨幅，吸引跟风盘进场抬轿</li>
+      <li><b>精确控节奏</b>：AI控制拉升的时段和幅度（专挑流动性好的时段），减少阻力</li>
+      <li><b>板块联动点火</b>：AI同时扫多只票，制造"板块启动"效应，吸引全市场关注</li>
+      <li><b>拉升中量化护盘</b>：AI边拉边护，回调被量化买盘快速接住，不让深调</li>
+    </ul>
+    <h5>AI拉升的技术细节（怎么做到"瞬间点火"）</h5>
+    <ul>
+      <li><b>盘口扫描</b>：AI实时扫描五档卖单，选"卖压最薄"的瞬间扫单</li>
+      <li><b>算法接力</b>：扫单、助推、护盘由不同算法接力完成，节奏无缝</li>
+      <li><b>情绪引爆</b>：AI利用涨停板/连板效应，制造"再不追就没了"的恐慌</li>
+    </ul>
+
+    <h4>三、AI拉升的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>AI怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>AI火箭式拉升</b></td><td>扫单点火一气呵成</td><td>连续大阳/快速拉升</td><td>拉升极快、回调极浅</td></tr>
+      <tr><td><b>AI台阶式拉升</b></td><td>算法控制拉-横-拉节奏</td><td>台阶上升+量价齐升</td><td>台阶处缩量（AI控盘）</td></tr>
+      <tr><td><b>AI震荡式拉升</b></td><td>边震荡边抬高低点</td><td>低点不断上移</td><td>每次回调都被AI快速接住</td></tr>
+    </table>
+
+    <h4>四、AI时代的量价变化（核心认知：拉升的量价被AI"导演"）</h4>
+    <ul>
+      <li><b>量价齐升但更快</b>：AI拉升的量价配合标准得"像教科书"，但速度快到追不上</li>
+      <li><b>缩量回调变浅</b>：AI护盘，回调极浅极短——传统"等回调上车"等不到</li>
+      <li><b>分时更陡</b>：AI扫单造成的分时斜率远大于人工时代，一眼就能看出"机器拉的"</li>
+      <li><b>警惕放量滞涨</b>：拉升末端AI开始派发时，量价配合会突然"失真"——这是AI出货的起点</li>
+    </ul>
+
+    <h4>五、AI拉升的盘面痕迹（怎么让AI现形）</h4>
+    <ul>
+      <li><b>分时陡峭拉升</b>：直线拉抬、斜率极大（人工做不到这么连贯）</li>
+      <li><b>盘口秒扫卖单</b>：卖一卖二被瞬间吃掉，挂单来不及补（AI扫单特征）</li>
+      <li><b>板块联动点火</b>：多只票几乎同时启动（AI联动扫单）</li>
+      <li><b>龙虎榜机构+游资合力</b>：拉升期机构专用席位大额买入</li>
+      <li><b>回调被快速接住</b>：每次回调都有人"精准"接盘（量化护盘）</li>
+    </ul>
+
+    <h4>六、散户的坑（AI时代，拉升专治"等"和"追"）</h4>
+    <ul>
+      <li><b>坑1 · 等回调上车</b>：AI护盘回调极浅——等到"舒服的买点"，拉升已经走完</li>
+      <li><b>坑2 · 追在最高点</b>：忍不住追进去，正好接AI最后一棒（拉升末端=派发起点）</li>
+      <li><b>坑3 · 刚启动就卖</b>：AI拉升太急，你拿不住，卖完它就继续冲</li>
+      <li><b>坑4 · 把"拉升中的洗盘"当见顶</b>：AI边拉边洗，你被洗下车后它接着拉</li>
+    </ul>
+
+    <h4>七、AI拉升结束的信号（与出货的衔接）</h4>
+    <ul>
+      <li><b>放量滞涨</b>：AI拉升末端开始派发，量能巨大但价格不涨了</li>
+      <li><b>龙头滞涨/跳水</b>：板块龙头率先熄火，跟风盘接不动了</li>
+      <li><b>龙虎榜机构专用转净卖出</b>：AI从"买"转"卖"，拉升结束</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 高位洗盘 → 放量再突破</h4>
+      <ul>
+        <li>8月上旬上涨 15.9→18.8（第一波）</li>
+        <li><b>8.13 冲高回落</b> 20.72→18.94（开始洗盘）</li>
+        <li><b>8.14-8.18 高位震荡洗盘</b>（缩量换手）</li>
+        <li><b>8.21 放量突破新高</b> 21.20，机构买入<b>5.6亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">37.53</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">31.22</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">24.91</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">18.60</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">12.29</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="41.4" x2="70.2" y2="79.4" stroke="#1E9E5A" stroke-/><rect x="63.9" y="45.1" width="12.7" height="27.7" fill="#1E9E5A"/><rect x="63.9" y="342.2" width="12.7" height="47.8" fill="#1E9E5A" opacity="0.45"/><line x1="90.8" y1="59.3" x2="90.8" y2="90.5" stroke="#1E9E5A" stroke-/><rect x="84.4" y="63.0" width="12.7" height="17.8" fill="#1E9E5A"/><rect x="84.4" y="350.1" width="12.7" height="39.9" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="78.9" x2="111.2" y2="112.6" stroke="#1E9E5A" stroke-/><rect x="104.9" y="86.5" width="12.7" height="22.1" fill="#1E9E5A"/><rect x="104.9" y="342.7" width="12.7" height="47.3" fill="#1E9E5A" opacity="0.45"/><line x1="131.8" y1="116.4" x2="131.8" y2="138.0" stroke="#1E9E5A" stroke-/><rect x="125.4" y="124.8" width="12.7" height="13.2" fill="#1E9E5A"/><rect x="125.4" y="354.3" width="12.7" height="35.7" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="133.9" x2="152.2" y2="150.5" stroke="#1E9E5A" stroke-/><rect x="145.9" y="141.0" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="145.9" y="352.4" width="12.7" height="37.6" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="140.5" x2="172.8" y2="168.5" stroke="#1E9E5A" stroke-/><rect x="166.4" y="141.9" width="12.7" height="20.8" fill="#1E9E5A"/><rect x="166.4" y="355.2" width="12.7" height="34.8" fill="#1E9E5A" opacity="0.45"/><line x1="193.2" y1="160.5" x2="193.2" y2="176.9" stroke="#1E9E5A" stroke-/><rect x="186.9" y="164.0" width="12.7" height="8.3" fill="#1E9E5A"/><rect x="186.9" y="362.3" width="12.7" height="27.7" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="165.0" x2="213.8" y2="180.7" stroke="#1E9E5A" stroke-/><rect x="207.4" y="165.1" width="12.7" height="12.7" fill="#1E9E5A"/><rect x="207.4" y="362.4" width="12.7" height="27.6" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="169.5" x2="234.2" y2="186.8" stroke="#E03434" stroke-/><rect x="227.9" y="171.0" width="12.7" height="3.5" fill="#E03434"/><rect x="227.9" y="351.5" width="12.7" height="38.5" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="161.0" x2="254.8" y2="183.8" stroke="#1E9E5A" stroke-/><rect x="248.4" y="170.6" width="12.7" height="12.5" fill="#1E9E5A"/><rect x="248.4" y="351.1" width="12.7" height="38.9" fill="#1E9E5A" opacity="0.45"/><line x1="275.2" y1="185.3" x2="275.2" y2="204.9" stroke="#1E9E5A" stroke-/><rect x="268.9" y="187.1" width="12.7" height="17.8" fill="#1E9E5A"/><rect x="268.9" y="354.6" width="12.7" height="35.4" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="195.1" x2="295.8" y2="212.4" stroke="#E03434" stroke-/><rect x="289.4" y="195.1" width="12.7" height="9.7" fill="#E03434"/><rect x="289.4" y="358.1" width="12.7" height="31.9" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="184.5" x2="316.2" y2="200.4" stroke="#1E9E5A" stroke-/><rect x="309.9" y="186.2" width="12.7" height="13.8" fill="#1E9E5A"/><rect x="309.9" y="358.7" width="12.7" height="31.3" fill="#1E9E5A" opacity="0.45"/><line x1="336.8" y1="199.6" x2="336.8" y2="216.5" stroke="#1E9E5A" stroke-/><rect x="330.4" y="204.7" width="12.7" height="8.8" fill="#1E9E5A"/><rect x="330.4" y="358.6" width="12.7" height="31.4" fill="#1E9E5A" opacity="0.45"/><line x1="357.2" y1="209.5" x2="357.2" y2="232.4" stroke="#1E9E5A" stroke-/><rect x="350.9" y="213.2" width="12.7" height="18.6" fill="#1E9E5A"/><rect x="350.9" y="359.9" width="12.7" height="30.1" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="214.7" x2="377.8" y2="243.0" stroke="#1E9E5A" stroke-/><rect x="371.4" y="224.8" width="12.7" height="9.8" fill="#1E9E5A"/><rect x="371.4" y="341.5" width="12.7" height="48.5" fill="#1E9E5A" opacity="0.45"/><line x1="398.2" y1="229.9" x2="398.2" y2="251.4" stroke="#E03434" stroke-/><rect x="391.9" y="231.1" width="12.7" height="1.8" fill="#E03434"/><rect x="391.9" y="331.6" width="12.7" height="58.4" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="226.8" x2="418.8" y2="240.8" stroke="#1E9E5A" stroke-/><rect x="412.4" y="236.7" width="12.7" height="2.0" fill="#1E9E5A"/><rect x="412.4" y="344.2" width="12.7" height="45.8" fill="#1E9E5A" opacity="0.45"/><line x1="439.2" y1="227.2" x2="439.2" y2="241.1" stroke="#1E9E5A" stroke-/><rect x="432.9" y="236.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="432.9" y="346.3" width="12.7" height="43.7" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="237.6" x2="459.8" y2="246.9" stroke="#1E9E5A" stroke-/><rect x="453.4" y="242.1" width="12.7" height="4.1" fill="#1E9E5A"/><rect x="453.4" y="364.7" width="12.7" height="25.3" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="230.6" x2="480.2" y2="247.2" stroke="#E03434" stroke-/><rect x="473.9" y="237.6" width="12.7" height="7.5" fill="#E03434"/><rect x="473.9" y="339.5" width="12.7" height="50.5" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="237.1" x2="500.8" y2="250.7" stroke="#1E9E5A" stroke-/><rect x="494.4" y="244.5" width="12.7" height="3.8" fill="#1E9E5A"/><rect x="494.4" y="351.1" width="12.7" height="38.9" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="248.2" x2="521.2" y2="261.3" stroke="#1E9E5A" stroke-/><rect x="514.9" y="248.7" width="12.7" height="6.1" fill="#1E9E5A"/><rect x="514.9" y="355.6" width="12.7" height="34.4" fill="#1E9E5A" opacity="0.45"/><line x1="541.8" y1="251.4" x2="541.8" y2="268.6" stroke="#1E9E5A" stroke-/><rect x="535.4" y="256.6" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="535.4" y="357.9" width="12.7" height="32.1" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="251.4" x2="562.2" y2="264.1" stroke="#1E9E5A" stroke-/><rect x="555.9" y="257.1" width="12.7" height="6.3" fill="#1E9E5A"/><rect x="555.9" y="336.4" width="12.7" height="53.6" fill="#1E9E5A" opacity="0.45"/><line x1="582.8" y1="263.0" x2="582.8" y2="268.0" stroke="#E03434" stroke-/><rect x="576.4" y="264.5" width="12.7" height="2.0" fill="#E03434"/><rect x="576.4" y="362.8" width="12.7" height="27.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="255.3" x2="603.2" y2="263.3" stroke="#E03434" stroke-/><rect x="596.9" y="257.1" width="12.7" height="4.3" fill="#E03434"/><rect x="596.9" y="354.3" width="12.7" height="35.7" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="242.7" x2="623.8" y2="260.3" stroke="#E03434" stroke-/><rect x="617.4" y="242.7" width="12.7" height="17.4" fill="#E03434"/><rect x="617.4" y="355.1" width="12.7" height="34.9" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="235.8" x2="644.2" y2="245.9" stroke="#E03434" stroke-/><rect x="637.9" y="238.1" width="12.7" height="6.1" fill="#E03434"/><rect x="637.9" y="335.7" width="12.7" height="54.3" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="229.2" x2="664.8" y2="240.0" stroke="#E03434" stroke-/><rect x="658.4" y="230.8" width="12.7" height="4.6" fill="#E03434"/><rect x="658.4" y="343.1" width="12.7" height="46.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="224.6" x2="685.2" y2="236.6" stroke="#1E9E5A" stroke-/><rect x="678.9" y="228.2" width="12.7" height="1.5" fill="#1E9E5A"/><rect x="678.9" y="349.6" width="12.7" height="40.4" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="227.1" x2="705.8" y2="236.1" stroke="#1E9E5A" stroke-/><rect x="699.4" y="230.9" width="12.7" height="1.2" fill="#1E9E5A"/><rect x="699.4" y="359.6" width="12.7" height="30.4" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="215.1" x2="726.2" y2="233.4" stroke="#E03434" stroke-/><rect x="719.9" y="215.1" width="12.7" height="15.3" fill="#E03434"/><rect x="719.9" y="368.4" width="12.7" height="21.6" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="196.5" x2="746.8" y2="216.7" stroke="#1E9E5A" stroke-/><rect x="740.4" y="196.9" width="12.7" height="17.2" fill="#1E9E5A"/><rect x="740.4" y="302.4" width="12.7" height="87.6" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="204.1" x2="767.2" y2="222.9" stroke="#E03434" stroke-/><rect x="760.9" y="207.1" width="12.7" height="8.2" fill="#E03434"/><rect x="760.9" y="312.4" width="12.7" height="77.6" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="198.9" x2="787.8" y2="213.3" stroke="#E03434" stroke-/><rect x="781.4" y="200.7" width="12.7" height="7.1" fill="#E03434"/><rect x="781.4" y="319.3" width="12.7" height="70.7" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="200.0" x2="808.2" y2="211.5" stroke="#1E9E5A" stroke-/><rect x="801.9" y="203.5" width="12.7" height="5.3" fill="#1E9E5A"/><rect x="801.9" y="342.4" width="12.7" height="47.6" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="213.3" x2="828.8" y2="228.2" stroke="#1E9E5A" stroke-/><rect x="822.4" y="220.3" width="12.7" height="7.9" fill="#1E9E5A"/><rect x="822.4" y="350.3" width="12.7" height="39.7" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="210.9" x2="849.2" y2="231.6" stroke="#E03434" stroke-/><rect x="842.9" y="210.9" width="12.7" height="13.5" fill="#E03434"/><rect x="842.9" y="330.4" width="12.7" height="59.6" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="191.8" x2="869.8" y2="208.9" stroke="#E03434" stroke-/><rect x="863.4" y="191.8" width="12.7" height="11.3" fill="#E03434"/><rect x="863.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,72.9 90.8,76.8 111.2,87.4 131.8,100.1 152.2,109.9 172.8,127.9 193.2,146.2 213.8,160.1 234.2,166.7 254.8,173.4 275.2,181.8 295.8,186.4 316.2,190.8 336.8,199.3 357.2,209.1 377.8,215.0 398.2,222.2 418.8,230.0 439.2,234.8 459.8,237.6 480.2,238.2 500.8,241.7 521.2,244.9 541.8,250.4 562.2,253.9 582.8,259.2 603.2,261.0 623.8,258.6 644.2,253.2 664.8,246.6 685.2,239.7 705.8,234.7 726.2,229.2 746.8,224.4 767.2,219.6 787.8,213.8 808.2,209.2 828.8,211.8 849.2,211.2 869.8,208.1" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,72.9 90.8,76.8 111.2,87.4 131.8,100.1 152.2,109.9 172.8,118.7 193.2,126.4 213.8,132.8 234.2,137.1 254.8,141.7 275.2,147.4 295.8,151.4 316.2,155.1 336.8,159.3 357.2,164.1 377.8,168.5 398.2,172.2 418.8,175.9 439.2,179.2 459.8,182.5 480.2,190.7 500.8,199.1 521.2,206.4 541.8,212.8 562.2,218.5 582.8,223.6 603.2,227.8 623.8,231.1 644.2,234.4 664.8,236.8 685.2,238.0 705.8,239.9 726.2,240.6 746.8,240.7 767.2,239.4 787.8,237.7 808.2,236.6 828.8,236.1 849.2,234.8 869.8,232.1" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="828.8" cy="228.2" r="5" fill="none" stroke="#C8102E" stroke-/><text x="828.8" y="218.2" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">洗盘低点</text><circle cx="869.8" cy="191.8" r="5" fill="none" stroke="#C8102E" stroke-/><text x="869.8" y="181.8" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">突破新高</text></svg>
+    </div>
+    <div class="case">
+      <h4>🎯 真实案例二 · 低位横盘 → 放量拉升</h4>
+      <ul><li>低位横盘4.6-5.4 → <b>8.17 放量启动</b>（3倍量）→ 8.18 板块爆发收6.23 → 8.19 冲高6.78回落</li></ul>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例二</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">6.93</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">6.11</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">5.30</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">4.49</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">3.67</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="222.6" x2="70.2" y2="237.2" stroke="#1E9E5A" stroke-/><rect x="63.9" y="228.7" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="63.9" y="381.5" width="12.7" height="8.5" fill="#1E9E5A" opacity="0.45"/><line x1="90.8" y1="227.2" x2="90.8" y2="237.2" stroke="#1E9E5A" stroke-/><rect x="84.4" y="229.5" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="84.4" y="381.5" width="12.7" height="8.5" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="205.7" x2="111.2" y2="232.5" stroke="#E03434" stroke-/><rect x="104.9" y="214.1" width="12.7" height="13.8" fill="#E03434"/><rect x="104.9" y="374.0" width="12.7" height="16.0" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="176.5" x2="131.8" y2="215.7" stroke="#E03434" stroke-/><rect x="125.4" y="208.0" width="12.7" height="6.1" fill="#E03434"/><rect x="125.4" y="367.3" width="12.7" height="22.7" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="207.2" x2="152.2" y2="223.3" stroke="#1E9E5A" stroke-/><rect x="145.9" y="207.2" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="145.9" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="212.6" x2="172.8" y2="225.6" stroke="#1E9E5A" stroke-/><rect x="166.4" y="218.0" width="12.7" height="6.9" fill="#1E9E5A"/><rect x="166.4" y="378.7" width="12.7" height="11.3" fill="#1E9E5A" opacity="0.45"/><line x1="193.2" y1="224.1" x2="193.2" y2="240.2" stroke="#1E9E5A" stroke-/><rect x="186.9" y="226.4" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="186.9" y="379.7" width="12.7" height="10.3" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="235.6" x2="213.8" y2="244.8" stroke="#1E9E5A" stroke-/><rect x="207.4" y="239.5" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="207.4" y="381.6" width="12.7" height="8.4" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="240.2" x2="234.2" y2="252.5" stroke="#E03434" stroke-/><rect x="227.9" y="245.6" width="12.7" height="1.5" fill="#E03434"/><rect x="227.9" y="381.8" width="12.7" height="8.2" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="228.7" x2="254.8" y2="251.7" stroke="#E03434" stroke-/><rect x="248.4" y="235.6" width="12.7" height="9.2" fill="#E03434"/><rect x="248.4" y="375.8" width="12.7" height="14.2" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="232.5" x2="275.2" y2="249.4" stroke="#1E9E5A" stroke-/><rect x="268.9" y="235.6" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="268.9" y="379.1" width="12.7" height="10.9" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="224.1" x2="295.8" y2="244.8" stroke="#E03434" stroke-/><rect x="289.4" y="232.5" width="12.7" height="12.3" fill="#E03434"/><rect x="289.4" y="366.7" width="12.7" height="23.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="225.6" x2="316.2" y2="243.3" stroke="#E03434" stroke-/><rect x="309.9" y="233.3" width="12.7" height="7.7" fill="#E03434"/><rect x="309.9" y="369.5" width="12.7" height="20.5" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="224.1" x2="336.8" y2="240.2" stroke="#E03434" stroke-/><rect x="330.4" y="231.0" width="12.7" height="7.7" fill="#E03434"/><rect x="330.4" y="373.3" width="12.7" height="16.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="227.2" x2="357.2" y2="251.7" stroke="#1E9E5A" stroke-/><rect x="350.9" y="233.3" width="12.7" height="14.6" fill="#1E9E5A"/><rect x="350.9" y="373.9" width="12.7" height="16.1" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="237.9" x2="377.8" y2="256.4" stroke="#1E9E5A" stroke-/><rect x="371.4" y="248.7" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="371.4" y="374.5" width="12.7" height="15.5" fill="#1E9E5A" opacity="0.45"/><line x1="398.2" y1="247.9" x2="398.2" y2="268.6" stroke="#E03434" stroke-/><rect x="391.9" y="249.4" width="12.7" height="5.4" fill="#E03434"/><rect x="391.9" y="373.5" width="12.7" height="16.5" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="241.0" x2="418.8" y2="255.6" stroke="#E03434" stroke-/><rect x="412.4" y="241.8" width="12.7" height="9.2" fill="#E03434"/><rect x="412.4" y="375.7" width="12.7" height="14.3" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="222.6" x2="439.2" y2="247.9" stroke="#E03434" stroke-/><rect x="432.9" y="224.9" width="12.7" height="19.2" fill="#E03434"/><rect x="432.9" y="369.8" width="12.7" height="20.2" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="223.3" x2="459.8" y2="247.9" stroke="#1E9E5A" stroke-/><rect x="453.4" y="228.7" width="12.7" height="18.4" fill="#1E9E5A"/><rect x="453.4" y="373.8" width="12.7" height="16.2" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="234.9" x2="480.2" y2="251.7" stroke="#E03434" stroke-/><rect x="473.9" y="236.4" width="12.7" height="13.1" fill="#E03434"/><rect x="473.9" y="378.7" width="12.7" height="11.3" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="224.1" x2="500.8" y2="238.7" stroke="#E03434" stroke-/><rect x="494.4" y="231.8" width="12.7" height="5.4" fill="#E03434"/><rect x="494.4" y="376.4" width="12.7" height="13.6" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="222.6" x2="521.2" y2="234.9" stroke="#E03434" stroke-/><rect x="514.9" y="225.6" width="12.7" height="7.7" fill="#E03434"/><rect x="514.9" y="374.5" width="12.7" height="15.5" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="211.1" x2="541.8" y2="233.3" stroke="#1E9E5A" stroke-/><rect x="535.4" y="227.2" width="12.7" height="5.4" fill="#1E9E5A"/><rect x="535.4" y="372.4" width="12.7" height="17.6" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="220.3" x2="562.2" y2="235.6" stroke="#E03434" stroke-/><rect x="555.9" y="221.8" width="12.7" height="13.8" fill="#E03434"/><rect x="555.9" y="375.4" width="12.7" height="14.6" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="207.2" x2="582.8" y2="221.8" stroke="#E03434" stroke-/><rect x="576.4" y="208.0" width="12.7" height="7.7" fill="#E03434"/><rect x="576.4" y="368.3" width="12.7" height="21.7" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="205.7" x2="603.2" y2="214.9" stroke="#E03434" stroke-/><rect x="596.9" y="206.4" width="12.7" height="3.1" fill="#E03434"/><rect x="596.9" y="373.5" width="12.7" height="16.5" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="200.3" x2="623.8" y2="210.3" stroke="#E03434" stroke-/><rect x="617.4" y="203.4" width="12.7" height="3.8" fill="#E03434"/><rect x="617.4" y="374.6" width="12.7" height="15.4" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="151.2" x2="644.2" y2="209.5" stroke="#E03434" stroke-/><rect x="637.9" y="170.4" width="12.7" height="33.0" fill="#E03434"/><rect x="637.9" y="338.4" width="12.7" height="51.6" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="178.8" x2="664.8" y2="198.8" stroke="#1E9E5A" stroke-/><rect x="658.4" y="181.1" width="12.7" height="3.8" fill="#1E9E5A"/><rect x="658.4" y="344.4" width="12.7" height="45.6" fill="#1E9E5A" opacity="0.45"/><line x1="685.2" y1="181.9" x2="685.2" y2="191.1" stroke="#1E9E5A" stroke-/><rect x="678.9" y="185.7" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="678.9" y="361.9" width="12.7" height="28.1" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="185.7" x2="705.8" y2="195.7" stroke="#1E9E5A" stroke-/><rect x="699.4" y="189.6" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="699.4" y="371.2" width="12.7" height="18.8" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="186.5" x2="726.2" y2="197.2" stroke="#E03434" stroke-/><rect x="719.9" y="188.0" width="12.7" height="6.1" fill="#E03434"/><rect x="719.9" y="371.2" width="12.7" height="18.8" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="184.9" x2="746.8" y2="196.5" stroke="#1E9E5A" stroke-/><rect x="740.4" y="191.1" width="12.7" height="1.5" fill="#1E9E5A"/><rect x="740.4" y="370.4" width="12.7" height="19.6" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="191.1" x2="767.2" y2="208.0" stroke="#1E9E5A" stroke-/><rect x="760.9" y="191.9" width="12.7" height="11.5" fill="#1E9E5A"/><rect x="760.9" y="371.9" width="12.7" height="18.1" fill="#1E9E5A" opacity="0.45"/><line x1="787.8" y1="143.5" x2="787.8" y2="190.3" stroke="#E03434" stroke-/><rect x="781.4" y="163.4" width="12.7" height="15.4" fill="#E03434"/><rect x="781.4" y="327.0" width="12.7" height="63.0" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="83.6" x2="808.2" y2="155.0" stroke="#E03434" stroke-/><rect x="801.9" y="83.6" width="12.7" height="66.0" fill="#E03434"/><rect x="801.9" y="306.5" width="12.7" height="83.5" fill="#E03434" opacity="0.45"/><line x1="828.8" y1="41.4" x2="828.8" y2="101.3" stroke="#1E9E5A" stroke-/><rect x="822.4" y="69.8" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="822.4" y="295.0" width="12.7" height="95.0" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="50.6" x2="849.2" y2="133.5" stroke="#E03434" stroke-/><rect x="842.9" y="75.1" width="12.7" height="31.5" fill="#E03434"/><rect x="842.9" y="312.3" width="12.7" height="77.7" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="89.7" x2="869.8" y2="135.8" stroke="#1E9E5A" stroke-/><rect x="863.4" y="95.1" width="12.7" height="37.6" fill="#1E9E5A"/><rect x="863.4" y="332.9" width="12.7" height="57.1" fill="#1E9E5A" opacity="0.45"/><polyline points="70.2,229.5 90.8,229.9 111.2,224.6 131.8,220.5 152.2,220.4 172.8,219.5 193.2,221.3 213.8,227.3 234.2,234.9 254.8,237.9 275.2,242.7 295.8,241.3 316.2,239.2 336.8,236.2 357.2,238.7 377.8,239.6 398.2,243.0 418.8,244.7 439.2,243.5 459.8,243.3 480.2,239.9 500.8,236.4 521.2,233.2 541.8,234.7 562.2,229.6 582.8,223.9 603.2,218.9 623.8,214.4 644.2,202.0 664.8,194.6 685.2,190.3 705.8,187.9 726.2,184.8 746.8,189.2 767.2,192.9 787.8,188.3 808.2,166.2 828.8,145.2 849.2,121.7 869.8,107.5" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,229.5 90.8,229.9 111.2,224.6 131.8,220.5 152.2,220.4 172.8,221.2 193.2,223.8 213.8,226.3 234.2,228.5 254.8,229.2 275.2,230.9 295.8,231.1 316.2,231.2 336.8,231.2 357.2,232.3 377.8,233.7 398.2,234.6 418.8,235.0 439.2,234.4 459.8,235.1 480.2,235.4 500.8,235.5 521.2,236.1 541.8,237.3 562.2,237.4 582.8,236.5 603.2,234.9 623.8,232.9 644.2,229.1 664.8,226.6 685.2,223.5 705.8,221.5 726.2,219.3 746.8,217.3 767.2,215.1 787.8,210.6 808.2,202.3 828.8,194.4 849.2,186.9 869.8,181.2" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="787.8" cy="163.4" r="5" fill="none" stroke="#C8102E" stroke-/><text x="787.8" y="153.4" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量启动</text><circle cx="808.2" cy="83.6" r="5" fill="none" stroke="#C8102E" stroke-/><text x="808.2" y="73.6" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">板块爆发</text></svg>
+    </div>
+
+      </div>
+</div>
+
+<!-- ==================== 第5章 出货篇 ==================== -->
+<div class="chapter locked theme-gray" id="ch5">
   <div class="head" onclick="toggleChapter(5)">
     <div>
 <h2>⑤ AI机构：派发现形<span class="chtitle-sub">算法派发 · 对倒维持</span></h2>
@@ -674,71 +714,87 @@
     <div class="lock lock-pulse" id="lock5">🔒</div>
   </div>
   <div class="body">
-<h5 class="ai-h5">算法派发 · 对倒维持</h5>
-<blockquote class="ai-quote">你以为AI是搬家工人在搬货，其实是隐形魔术师在表演"大变活人"——箱子还在，标签还贴着"重仓持有"，里面的货早被一次次从后门搬空。K线漂亮、横盘蓄势、利好配合，等你反应过来去看重量，箱子空了，只剩一地鸡毛。<strong>货搬完了，你连搬运工的背影都没看见</strong>。</blockquote>
-<p class="ai-p">></p>
-<blockquote class="ai-quote">老王重仓一只票浮盈70%，8月下旬问我："是不是洗一下盘还会上去？"我盯着图看了三秒："老王，它不是洗盘，它早就搬完了。"</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>一、AI派发的本质：搬货变成&quot;看不见的魔术&quot;</summary><div class="section-body">
-<p class="ai-p">四阶段（建仓、震仓、试探、拉升）都不是主菜，<strong>派发才是</strong>——机构的终极目的只有一个：在最高位把筹码换成现金。建仓为拿便宜货，震仓为洗浮筹，试探为测抛压，拉升为把价格推到让人眼红的位置，一切都在为派发铺路。</p>
-<p class="ai-p">人工时代派发看得见：高位放量、长阴线、龙虎榜净卖出，老手能从量价异动嗅出味道。AI时代派发彻底升级：<strong>AI派发不是"卖"，是"搬"</strong>——大卖单被算法切成微粒，混在散户买单里一笔笔送出去；同时对倒维持价格，把K线做得"漂亮得不像话"。你看到的是"一切正常、主力锁仓"，筹码却正以看不见的速度从主力口袋搬进散户口袋。</p>
-<p class="ai-p">为什么它最危险？一是<strong>持续时间最长</strong>：AI能一边维持价格一边慢慢搬，高位派发数周甚至数月；二是<strong>诱惑最强</strong>：拉升刚结束、形态完美、浮盈诱人，散户最自信的时刻正是AI塞货的时刻；三是<strong>骗术最综合</strong>：对倒、假突破、利好、尾盘拉抬全是它的工具。</p>
-<blockquote class="ai-quote">💡 <strong>一句话记牢</strong>：AI派发的本质，是<strong>用算法把"卖"做成"不像卖"，让你接了货还以为它在蓄势</strong>。</blockquote>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>二、AI派发的操作手法：五件套</summary><div class="section-body">
-<p class="ai-p"><strong>1. 算法拆单派发（最核心）</strong>：100万股切成1000笔小单，按随机时间、随机价格撒进散户交易流。盘口无大卖单、K线不放量、分时无异动——但一天的小卖单加起来，可能已悄悄卖出三成仓位。AI还会动态调整：买盘强就切得更碎，价格拉升就加大卖出、吃掉追高盘。</p>
-<p class="ai-p"><strong>2. 对倒维持价格</strong>：A账户卖，B、C账户接。外部看量价齐升、K线完美，其实筹码只在机构账户间转圈，随时再拆单派发给散户。<strong>K线是AI"做"出来的，不是市场自然形成的。</strong></p>
-<p class="ai-p"><strong>3. 假突破诱多</strong>：横盘后突然放量突破前高，追高盘蜂拥而入，AI趁机在高位派发。突破幅度、时间、回落速度全在算法掌控中。无量突破、突破后不创新高、龙虎榜净卖出，即是铁证。</p>
-<p class="ai-p"><strong>4. 利好出货</strong>：利好是散户的"接盘信号"。机构提前埋伏消息，等情绪最高时集中派发——当天放巨量却涨不动，就是"见光死"。</p>
-<p class="ai-p"><strong>5. 尾盘拉抬</strong>：盘中悄悄卖了一天，尾盘用对倒账户把K线拉红，做出"强势收尾"的假象。连续3天以上尾盘拉升，往往是派发的尾声。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>三、AI派发的三种方式</summary><div class="section-body">
-<p class="ai-p"><strong>方式一：高位横盘派发（最常见）</strong>。拉升结束后价格高位窄幅震荡，看似"安全、锁仓、蓄势"，实则对倒维持+拆单派发，偶尔小拉升激活"再赚一波"的心理。振幅越来越小、K线小阴小阳、机构席位小额持续净卖出、股东户数缓慢增加——横盘可持续数周，直到搬空为止。</p>
-<p class="ai-p"><strong>方式二：假突破诱多派发（最狡猾）</strong>。蓄势整理后突然放量突破前高，等"突破确认"的散户资金一次性涌入，AI在突破价位集中派发，几天内完成大规模出货。无量突破、突破后冲高乏力、两三天内出现长上影或冲高回落，即为特征。</p>
-<p class="ai-p"><strong>方式三：利好出货派发（最明目张胆）</strong>。业绩预增、重大合同、政策利好、机构密集调研——AI专等媒体铺天盖地、情绪最高、技术形态最完美、估值最贵时集中派发。当天放历史天量却冲高回落，之后几天"利好兑现"式回调，龙虎榜机构净卖出。</p>
-<p class="ai-p">三种方式常叠加使用：先横盘麻痹，再假突破诱多，最后借利好完成最后一波集中出货。老王的血泪总结："利好的甜，是AI用来毒散户的蜜。"</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>四、AI时代的量价变化</summary><div class="section-body">
-<p class="ai-p">AI派发最反直觉之处：<strong>"看起来正常的量价"成了最危险的信号</strong>。</p>
-<table class="ai-table"><thead><tr><th>老经验</th><th>AI时代的真相</th></tr></thead><tbody><tr><td>缩量横盘 = 惜售</td><td>AI可能已把货搬空，没人卖了才"缩量"</td></tr><tr><td>量价齐升 = 健康</td><td>对倒+派发做出来的"假健康"</td></tr><tr><td>放量突破 = 真突破</td><td>可能是假突破诱多</td></tr><tr><td>高位温和 = 安全</td><td>派发期"最危险的安全"</td></tr></tbody></table>
-<p class="ai-p">所以"缩量"可能是"卖完了没人卖"，"放量"可能是"对倒+派发"，"量价齐升"可能是AI的导演作品——<strong>真实的上涨不完美，不完美的上涨才是真的</strong>。散户看的是K线，AI做的是K线；只有龙虎榜、机构席位、股东户数等<strong>行为数据</strong>，才是穿透派发迷雾的"X光"。</p>
-<p class="ai-p">老王曾指着一段K线说："缩量、均线粘合、MACD将金叉，主力吸筹无疑。"结果横盘结束直接跳空低开、连续阴线。均线粘合可能不是蓄势，而是价格被对倒钉在一个价位；MACD金叉也可能是对倒做出的技术假象。他后来感叹："我以为横盘蓄势，结果是搬空蓄跌——AI骗的不是K线，是我对K线的信任。"</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>五、AI派发的盘面痕迹：5个信号 + 识别清单</summary><div class="section-body">
-<p class="ai-p">1. <strong>高位缩量横盘</strong>：量看似萎缩、形态漂亮，但行为数据显示机构席位持续小额净卖出、股东户数缓慢增加——AI把"大卖"拆成"小卖"，怕被监管看见。 2. <strong>频繁假突破</strong>：突破前高后不继续拉升反而快速回落——目的是激活追高盘，让你高位接货。 3. <strong>利好不涨（见光死）</strong>：利好当天放巨量却涨不动，几天内不再创新高——利好就是"接盘信号"。 4. <strong>反弹无量、高点越来越低</strong>：连续3次以上反弹无量，派发接近尾声，价格开始阴跌。 5. <strong>龙虎榜机构专用净卖出</strong>：连续3天以上净卖出，即派发铁证。</p>
-<table class="ai-table"><thead><tr><th>痕迹</th><th>老经验判断</th><th>AI派发真相</th><th>危险等级</th></tr></thead><tbody><tr><td>高位缩量横盘</td><td>主力惜售</td><td>派发进行中</td><td>⚠️⚠️⚠️</td></tr><tr><td>频繁假突破</td><td>主力试盘</td><td>诱多派发</td><td>⚠️⚠️⚠️⚠️</td></tr><tr><td>利好不涨</td><td>利好兑现</td><td>利好出货</td><td>⚠️⚠️⚠️⚠️</td></tr><tr><td>反弹无量</td><td>抛压轻</td><td>派发末期</td><td>⚠️⚠️⚠️⚠️⚠️</td></tr><tr><td>龙虎榜净卖出</td><td>主力调仓</td><td>派发铁证</td><td>⚠️⚠️⚠️⚠️⚠️</td></tr></tbody></table>
-<p class="ai-p">单个痕迹不足为凭，<strong>3个以上同时出现即高危预警，5个齐现则派发基本确认</strong>。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>六、散户的坑：你把派发当蓄势</summary><div class="section-body">
-<p class="ai-p">AI派发最可怕的不是骗你买在最高点——<strong>是让散户"主动"站岗</strong>：坚持持有、拒绝止损、加仓摊低成本，最后站岗数月甚至数年。四个坑：</p>
-<p class="ai-p"><strong>坑1 · 把派发当蓄势</strong>。K线漂亮、量能温和、均线多头、利好配合——这一切都是AI导演的，目的就是让你相信"还会涨"，于是拒绝卖出、加仓摊薄、推荐朋友。<strong>任何"完美"都值得怀疑：市场本是混乱的，完美本身就异常。</strong></p>
-<p class="ai-p"><strong>坑2 · 看到利好冲进去</strong>。利好是AI发出的"接盘邀请函"——当天往往就是最高点。再好的利好，公布当天都不是好的买入时机；利好公布后3-5天的表现才见真假。</p>
-<p class="ai-p"><strong>坑3 · 装死不止损</strong>。派发初期盘面"正常"，散户不看账户、等"解套"，结果从"被派发"变成"长期站岗"。设定明确止损线，发现派发痕迹立即卖出，不要等"反弹"。</p>
-<p class="ai-p"><strong>坑4 · 越懂越自信</strong>。"主力对倒""突破要回踩""洗盘吸筹"——每一次用专业知识反驳派发证据，就给了AI一次派发机会。<strong>AI最狡猾的设计，就是让你用自己的专业，替它解释掉所有派发痕迹。</strong>盘面信号与行为数据矛盾时，相信行为数据。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>七、AI派发结束的信号：搬完 = 自由落体</summary><div class="section-body">
-<p class="ai-p">1. <strong>行为数据转空</strong>：龙虎榜不再出现机构持续净卖出，机构席位彻底消失——不是安全，是货已清完。 2. <strong>破位下跌</strong>：前期"完美"平台被明显跌破，出现长阴或跳空低开——AI不再对倒维持，价格回归真实供需，断崖式下跌没有抵抗力。 3. <strong>阴跌 + 回光返照</strong>：每天小跌、反弹无量、高点一次比一次低；派发结束后两三周可能突发放量拉升，看似"启动"——那是<strong>最后一次诱多</strong>，反弹1天可能再跌3个月。</p>
-<p class="ai-p">老王最痛的一次：机构席位从龙虎榜消失后价格才开始大跌，他还安慰自己"会反弹"——反弹两天又继续跌。<strong>货搬完后的下跌是断崖式的，没有任何抵抗力。</strong></p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>🎯 真实案例复盘</summary><div class="section-body">
-<blockquote class="ai-quote">声明：以下案例股票名、代码全部打码，仅作技术讲解，<strong>不构成任何投资建议、不推荐、不指导</strong>。</blockquote>
-<p class="ai-p"><strong>案例一 · 连板暴涨后高位横盘派发</strong>：某AI概念股7月底至8月初连板暴涨89%（9.58→14.03元附近），某日冲高15.09后回落，出现天量滞涨——派发启动。此后6个交易日高位横盘，每天105-122万手巨量，价格却不再创新高；最后一日冲高13.25后跌破平台，自由落体开始。散户误判："涨了89%回调很正常""横盘蓄势还有第二波"——真相是：拉升越急，派发越坚决，<strong>不创新高才是派发的核心信号</strong>。</p>
-<p class="ai-p"><strong>案例二 · 假突破诱多派发</strong>：某科技股8月第一波上涨（15.9→18.8），高位洗盘5天后突然放量突破前高冲至21.20，龙虎榜显示机构买入5.6亿——散户以为"突破确认"蜂拥而入。突破后并未继续拉升，反而快速回落，突破日就是最高点。这5.6亿里有多少是对倒、多少是诱多？AI时代无法分辨——<strong>"突破确认"被AI做成了"派发确认"</strong>。</p>
-<p class="ai-p"><strong>案例三 · 低位启动 vs 派发的临界点</strong>：某票低位横盘后突放3倍量启动，收6.23，次日冲高6.78回落。启动与派发在此最难分辨：拉升后立刻放量滞涨、利好配合+巨量、龙虎榜净卖出——三种信号出现多个，就要高度警惕"连续涨可能是最后一次诱多"。</p>
-<p class="ai-p">---</p>
-<details class="ai-section"><summary>⚠️ 合规声明</summary><div class="section-body">
-<p class="ai-p">本图鉴为投资教育内容，仅作学习参考，<strong>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</strong>。市场有风险，投资需谨慎。案例均已打码，学习者应独立判断、自担风险。</p>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-</div></details>
-  </div>
-  <div class="compliance">⚠️ <b>合规声明：</b>本图鉴为投资教育内容，仅作学习参考，<b>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</b>。市场有风险，投资需谨慎。</div>
+    <div class="baitou">比喻：AI像"隐形搬运工"——用算法把你的货悄悄搬走，搬完还维持着"一切正常"的假象。</div>
+
+    <h4>一、AI派发的本质：出货从"看得见的卖"变成"看不见的搬"</h4>
+    <p>人工时代，出货总有大单砸盘、放量下跌的痕迹。AI时代，<b>AI用算法把大卖单拆成微粒慢慢卖、用对倒维持价格假象、精准选择散户情绪最高时派发</b>——<b>货在悄悄转移，盘面却"一切正常"</b>。这是四阶段里AI最狡猾的一步。</p>
+    <ul>
+      <li><b>算法派发</b>：大卖单拆成小单慢慢卖，你看不出它在卖</li>
+      <li><b>对倒维持</b>：AI自己买自己卖，把价格"钉"在高位，做出强势假象</li>
+      <li><b>精准择时</b>：AI专挑散户情绪最高（怕错过）的时候派发，你接得最积极</li>
+    </ul>
+    <div class="box green"><div class="t">💡 一句话记牢</div>AI派发的本质 = <b>用算法把出货做成"隐形搬运"，让你以为横盘蓄势，其实货已搬空</b>。</div>
+
+    <h4>二、AI派发的操作手法（机构AI化后怎么出）</h4>
+    <ul>
+      <li><b>算法拆单派发</b>：大卖单拆成无数小单，混在正常交易里慢慢卖——卖完了你都看不出来</li>
+      <li><b>对倒维持价格</b>：AI自己买自己卖，把价格维持在高位，做出"强势整理"的假象</li>
+      <li><b>假突破诱多</b>：AI做出"突破"形态吸引追高盘，趁追高时大量派发</li>
+      <li><b>利好出货</b>：消息最好、情绪最高时，AI趁机把货倒给冲进来的人</li>
+      <li><b>尾盘拉抬</b>：盘中悄悄卖、尾盘拉一下，做出"强势"收尾假象</li>
+    </ul>
+    <h5>AI派发的技术细节（怎么做到"卖了像没卖"）</h5>
+    <ul>
+      <li><b>卖单拆微粒</b>：AI把卖单切成比买盘还小的单子，永远不显眼</li>
+      <li><b>对倒控价</b>：AI用对倒把关键价位钉住，K线形态"完美"到你挑不出毛病</li>
+      <li><b>情绪择时</b>：AI监控散户情绪数据，选在"追涨意愿最强"的时刻放量派发</li>
+    </ul>
+
+    <h4>三、AI派发的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>AI怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>AI高位横盘派发</b></td><td>对倒维持价格，小单慢慢卖</td><td>高位横盘"缩量"</td><td>横盘但行为数据显示筹码在转移</td></tr>
+      <tr><td><b>AI假突破诱多</b></td><td>做出突破形态，吸引追高盘</td><td>突破后冲高回落</td><td>突破无量/假突破+机构净卖出</td></tr>
+      <tr><td><b>AI利好出货</b></td><td>趁消息最好时集中派发</td><td>利好见光死</td><td>利好不涨+巨量+机构净卖出</td></tr>
+    </table>
+
+    <h4>四、AI时代的量价变化（核心认知：量价被AI"维持"成陷阱）</h4>
+    <ul>
+      <li><b>"缩量横盘"可能是AI对倒维持的</b>：看起来安全，实际AI在用小单把货搬给你</li>
+      <li><b>"量价正常"可能是AI导演的</b>：AI把量价配合做得完美，让你以为"蓄势待涨"</li>
+      <li><b>老经验"缩量=惜售"</b>：AI时代，缩量可能是"AI已经把货卖完了，没人卖了"</li>
+      <li><b>看行为数据</b>：只有机构行为追踪能看穿"横盘下面的筹码转移"</li>
+    </ul>
+
+    <h4>五、AI派发的盘面痕迹（怎么让AI现形）</h4>
+    <ul>
+      <li><b>高位"缩量横盘"但筹码在转移</b>：行为数据显示机构专用席位持续净卖出，盘面却平静</li>
+      <li><b>假突破频繁</b>：反复做出突破形态又回落（AI诱多派发）</li>
+      <li><b>利好不涨/见光死</b>：消息最好时反而不涨，AI趁机出货</li>
+      <li><b>反弹无量</b>：每次反弹都没量，高点越来越低（接盘者越来越少）</li>
+      <li><b>龙虎榜机构专用大额净卖出</b>：AI派发的铁证</li>
+    </ul>
+
+    <h4>六、散户的坑（AI时代，你把派发当蓄势）</h4>
+    <ul>
+      <li><b>坑1 · 把派发当"蓄势"</b>：AI把出货做得像洗盘/蓄势，你自信"还会涨"，一路站岗</li>
+      <li><b>坑2 · 看到利好冲进去</b>：AI专挑情绪最高时出货——利好就是它给你设的接盘信号</li>
+      <li><b>坑3 · 装死不止损</b>：AI派发初期盘面"正常"，等你发现，货已经搬完、价格已破位</li>
+      <li><b>坑4 · 越懂"洗盘出货区别"越自信</b>：你的"专业判断"（这是洗盘）正是AI设计让你这么想的</li>
+    </ul>
+
+    <h4>七、AI派发结束的信号（搬完的标志）</h4>
+    <ul>
+      <li><b>行为数据转空</b>：机构专用席位停止净卖出，货搬完了</li>
+      <li><b>破位下跌</b>：AI不再对倒维持，价格自由落体</li>
+      <li><b>阴跌/回光返照</b>：反弹无量、高点越来越低，最后诱多一波再跌</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 连板暴涨 → 高位放量滞涨</h4>
+      <ul>
+        <li>8月上旬连板暴涨 <b>89%</b>（9.58→14.03）</li>
+        <li><b>8.13 见顶</b> 冲15.09回落（天量滞涨）</li>
+        <li><b>8.14-8.21 高位巨量滞涨</b>（每天105-122万手，不再创新高）</li>
+        <li><b>8.21 冲高回落</b> 13.25，跌破平台</li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" style="width:100%;height:auto;display:block;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">15.53</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">13.10</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">10.67</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">8.24</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">5.81</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="253.7" x2="70.2" y2="268.6" stroke="#E03434" stroke-/><rect x="63.9" y="255.8" width="12.7" height="7.5" fill="#E03434"/><rect x="63.9" y="383.2" width="12.7" height="6.8" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="255.8" x2="90.8" y2="261.4" stroke="#1E9E5A" stroke-/><rect x="84.4" y="258.4" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="84.4" y="385.3" width="12.7" height="4.7" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="253.5" x2="111.2" y2="262.0" stroke="#E03434" stroke-/><rect x="104.9" y="253.7" width="12.7" height="6.7" fill="#E03434"/><rect x="104.9" y="383.7" width="12.7" height="6.3" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="248.6" x2="131.8" y2="255.8" stroke="#E03434" stroke-/><rect x="125.4" y="251.9" width="12.7" height="3.9" fill="#E03434"/><rect x="125.4" y="384.3" width="12.7" height="5.7" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="249.1" x2="152.2" y2="256.3" stroke="#1E9E5A" stroke-/><rect x="145.9" y="249.9" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="145.9" y="385.2" width="12.7" height="4.8" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="245.5" x2="172.8" y2="253.0" stroke="#E03434" stroke-/><rect x="166.4" y="248.8" width="12.7" height="3.9" fill="#E03434"/><rect x="166.4" y="383.6" width="12.7" height="6.4" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="249.9" x2="193.2" y2="257.6" stroke="#1E9E5A" stroke-/><rect x="186.9" y="249.9" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="186.9" y="385.0" width="12.7" height="5.0" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="254.2" x2="213.8" y2="259.6" stroke="#1E9E5A" stroke-/><rect x="207.4" y="256.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="207.4" y="386.9" width="12.7" height="3.1" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="255.5" x2="234.2" y2="263.2" stroke="#1E9E5A" stroke-/><rect x="227.9" y="258.9" width="12.7" height="2.1" fill="#1E9E5A"/><rect x="227.9" y="385.7" width="12.7" height="4.3" fill="#1E9E5A" opacity="0.45"/><line x1="254.8" y1="252.4" x2="254.8" y2="265.3" stroke="#E03434" stroke-/><rect x="248.4" y="254.5" width="12.7" height="8.0" fill="#E03434"/><rect x="248.4" y="382.8" width="12.7" height="7.2" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="251.7" x2="275.2" y2="257.1" stroke="#1E9E5A" stroke-/><rect x="268.9" y="254.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="268.9" y="385.5" width="12.7" height="4.5" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="252.2" x2="295.8" y2="259.4" stroke="#E03434" stroke-/><rect x="289.4" y="252.4" width="12.7" height="4.6" fill="#E03434"/><rect x="289.4" y="384.7" width="12.7" height="5.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="234.7" x2="316.2" y2="253.2" stroke="#E03434" stroke-/><rect x="309.9" y="234.7" width="12.7" height="17.5" fill="#E03434"/><rect x="309.9" y="378.2" width="12.7" height="11.8" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="215.4" x2="336.8" y2="233.2" stroke="#E03434" stroke-/><rect x="330.4" y="215.7" width="12.7" height="17.0" fill="#E03434"/><rect x="330.4" y="353.3" width="12.7" height="36.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="224.2" x2="357.2" y2="237.0" stroke="#1E9E5A" stroke-/><rect x="350.9" y="229.8" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="350.9" y="373.7" width="12.7" height="16.3" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="239.1" x2="377.8" y2="254.0" stroke="#E03434" stroke-/><rect x="371.4" y="242.7" width="12.7" height="5.7" fill="#E03434"/><rect x="371.4" y="371.9" width="12.7" height="18.1" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="245.0" x2="398.2" y2="261.4" stroke="#1E9E5A" stroke-/><rect x="391.9" y="245.8" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="391.9" y="372.3" width="12.7" height="17.7" fill="#1E9E5A" opacity="0.45"/><line x1="418.8" y1="247.0" x2="418.8" y2="256.3" stroke="#E03434" stroke-/><rect x="412.4" y="254.2" width="12.7" height="1.8" fill="#E03434"/><rect x="412.4" y="377.2" width="12.7" height="12.8" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="250.4" x2="439.2" y2="259.4" stroke="#E03434" stroke-/><rect x="432.9" y="250.6" width="12.7" height="6.2" fill="#E03434"/><rect x="432.9" y="378.5" width="12.7" height="11.5" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="249.1" x2="459.8" y2="260.4" stroke="#1E9E5A" stroke-/><rect x="453.4" y="252.4" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="453.4" y="380.3" width="12.7" height="9.7" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="244.2" x2="480.2" y2="264.8" stroke="#E03434" stroke-/><rect x="473.9" y="249.4" width="12.7" height="11.3" fill="#E03434"/><rect x="473.9" y="377.3" width="12.7" height="12.7" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="242.7" x2="500.8" y2="251.7" stroke="#E03434" stroke-/><rect x="494.4" y="247.6" width="12.7" height="2.8" fill="#E03434"/><rect x="494.4" y="378.4" width="12.7" height="11.6" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="241.9" x2="521.2" y2="250.1" stroke="#1E9E5A" stroke-/><rect x="514.9" y="244.0" width="12.7" height="3.9" fill="#1E9E5A"/><rect x="514.9" y="380.6" width="12.7" height="9.4" fill="#1E9E5A" opacity="0.45"/><line x1="541.8" y1="245.8" x2="541.8" y2="254.2" stroke="#1E9E5A" stroke-/><rect x="535.4" y="248.3" width="12.7" height="4.9" fill="#1E9E5A"/><rect x="535.4" y="381.6" width="12.7" height="8.4" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="248.3" x2="562.2" y2="253.2" stroke="#E03434" stroke-/><rect x="555.9" y="248.6" width="12.7" height="3.1" fill="#E03434"/><rect x="555.9" y="383.3" width="12.7" height="6.7" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="243.7" x2="582.8" y2="248.8" stroke="#E03434" stroke-/><rect x="576.4" y="244.2" width="12.7" height="4.6" fill="#E03434"/><rect x="576.4" y="382.8" width="12.7" height="7.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="225.7" x2="603.2" y2="225.7" stroke="#E03434" stroke-/><rect x="596.9" y="225.7" width="12.7" height="1.0" fill="#E03434"/><rect x="596.9" y="384.5" width="12.7" height="5.5" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="205.4" x2="623.8" y2="214.4" stroke="#E03434" stroke-/><rect x="617.4" y="205.4" width="12.7" height="1.0" fill="#E03434"/><rect x="617.4" y="368.6" width="12.7" height="21.4" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="183.0" x2="644.2" y2="199.2" stroke="#E03434" stroke-/><rect x="637.9" y="183.0" width="12.7" height="1.0" fill="#E03434"/><rect x="637.9" y="325.4" width="12.7" height="64.6" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="158.3" x2="664.8" y2="169.7" stroke="#E03434" stroke-/><rect x="658.4" y="158.3" width="12.7" height="7.5" fill="#E03434"/><rect x="658.4" y="359.1" width="12.7" height="30.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="131.3" x2="685.2" y2="131.3" stroke="#E03434" stroke-/><rect x="678.9" y="131.3" width="12.7" height="1.0" fill="#E03434"/><rect x="678.9" y="387.4" width="12.7" height="2.6" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="101.5" x2="705.8" y2="106.2" stroke="#E03434" stroke-/><rect x="699.4" y="101.5" width="12.7" height="1.0" fill="#E03434"/><rect x="699.4" y="355.7" width="12.7" height="34.3" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="68.6" x2="726.2" y2="88.2" stroke="#E03434" stroke-/><rect x="719.9" y="68.6" width="12.7" height="16.7" fill="#E03434"/><rect x="719.9" y="322.0" width="12.7" height="68.0" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="41.4" x2="746.8" y2="95.1" stroke="#E03434" stroke-/><rect x="740.4" y="56.5" width="12.7" height="23.1" fill="#E03434"/><rect x="740.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="56.8" x2="767.2" y2="87.4" stroke="#E03434" stroke-/><rect x="760.9" y="74.3" width="12.7" height="5.1" fill="#E03434"/><rect x="760.9" y="328.3" width="12.7" height="61.7" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="61.7" x2="787.8" y2="93.0" stroke="#E03434" stroke-/><rect x="781.4" y="68.9" width="12.7" height="5.7" fill="#E03434"/><rect x="781.4" y="330.0" width="12.7" height="60.0" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="58.6" x2="808.2" y2="86.9" stroke="#1E9E5A" stroke-/><rect x="801.9" y="72.0" width="12.7" height="10.3" fill="#1E9E5A"/><rect x="801.9" y="335.6" width="12.7" height="54.4" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="58.8" x2="828.8" y2="99.0" stroke="#E03434" stroke-/><rect x="822.4" y="76.6" width="12.7" height="18.5" fill="#E03434"/><rect x="822.4" y="327.0" width="12.7" height="63.0" fill="#E03434" opacity="0.45"/><line x1="849.2" y1="58.1" x2="849.2" y2="87.1" stroke="#1E9E5A" stroke-/><rect x="842.9" y="64.2" width="12.7" height="13.9" fill="#1E9E5A"/><rect x="842.9" y="327.2" width="12.7" height="62.8" fill="#1E9E5A" opacity="0.45"/><line x1="869.8" y1="79.7" x2="869.8" y2="113.4" stroke="#E03434" stroke-/><rect x="863.4" y="88.7" width="12.7" height="9.3" fill="#E03434"/><rect x="863.4" y="334.0" width="12.7" height="56.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,255.8 90.8,257.5 111.2,256.2 131.8,255.1 152.2,254.2 172.8,252.8 193.2,251.9 213.8,252.6 234.2,254.4 254.8,255.2 275.2,256.6 295.8,256.2 316.2,251.7 336.8,242.6 357.2,239.1 377.8,236.5 398.2,236.6 418.8,240.5 439.2,247.5 459.8,252.0 480.2,253.4 500.8,252.3 521.2,251.0 541.8,251.5 562.2,249.3 582.8,248.3 603.2,243.9 623.8,235.4 644.2,221.4 664.8,203.3 685.2,180.8 705.8,155.9 726.2,128.6 746.8,103.3 767.2,86.5 787.8,74.0 808.2,70.1 828.8,71.7 849.2,76.0 869.8,78.9" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,255.8 90.8,257.5 111.2,256.2 131.8,255.1 152.2,254.2 172.8,253.3 193.2,253.5 213.8,253.9 234.2,254.7 254.8,254.7 275.2,254.8 295.8,254.6 316.2,253.1 336.8,250.4 357.2,249.5 377.8,249.1 398.2,249.3 418.8,249.6 439.2,249.6 459.8,250.1 480.2,249.8 500.8,249.2 521.2,248.9 541.8,249.0 562.2,248.9 582.8,248.7 603.2,247.2 623.8,244.6 644.2,240.8 664.8,235.9 685.2,229.7 705.8,222.2 726.2,213.9 746.8,205.9 767.2,197.8 787.8,189.1 808.2,180.6 828.8,171.7 849.2,163.0 869.8,154.5" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="746.8" cy="56.5" r="5" fill="none" stroke="#C8102E" stroke-/><text x="746.8" y="46.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">见顶15.09</text><circle cx="869.8" cy="88.7" r="5" fill="none" stroke="#C8102E" stroke-/><text x="869.8" y="78.7" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">滞涨回落</text></svg>
+    </div>
+
+      </div>
+</div>
+
+<div class="compliance">⚠️ <b>合规声明：</b>本图鉴为投资教育内容，仅作学习参考，<b>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</b>。市场有风险，投资需谨慎。</div>
 <footer>弘历 · 机构现形记 · 周年庆闭幕式</footer>
 
 <div class="demo" id="adminPanel" style="display:none">
