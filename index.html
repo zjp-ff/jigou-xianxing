@@ -248,11 +248,12 @@
   header .kicker{font-size:11px;letter-spacing:3px;}
   header .sub{font-size:13px;letter-spacing:2px;}
   header .tag{font-size:11px;padding:4px 12px;}
-  .progress{padding:12px 14px;gap:10px;border-radius:12px;flex-direction:column;align-items:stretch;}
-  .progress .label{font-size:13px;text-align:center;}
-  .progress .num{font-size:18px;text-align:center;}
-  .bar{height:14px;width:100%;}
-  .stamps{gap:6px;width:100%;justify-content:center;}
+  .progress{padding:14px;border-radius:12px;flex-direction:column;align-items:stretch;gap:10px;}
+  .progress .row1{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;}
+  .progress .label{font-size:14px;display:inline;}
+  .progress .num{font-size:22px;display:inline;}
+  .bar{height:14px;width:100%;min-width:0;flex:none;}
+  .stamps{gap:8px;width:100%;justify-content:center;flex-wrap:wrap;}
   .stamps .stamp{width:42px;height:42px;font-size:12px;}
   .jump-row{padding:8px 10px;gap:6px;flex-wrap:wrap;}
   .jump-row .label{font-size:12px;}
@@ -296,8 +297,10 @@
 </header>
 
 <div class="progress">
-  <span class="label">累计参与</span>
-  <span class="num" id="countNum">0</span><span style="color:var(--gray);font-size:15px;"> 人</span>
+  <div class="row1">
+    <span class="label">累计参与</span>
+    <span class="num" id="countNum">0</span><span style="color:var(--gray);font-size:14px;"> 人</span>
+  </div>
   <div class="bar"><div class="fill" id="barFill"></div></div>
   <span class="num" id="progNum">0/5</span>
   <div class="stamps" id="stamps"></div>
