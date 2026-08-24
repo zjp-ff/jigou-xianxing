@@ -901,14 +901,15 @@ if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode
   if(window.location.search.indexOf('admin=1')>=0) return; // admin模式不自动拉取
   
   function fetchCount(){
-    fetch('unlock.json?t='+Date.now())
-      .then(r=>r.json())
-      .then(d=>{
+    var url = 'https://zjp-ff.github.io/jigou-xianxing/unlock.json?t='+Date.now();
+    fetch(url, {cache:'no-store'})
+      .then(function(r){return r.json();})
+      .then(function(d){
         if(typeof d.count==='number'){
           setCount(d.count);
         }
       })
-      .catch(()=>{});
+      .catch(function(e){console.warn('拉取unlock.json失败:', e);});
   }
   fetchCount();
   setInterval(fetchCount, 30000);
