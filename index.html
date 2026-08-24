@@ -21,14 +21,17 @@
       var(--cream);
   }
   /* 头部纯图 */
-  .hero-img{width:100%;height:240px;display:block;border-radius:0;object-fit:cover;object-position:center;}
-  .wrap{max-width:1020px;margin:0 auto;padding:18px 28px 90px;}
-  header{
-    position:relative;overflow:hidden;
-    background-color:#232A35;
-    color:#fff;border-radius:20px;padding:0;
-    max-height:240px;
+  .hero-img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  background:var(--cream);
+  border-radius:0;
 }
+  .wrap{max-width:1020px;margin:0 auto;padding:18px 28px 90px;}
+  header{position:relative;overflow:hidden;background-color:#232A35;color:#fff;border-radius:20px;padding:0;}
   
   
   .gold-line{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:70%;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
@@ -204,8 +207,8 @@
   @media (max-width: 720px) {
     .wrap{padding:14px 14px 70px;}
     /* 头部更小 */
-    header{max-height:160px;border-radius:16px;}
-    .hero-img{height:160px;}
+    header{}
+    .hero-img{height:auto;aspect-ratio:16/9;}
     /* 标题字号 */
     header h1{font-size:30px;letter-spacing:5px;}
     /* 解锁进度 */
@@ -239,8 +242,8 @@
 @media (max-width: 768px) {
   body{font-size:15px;line-height:1.7;}
   .wrap{padding:10px 12px 60px;}
-  header{max-height:160px;}
-  .hero-img{height:160px;}
+  header{}
+  .hero-img{height:auto;aspect-ratio:16/9;}
   header h1{font-size:28px;letter-spacing:3px;}
   header .kicker{font-size:11px;letter-spacing:3px;}
   header .sub{font-size:13px;letter-spacing:2px;}
@@ -274,8 +277,8 @@
   .demo input{width:80px;font-size:13px;padding:6px;}
 }
 @media (max-width: 380px) {
-  header{max-height:130px;}
-  .hero-img{height:130px;}
+  header{}
+  .hero-img{height:auto;aspect-ratio:16/9;}
   header h1{font-size:22px;letter-spacing:2px;}
   .body{padding:10px 12px;}
   .body h4{font-size:14px;}
