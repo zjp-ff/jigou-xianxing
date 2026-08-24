@@ -802,7 +802,7 @@
 <div class="compliance">⚠️ <b>合规声明：</b>本图鉴为投资教育内容，仅作学习参考，<b>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</b>。市场有风险，投资需谨慎。</div>
 <footer>弘历 · 机构现形记 · 周年庆闭幕式</footer>
 
-<div class="demo">
+<div class="demo" id="adminPanel" style="display:none">
   <span>参与人数：</span>
   <input id="countInput" type="number" min="0" max="3600" value="0" oninput="setCount(this.value)" style="width:70px;padding:4px 8px;border-radius:8px;border:none;font-size:14px;">
   <button onclick="setCount(600)">600</button>
@@ -854,6 +854,11 @@ function refresh(){
   for(var i=1;i<=5;i++){ unlocked[i] = (currentCount >= thresholds[i]); }
   for(var i=1;i<=5;i++){ applyUnlock(i); }
 }
+<script>
+if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode')==='1'){
+  var p=document.getElementById('adminPanel');if(p)p.style.display='';
+}
+</script>
 function setCount(n){
   currentCount = Math.max(0, parseInt(n) || 0);
   if(document.getElementById('countInput')) document.getElementById('countInput').value=currentCount;
