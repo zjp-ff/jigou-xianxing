@@ -902,14 +902,20 @@ if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode
   
   function fetchCount(){
     var url = 'https://zjp-ff.github.io/jigou-xianxing/unlock.json?t='+Date.now();
+    console.log('[机构现形图鉴] 拉取参与人数...', url);
     fetch(url, {cache:'no-store'})
-      .then(function(r){return r.json();})
+      .then(function(r){
+        console.log('[机构现形图鉴] 拉取状态:', r.status);
+        return r.json();
+      })
       .then(function(d){
+        console.log('[机构现形图鉴] 拉到count=', d.count);
         if(typeof d.count==='number'){
           setCount(d.count);
+          console.log('[机构现形图鉴] 已调用setCount, 当前currentCount=', currentCount);
         }
       })
-      .catch(function(e){console.warn('拉取unlock.json失败:', e);});
+      .catch(function(e){console.warn('[机构现形图鉴] 拉取失败:', e);});
   }
   fetchCount();
   setInterval(fetchCount, 30000);
