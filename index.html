@@ -856,7 +856,7 @@ function refresh(){
 }
 
 function setCount(n){
-  var currentCount = Math.max(0, parseInt(n) || 0);
+  currentCount = Math.max(0, parseInt(n) || 0);
   if(document.getElementById('countInput')){
     document.getElementById('countInput').value = currentCount;
   }
