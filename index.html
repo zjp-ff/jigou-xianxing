@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>机构现形图鉴 · 不断解锁</title>
+<style>
+  :root {
+    --red:#C8102E; --red-dark:#8E0B20; --red-deep:#5A0714;
+    --gold:#D4A017; --gold-light:#F5E6C8; --gold-deep:#B8860B;
+    --cream:#FDF8F0; --ink:#2B1B14; --gray:#6B5D55;
+    --green:#1E7A46; --blue:#1F5FA8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    color:var(--ink);font-size:18px;line-height:1.85;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(212,160,23,.14), transparent 60%),
+      radial-gradient(1000px 500px at -10% 20%, rgba(200,16,46,.07), transparent 55%),
+      var(--cream);
+  }
+  .wrap{max-width:1020px;margin:0 auto;padding:26px 28px 90px;}
+  header{
+    position:relative;overflow:hidden;
+    background:linear-gradient(140deg,#B00D28 0%, var(--red) 35%, var(--red-dark) 75%, var(--red-deep) 100%);
+    color:#fff;border-radius:20px;padding:46px 40px 40px;text-align:center;margin-bottom:24px;
+    box-shadow:0 14px 40px rgba(140,10,30,.35), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  header::before{content:"";position:absolute;top:-80px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,0,.25),transparent 70%);}
+  header::after{content:"";position:absolute;bottom:-90px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);}
+  .gold-line{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:70%;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  header .kicker{font-size:14px;letter-spacing:8px;color:var(--gold-light);margin-bottom:10px;font-weight:600;}
+  header h1{font-size:52px;letter-spacing:10px;font-weight:900;text-shadow:0 3px 12px rgba(0,0,0,.3);position:relative;z-index:1;}
+  header .sub{font-size:19px;color:#FFE9C9;letter-spacing:5px;margin-top:8px;position:relative;z-index:1;}
+  header .tag{display:inline-block;margin-top:16px;padding:6px 20px;border:1px solid rgba(255,233,201,.5);border-radius:20px;font-size:14px;color:#F5D9A8;letter-spacing:2px;position:relative;z-index:1;background:rgba(0,0,0,.12);}
+  .progress{
+    background:linear-gradient(135deg,#fff, #FDF6E7);border:2px solid var(--gold);border-radius:16px;
+    padding:20px 26px;margin-bottom:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    box-shadow:0 8px 24px rgba(180,140,40,.12);
+  }
+  .progress .label{font-weight:800;color:var(--red-dark);font-size:17px;letter-spacing:1px;}
+  .bar{flex:1;min-width:200px;height:18px;background:#EFE5CF;border-radius:12px;overflow:hidden;box-shadow:inset 0 2px 4px rgba(0,0,0,.08);}
+  .bar .fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--red));border-radius:12px;transition:width .9s cubic-bezier(.22,1,.36,1);width:0;position:relative;overflow:hidden;}
+  .bar .fill::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 2.2s infinite;}
+  @keyframes shine{0%{left:-30%;}60%{left:110%;}100%{left:110%;}}
+  .progress .num{font-size:24px;font-weight:900;color:var(--red);font-style:italic;}
+  .stamps{display:flex;gap:10px;}
+  .stamp{
+    width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:19px;color:#C9B98F;background:#FBF4E3;border:2px dashed #D8C9A8;
+    transition:all .6s cubic-bezier(.34,1.56,.64,1);position:relative;
+  }
+  .stamp.on{
+    background:radial-gradient(circle at 30% 25%, #E03434, var(--red));border:2px solid var(--red-dark);
+    color:#fff;box-shadow:0 6px 16px rgba(200,16,46,.4);transform:scale(1.08);
+  }
+  .stamp.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(212,160,23,.5);}
+  .chapter{
+    background:#fff;border-radius:18px;margin-bottom:24px;overflow:hidden;
+    border:1px solid #EFE3CC;box-shadow:0 6px 24px rgba(43,27,20,.07);
+    transition:transform .35s ease, box-shadow .35s ease;position:relative;
+  }
+  .chapter:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(43,27,20,.12);}
+  .chapter .head{display:flex;align-items:center;gap:18px;padding:22px 28px;cursor:pointer;position:relative;overflow:hidden;}
+  .chapter .head::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--gold),var(--red));}
+  .chapter .head .num{font-size:12px;color:var(--gold-deep);letter-spacing:2px;font-weight:700;}
+  .chapter .head h2{font-size:26px;color:var(--red-dark);flex:1;letter-spacing:1px;}
+  .chapter .head .lock{font-size:32px;transition:transform .4s;}
+  .chapter .head .hint{font-size:14px;color:var(--gray);}
+  .chapter .head .badge{
+    background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;font-size:12px;font-weight:800;
+    padding:4px 14px;border-radius:14px;letter-spacing:1px;
+  }
+
+  .chapter .body{display:none;}
+  .chapter.open .body{display:block;}
+
+  .chapter .body{padding:10px 30px 30px;border-top:1px dashed #E8DCC4;}
+  .lock-pulse{animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.55;}}
+  .chapter .body h4{font-size:20px;color:var(--red-dark);margin:28px 0 10px;padding-left:12px;border-left:5px solid var(--gold);letter-spacing:1px;}
+  .chapter .body h5{font-size:17px;color:var(--gold-deep);margin:16px 0 6px;}
+  .chapter .body p{margin-bottom:9px;}
+  .chapter .body ul{margin:4px 0 10px 22px;}
+  .chapter .body li{margin-bottom:7px;}
+  .chapter .body li b{color:var(--red-dark);}
+  .baitou{background:linear-gradient(135deg,var(--gold-light),#FBEECB);border:1px solid #E8D09B;border-radius:12px;padding:10px 16px;margin:10px 0;font-size:17px;color:#7A5A10;}
+  .box{background:#FBF6EC;border:1px solid #EAD9B8;border-radius:12px;padding:12px 16px;margin:10px 0;}
+  .box.green{background:linear-gradient(135deg,#F0F8F2,#E7F4EB);border-color:#C4E3CE;}
+  .box .t{font-weight:800;margin-bottom:5px;}
+  .box.green .t{color:var(--green);}
+  .checklist{list-style:none;margin:6px 0 10px !important;}
+  .checklist li{padding:7px 14px;background:#F3F8F3;border-radius:9px;margin-bottom:5px;border-left:4px solid var(--green);}
+  .checklist li b{color:var(--green);}
+  table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:16px;}
+  th{background:var(--red-dark);color:#fff;padding:9px 12px;text-align:left;font-size:15px;}
+  td{padding:9px 12px;border-bottom:1px solid #EDE3D3;vertical-align:top;}
+  tr:nth-child(even) td{background:#FBF7EF;}
+  td b{color:var(--red-dark);}
+  img.kline{width:100%;margin-top:12px;border-radius:12px;border:1px solid #eee;display:block;box-shadow:0 4px 14px rgba(43,27,20,.06);}
+  .case{padding:8px 0 6px;}
+  .case h4{color:var(--red) !important;}
+  .next-hook{
+    text-align:center;color:var(--red);font-weight:800;margin-top:18px;font-size:16px;letter-spacing:1px;
+    background:linear-gradient(135deg,#FDF3E3,#FBEBD4);border:1px dashed var(--gold);border-radius:12px;padding:12px;
+  }
+  .extra{
+    background:linear-gradient(150deg, #FFF9EC, #FBEECB 60%, #F5DDA0);
+    border:2px solid var(--gold);border-radius:20px;padding:32px;margin-top:28px;text-align:center;
+    box-shadow:0 10px 32px rgba(180,140,40,.18);position:relative;overflow:hidden;
+  }
+  .extra::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(212,160,23,.18);}
+  .extra h2{color:var(--red-dark);font-size:27px;letter-spacing:2px;}
+  .extra .btn{
+    display:inline-block;margin-top:16px;padding:12px 36px;
+    background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;border-radius:28px;
+    font-size:16px;font-weight:800;cursor:pointer;border:none;letter-spacing:2px;
+    box-shadow:0 6px 18px rgba(200,16,46,.35);transition:all .3s;
+  }
+  .extra .btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 24px rgba(200,16,46,.45);}
+  .extra .btn:disabled{background:linear-gradient(135deg,#C8BCA4,#B3A68C);cursor:not-allowed;box-shadow:none;}
+  .extra .witness{margin-top:14px;font-size:15px;color:var(--gray);}
+  .koujue-box{
+    display:none;margin-top:18px;border-radius:16px;padding:22px 26px;
+    background:linear-gradient(140deg,var(--red),var(--red-dark) 80%);
+    color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.2), 0 8px 24px rgba(140,10,30,.3);
+  }
+  .koujue-box p{font-size:20px;letter-spacing:2px;line-height:2.1;}
+  .koujue-box .sub{color:#FFE9C9;font-size:15px;margin-top:8px;}
+  .demo{
+    position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+    background:rgba(43,27,20,.94);color:#fff;border-radius:34px;padding:10px 20px;
+    display:flex;gap:8px;align-items:center;font-size:13px;z-index:99;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);backdrop-filter:blur(6px);flex-wrap:wrap;justify-content:center;
+  }
+  .demo button{
+    background:var(--gold);border:none;color:#2B1B14;padding:7px 14px;border-radius:16px;
+    font-weight:800;cursor:pointer;font-size:13px;transition:all .2s;
+  }
+  .demo button:hover{transform:scale(1.05);}
+  .demo button.blue{background:var(--blue);color:#fff;}
+  .demo button.reset{background:#6B5D55;color:#fff;}
+  .demo .note{font-size:11px;color:#D8C9A8;max-width:230px;line-height:1.5;}
+  .compliance{background:#F5F3EF;border:1px solid #E4DED2;border-radius:14px;padding:14px 20px;color:#8A7D72;font-size:13px;line-height:1.8;margin-top:24px;}
+  footer{text-align:center;color:#A89A8D;font-size:13px;margin-top:22px;letter-spacing:3px;}
+
+  /* ===== 五章专属配色 · 主色调 ===== */
+  .theme-blue{--mc:#1D4E89;--mcd:#12375F;--mcl:#6EA8E0;--mcbg:#EAF2FB;}
+  .theme-purple{--mc:#6B2D8E;--mcd:#4E1F6A;--mcl:#A97BC4;--mcbg:#F4ECFA;}
+  .theme-teal{--mc:#0E7C7B;--mcd:#0A5E5D;--mcl:#57B7B0;--mcbg:#E6F5F4;}
+  .theme-red{--mc:#C8102E;--mcd:#9C0C24;--mcl:#E8637B;--mcbg:#FBECEF;}
+  .theme-gray{--mc:#45484F;--mcd:#2C2E34;--mcl:#8A8F9A;--mcbg:#F0F1F3;}
+
+  /* 章卡：顶部主色粗边 */
+  .chapter{border-top:7px solid var(--mc);}
+  /* 章头：整条主色渐变 */
+  .chapter .head{background:linear-gradient(135deg,var(--mcl),var(--mc));color:#fff;}
+  .chapter .head::before{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0));width:6px;}
+  .chapter .head h2{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.25);}
+  .chapter .head .num{color:rgba(255,255,255,.92);}
+  .chapter .head .hint{color:rgba(255,255,255,.85);}
+  .chapter .head .lock{color:#fff;}
+  .chapter .head .badge{background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.45);}
+  /* 正文：主色淡底 */
+  .chapter .body{background:var(--mcbg);}
+  .chapter .body h4{background:var(--mc);color:#fff;border:none;padding:7px 14px;border-radius:8px;letter-spacing:1px;box-shadow:0 2px 6px rgba(0,0,0,.12);}
+  .chapter .body h5{color:var(--mcd);}
+  .chapter .body li b{color:var(--mc);}
+  .chapter .baitou{background:#fff;border:1.5px solid var(--mcl);color:var(--mcd);}
+  .chapter table th{background:var(--mc);}
+  .chapter .box{background:#fff;border-color:var(--mcl);}
+  .chapter .box .t{color:var(--mc);}
+  .chapter .box.green .t{color:var(--mc);}
+  .chapter .checklist li{background:#fff;border-left:4px solid var(--mc);box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .chapter .checklist li b{color:var(--mc);}
+  .chapter .case h4{color:var(--mc);}
+  .chapter .next-hook{background:linear-gradient(135deg,var(--mc),var(--mcd));color:#fff;border:none;box-shadow:0 4px 12px rgba(0,0,0,.14);}
+  /* 锁定态：保留主色但压暗 + 提示 */
+  .chapter.locked .head{background:linear-gradient(135deg,var(--mcl),var(--mc));filter:brightness(.94);}
+  .chapter.locked .head h2{color:#fff;opacity:.85;}
+  .chapter.locked .head .hint{color:rgba(255,255,255,.75);}
+  .chapter.locked .head .num{color:rgba(255,255,255,.85);}
+  .chapter .head h2{display:inline-block;}
+  .chtitle-sub{display:block;text-align:center;font-size:15px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.85);margin-top:5px;}
+  /* 章节快捷跳转 */
+  .chapter-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0 4px;}
+  .nav-label{font-size:13px;color:var(--gray);font-weight:800;letter-spacing:1px;}
+  .nav-item{border:2px solid;border-radius:22px;padding:6px 14px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;background:#fff;transition:all .2s;letter-spacing:.5px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  .nav-item:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.12);}
+  .nav-blue{color:#1D4E89;border-color:#6EA8E0;}
+  .nav-purple{color:#6B2D8E;border-color:#A97BC4;}
+  .nav-teal{color:#0E7C7B;border-color:#57B7B0;}
+  .nav-red{color:#C8102E;border-color:#E8637B;}
+  .nav-gray{color:#45484F;border-color:#8A8F9A;}
+  .nav-lock{font-size:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">弘历 · 周年庆闭幕式 · 机构现形记</div>
+  <h1>机构现形图鉴</h1>
+  <div class="sub">🔓 不断解锁 · 每天一章</div>
+  <div class="tag">参与周年庆闭幕式活动 · 累计满 600 / 1200 / 1800 / 2400 / 3000 人 · 逐章解锁</div>
+  <div class="gold-line"></div>
+</header>
+
+<div class="progress">
+  <span class="label">累计参与</span>
+  <span class="num" id="countNum">0</span><span style="color:var(--gray);font-size:15px;"> 人</span>
+  <div class="bar"><div class="fill" id="barFill"></div></div>
+  <span class="num" id="progNum">0/5</span>
+  <div class="stamps" id="stamps"></div>
+</div>
+
+
+<div class="chapter-nav">
+  <span class="nav-label">快速跳转</span>
+  <button class="nav-item nav-blue" onclick="jumpTo(1)"><span class="nav-lock" id="navlock1">🔒</span>① 机构建仓</button>
+  <button class="nav-item nav-purple" onclick="jumpTo(2)"><span class="nav-lock" id="navlock2">🔒</span>② 机构洗盘</button>
+  <button class="nav-item nav-teal" onclick="jumpTo(3)"><span class="nav-lock" id="navlock3">🔒</span>③ 机构试盘</button>
+  <button class="nav-item nav-red" onclick="jumpTo(4)"><span class="nav-lock" id="navlock4">🔒</span>④ 机构拉升</button>
+  <button class="nav-item nav-gray" onclick="jumpTo(5)"><span class="nav-lock" id="navlock5">🔒</span>⑤ 机构出货</button>
+</div>
+
+<!-- ==================== 第1章 建仓篇 ==================== -->
+
+<div class="chapter locked theme-blue" id="ch1">
+  <div class="head" onclick="toggleChapter(1)">
+    <div>
+<h2>① 机构建仓现形<br><span class="chtitle-sub">偷偷吸筹</span></h2>
+      <div class="hint" id="hint1">🔒 累计参与周年庆闭幕式活动600人解锁</div>
+    </div>
+    <span class="badge" id="badge1">待解锁</span>
+    <div class="lock lock-pulse" id="lock1">🔒</div>
+  </div>
+  <div class="body">
+    <div class="baitou">比喻：大户人家悄悄囤粮食，不声张、慢慢买，越便宜越买。</div>
+
+    <h4>一、建仓的本质：机构为什么必须"偷偷买"</h4>
+    <p>机构的钱多、胃口大，而市场上每天的成交量是有限的。如果机构大张旗鼓地买，结果只有一个：<b>价格被自己买上去，成本越买越高</b>，还会被所有人盯上。所以建仓的第一原则是<b>"隐蔽"</b>。</p>
+    <ul>
+      <li><b>成本控制</b>：在低位拿到足够多的便宜筹码，后面的利润空间才大</li>
+      <li><b>控盘度</b>：筹码收得越集中，后面的拉升越轻松、抛压越小</li>
+      <li><b>地基作用</b>：建仓是四阶段的地基——筹码不够，后面洗盘、拉升、出货全都无从谈起</li>
+    </ul>
+    <h5>建仓前的准备工作（机构不是随便买的）</h5>
+    <ul>
+      <li>先做<b>深度调研</b>：基本面、行业景气、政策方向——选定了目标才动手</li>
+      <li>制定<b>吸筹计划</b>：目标价位区间、吸筹数量、时间窗口，提前规划好</li>
+      <li>选择<b>合适的入场时机</b>：往往选在大盘低迷、板块无人问津的时候</li>
+    </ul>
+    <h5>不同机构的不同建仓节奏（先分清是谁在买）</h5>
+    <table>
+      <tr><th>机构类型</th><th>建仓节奏</th><th>特点</th></tr>
+      <tr><td><b>长线资金</b>（社保/险资/外资）</td><td>数月甚至半年以上</td><td>最隐蔽，横盘期最长，耐心十足</td></tr>
+      <tr><td><b>中线资金</b>（公募/私募）</td><td>1-3个月</td><td>配合季报节奏，有一定痕迹</td></tr>
+      <tr><td><b>短线资金</b>（游资性质）</td><td>几天到几周</td><td>快进快出，痕迹重、波动大</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div>建仓的本质 = <b>用"时间"和"隐蔽"换"低成本"和"高控盘"</b>。</div>
+
+    <h4>二、机构在做什么（行为拆解）</h4>
+    <ul>
+      <li><b>大单拆小单</b>：把大买单拆成无数小单，混在散户的单子里，不暴露</li>
+      <li><b>低位分批买入</b>：在没人关注的时候，一点一点地买</li>
+      <li><b>时间换空间</b>：不着急，建仓期往往持续数周甚至数月，越有耐心越隐蔽</li>
+      <li><b>打压吸筹</b>：故意砸一下价格，把恐慌盘砸出来，用更低的价格接货</li>
+      <li><b>借利空吸筹</b>：出利空、股价跌、散户割肉——机构正好悄悄接</li>
+      <li><b>不引起关注</b>：尽量不涨停、不上龙虎榜（或小额上），避免被盯上</li>
+    </ul>
+    <h5>拆单的技术细节（机构怎么做到"看不见"）</h5>
+    <ul>
+      <li><b>冰山单</b>：挂大单但盘口只显示一小部分，买完一批再露下一批</li>
+      <li><b>多账户分散</b>：用多个账户分散下单，单个账户的量都不显眼</li>
+      <li><b>算法交易</b>：用程序把大单切成无数小单，按时间/价格随机撒</li>
+      <li><b>借势吸筹</b>：专选恐慌日（大盘大跌、个股利空）动手，散户割肉它接货</li>
+    </ul>
+    <h5>试盘动作（吸筹中的"投石问路"）</h5>
+    <ul>
+      <li><b>先小买试探</b>：买一小笔看看抛压重不重，谁在卖</li>
+      <li><b>偶尔拉一下</b>：吸筹中突然拉一把，看跟风盘和抛压的反应</li>
+      <li>试盘结果决定后续节奏：抛压轻→加速吸；抛压重→继续慢慢磨</li>
+    </ul>
+
+    <h4>三、吸筹的四种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>怎么运作</th><th>盘面特征</th><th>识别要点</th><th>优缺点</th></tr>
+      <tr><td><b>横盘吸筹</b></td><td>长期横在低位箱体，不涨不跌</td><td>箱体窄、量能极低像死水</td><td>地量+箱体窄+时间长</td><td>最隐蔽；但耗时长</td></tr>
+      <tr><td><b>打压吸筹</b></td><td>故意砸出阴线/急跌，砸出恐慌盘再低吸</td><td>急跌有量、跌完快速收回</td><td>急跌快收+下跌有承接</td><td>成本更低；但易被发现</td></tr>
+      <tr><td><b>拉高吸筹</b></td><td>先拉一波让套牢盘解套卖出，高位接货</td><td>突破后不涨、反复震荡换手</td><td>突破滞涨+换手放大</td><td>能拿套牢盘筹码；成本高</td></tr>
+      <tr><td><b>震荡吸筹</b></td><td>箱体内来回震荡，边震边收</td><td>下沿有人接、上沿有人压</td><td>箱体震荡+下沿承接</td><td>边吸边洗；需耐心</td></tr>
+    </table>
+
+    <h4>四、建仓期的量价关系（核心知识）</h4>
+    <ul>
+      <li><b>地量地价</b>：成交极度萎缩、没人买卖 → 卖盘枯竭，筹码集中到少数人手里</li>
+      <li><b>温和放量</b>：地量之后量能悄悄放大 → 有人开始悄悄买（机构进场的痕迹）</li>
+      <li><b>跌不动</b>：利空不跌、下跌不创新低 → 下方有人承接（机构在接）</li>
+      <li><b>关键区别</b>：建仓期的量是"悄悄放大"，不是"突然爆量"——爆量容易暴露</li>
+    </ul>
+    <h5>换手率怎么看（建仓期的"体温计"）</h5>
+    <ul>
+      <li>建仓期换手率通常<b>很低（1%-3%）</b>——没人买卖的冷清状态</li>
+      <li>若换手率温和放大到<b>3%-5%</b>且股价不涨 → 有人在悄悄吸筹</li>
+      <li>换手率突然飙升（10%+）但股价不涨 → 要警惕是出货或对倒</li>
+    </ul>
+    <h5>分时图里的细节（藏在一天走势里）</h5>
+    <ul>
+      <li>建仓期分时图常出现<b>"放量下跌、缩量上涨"</b>的假动作（砸出恐慌再悄悄接）</li>
+      <li><b>尾盘偷袭</b>：尾盘经常有"不声张"的买入（尾盘吸筹，避开全天盯盘）</li>
+      <li><b>筹码分布</b>：低位筹码峰逐步形成——套牢盘在底部换手，筹码从高处搬到低处</li>
+    </ul>
+    <div class="box green"><div class="t">💡 量是资金的语言</div>建仓期记住一句话：<b>地量之后温和放量 = 有人来了</b>。</div>
+
+    <h4>五、盘面痕迹（怎么让机构"现形"）</h4>
+    <ul>
+      <li>低位横盘很久（横得越久，越可能是吸筹而不是没人要）</li>
+      <li>地量地价之后<b>温和放量</b></li>
+      <li>下跌不创新低（<b>低点抬高</b>，跌不动了）</li>
+      <li>利空不跌（消息面失灵，说明有资金托底）</li>
+      <li>盘口出现<b>"拆单"特征</b>：中等单多、超大单少</li>
+      <li>龙虎榜<b>机构专用席位小额进场</b>（哪怕金额不大，也是信号）</li>
+      <li>大宗交易、定增等机构动作出现</li>
+    </ul>
+    <h5>盘口五档里的细节</h5>
+    <ul>
+      <li><b>托单</b>：买一/买二经常挂大单托底，跌到关键位就有人接</li>
+      <li><b>压单</b>：卖一挂大单压着不让涨，但下方一直在悄悄吃</li>
+      <li>关键价位反复试探：某个支撑位被反复测试都不破 → 有人护盘</li>
+    </ul>
+    <h5>K线形态上的痕迹</h5>
+    <ul>
+      <li><b>连续小阳线</b>：不涨停但天天小阳（慢牛吸筹）</li>
+      <li><b>长下影线</b>：盘中砸下去被接住拉回（承接强）</li>
+      <li><b>假阴线</b>：高开低走收阴，但收盘价仍在上方（洗掉浮筹）</li>
+    </ul>
+
+    <h4>六、关键区分：建仓 vs 阴跌不止</h4>
+    <table>
+      <tr><th>对比项</th><th>建仓（吸筹）</th><th>阴跌不止（无承接）</th></tr>
+      <tr><td><b>量能</b></td><td>地量后温和放量</td><td>放量下跌、越跌量越大</td></tr>
+      <tr><td><b>低点</b></td><td>低点抬高（跌不动）</td><td>低点不断下移</td></tr>
+      <tr><td><b>消息</b></td><td>利空不跌</td><td>利空就大跌</td></tr>
+      <tr><td><b>盘口</b></td><td>下跌时有承接</td><td>下跌无承接、一路阴跌</td></tr>
+      <tr><td><b>位置</b></td><td>历史底部区域</td><td>高位回落途中</td></tr>
+      <tr><td><b>换手率</b></td><td>低换手、温和放大</td><td>放量换手、持续放大</td></tr>
+      <tr><td><b>均线</b></td><td>均线粘合走平</td><td>均线空头排列向下</td></tr>
+      <tr><td><b>分时</b></td><td>下跌有承接、尾盘常拉回</td><td>单边下杀、反弹无力</td></tr>
+    </table>
+
+    <h4>七、建仓结束的信号（启动前兆）</h4>
+    <ul class="checklist">
+      <li>✅ 缩量到极致（地量）后<b>突然放量</b>——量能至少放大到均量的2-3倍</li>
+      <li>✅ <b>放量突破</b>横盘平台，突破当日常见涨停/大阳线</li>
+      <li>✅ 突破后的<b>回踩确认</b>：回踩不破平台（确认突破有效）</li>
+      <li>✅ 龙虎榜机构专用<b>大额买入</b></li>
+      <li>✅ 板块联动：同板块多只票同时异动（机构抱团启动）</li>
+    </ul>
+
+    <h4>八、散户的坑（这个阶段最容易"送筹码"）</h4>
+    <ul>
+      <li><b>坑1 · 割肉交筹码</b>：看到不涨就割——正好把最便宜的筹码交给机构</li>
+      <li><b>坑2 · 觉得"这票没救了"</b>：低位横盘当成垃圾股，转身就走</li>
+      <li><b>坑3 · 急着抄底</b>：没等确认就冲进去，被"打压吸筹"最后一跌套住</li>
+      <li><b>坑4 · 拿不住</b>：好不容易拿了，一两周不涨就卖掉，错过整个建仓期</li>
+      <li><b>坑5 · 道听途说</b>：听说"要重组/有消息"就买，结果消息是假的，套在建仓区上方</li>
+      <li><b>坑6 · 用短线眼光看长线票</b>：天天盯盘，被一天的波动吓跑，忘了自己在等的是大机会</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 低位横盘 → 放量突破</h4>
+      <ul>
+        <li>低位横盘 <b>12.1-13.5元</b>，量能低迷（建仓区）</li>
+        <li><b>8.19 地量回踩</b> 12.60</li>
+        <li><b>8.20 一字涨停</b> 15.12（放量突破平台）</li>
+        <li><b>8.21 放量长阳</b> 16.10，量能暴增<b>509万手（8倍）</b>，机构买入<b>4.5亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">17.24</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">15.74</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">14.23</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">12.73</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">11.23</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="212.5" x2="70.2" y2="268.6" stroke="#E03434" stroke-width="100%"/><rect x="63.9" y="213.0" width="12.7" height="51.1" fill="#E03434"/><rect x="63.9" y="370.3" width="12.7" height="19.7" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="204.7" x2="90.8" y2="225.0" stroke="#E03434" stroke-width="100%"/><rect x="84.4" y="206.7" width="12.7" height="9.6" fill="#E03434"/><rect x="84.4" y="375.5" width="12.7" height="14.5" fill="#E03434" opacity="0.45"/><line x1="111.2" y1="186.4" x2="111.2" y2="220.0" stroke="#E03434" stroke-width="100%"/><rect x="104.9" y="191.8" width="12.7" height="17.5" fill="#E03434"/><rect x="104.9" y="371.7" width="12.7" height="18.3" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="183.5" x2="131.8" y2="209.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="125.4" y="198.8" width="12.7" height="7.9" fill="#1E9E5A"/><rect x="125.4" y="375.1" width="12.7" height="14.9" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="191.8" x2="152.2" y2="211.3" stroke="#E03434" stroke-width="100%"/><rect x="145.9" y="198.0" width="12.7" height="2.1" fill="#E03434"/><rect x="145.9" y="377.4" width="12.7" height="12.6" fill="#E03434" opacity="0.45"/><line x1="172.8" y1="170.6" x2="172.8" y2="205.5" stroke="#E03434" stroke-width="100%"/><rect x="166.4" y="196.8" width="12.7" height="5.0" fill="#E03434"/><rect x="166.4" y="370.9" width="12.7" height="19.1" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="202.2" x2="193.2" y2="227.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="202.2" width="12.7" height="24.5" fill="#1E9E5A"/><rect x="186.9" y="375.7" width="12.7" height="14.3" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="214.6" x2="213.8" y2="236.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="207.4" y="224.6" width="12.7" height="10.4" fill="#1E9E5A"/><rect x="207.4" y="379.8" width="12.7" height="10.2" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="220.4" x2="234.2" y2="248.3" stroke="#E03434" stroke-width="100%"/><rect x="227.9" y="227.1" width="12.7" height="13.3" fill="#E03434"/><rect x="227.9" y="380.3" width="12.7" height="9.7" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="190.5" x2="254.8" y2="239.6" stroke="#E03434" stroke-width="100%"/><rect x="248.4" y="200.5" width="12.7" height="29.9" fill="#E03434"/><rect x="248.4" y="371.2" width="12.7" height="18.8" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="186.4" x2="275.2" y2="205.9" stroke="#E03434" stroke-width="100%"/><rect x="268.9" y="198.0" width="12.7" height="2.5" fill="#E03434"/><rect x="268.9" y="371.8" width="12.7" height="18.2" fill="#E03434" opacity="0.45"/><line x1="295.8" y1="175.2" x2="295.8" y2="203.0" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="187.2" width="12.7" height="10.8" fill="#E03434"/><rect x="289.4" y="372.3" width="12.7" height="17.7" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="158.9" x2="316.2" y2="195.9" stroke="#E03434" stroke-width="100%"/><rect x="309.9" y="173.5" width="12.7" height="21.2" fill="#E03434"/><rect x="309.9" y="364.1" width="12.7" height="25.9" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="158.5" x2="336.8" y2="198.0" stroke="#E03434" stroke-width="100%"/><rect x="330.4" y="165.2" width="12.7" height="18.7" fill="#E03434"/><rect x="330.4" y="368.8" width="12.7" height="21.2" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="172.7" x2="357.2" y2="218.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="173.1" width="12.7" height="41.5" fill="#1E9E5A"/><rect x="350.9" y="370.3" width="12.7" height="19.7" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="196.3" x2="377.8" y2="225.0" stroke="#E03434" stroke-width="100%"/><rect x="371.4" y="196.8" width="12.7" height="24.5" fill="#E03434"/><rect x="371.4" y="375.2" width="12.7" height="14.8" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="178.9" x2="398.2" y2="212.5" stroke="#E03434" stroke-width="100%"/><rect x="391.9" y="179.3" width="12.7" height="22.9" fill="#E03434"/><rect x="391.9" y="371.4" width="12.7" height="18.6" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="171.4" x2="418.8" y2="192.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="412.4" y="185.5" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="412.4" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="439.2" y1="184.3" x2="439.2" y2="205.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="432.9" y="191.8" width="12.7" height="3.7" fill="#1E9E5A"/><rect x="432.9" y="377.7" width="12.7" height="12.3" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="197.2" x2="459.8" y2="251.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="199.2" width="12.7" height="51.1" fill="#1E9E5A"/><rect x="453.4" y="372.2" width="12.7" height="17.8" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="231.7" x2="480.2" y2="264.1" stroke="#E03434" stroke-width="100%"/><rect x="473.9" y="232.9" width="12.7" height="26.2" fill="#E03434"/><rect x="473.9" y="378.4" width="12.7" height="11.6" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="228.3" x2="500.8" y2="247.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="494.4" y="232.9" width="12.7" height="15.0" fill="#1E9E5A"/><rect x="494.4" y="380.5" width="12.7" height="9.5" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="235.8" x2="521.2" y2="255.3" stroke="#E03434" stroke-width="100%"/><rect x="514.9" y="240.0" width="12.7" height="7.1" fill="#E03434"/><rect x="514.9" y="380.8" width="12.7" height="9.2" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="232.5" x2="541.8" y2="249.9" stroke="#E03434" stroke-width="100%"/><rect x="535.4" y="240.4" width="12.7" height="4.6" fill="#E03434"/><rect x="535.4" y="380.2" width="12.7" height="9.8" fill="#E03434" opacity="0.45"/><line x1="562.2" y1="229.2" x2="562.2" y2="243.3" stroke="#E03434" stroke-width="100%"/><rect x="555.9" y="234.6" width="12.7" height="6.6" fill="#E03434"/><rect x="555.9" y="381.2" width="12.7" height="8.8" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="232.9" x2="582.8" y2="240.4" stroke="#E03434" stroke-width="100%"/><rect x="576.4" y="234.6" width="12.7" height="1.2" fill="#E03434"/><rect x="576.4" y="383.8" width="12.7" height="6.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="222.9" x2="603.2" y2="235.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="596.9" y="232.1" width="12.7" height="1.7" fill="#1E9E5A"/><rect x="596.9" y="380.3" width="12.7" height="9.7" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="219.2" x2="623.8" y2="240.8" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="224.6" width="12.7" height="10.4" fill="#E03434"/><rect x="617.4" y="378.7" width="12.7" height="11.3" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="225.8" x2="644.2" y2="244.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="637.9" y="227.1" width="12.7" height="13.3" fill="#1E9E5A"/><rect x="637.9" y="378.4" width="12.7" height="11.6" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="199.7" x2="664.8" y2="246.2" stroke="#E03434" stroke-width="100%"/><rect x="658.4" y="200.5" width="12.7" height="41.1" fill="#E03434"/><rect x="658.4" y="367.7" width="12.7" height="22.3" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="194.7" x2="685.2" y2="206.7" stroke="#E03434" stroke-width="100%"/><rect x="678.9" y="200.9" width="12.7" height="5.4" fill="#E03434"/><rect x="678.9" y="374.5" width="12.7" height="15.5" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="187.2" x2="705.8" y2="205.9" stroke="#E03434" stroke-width="100%"/><rect x="699.4" y="198.4" width="12.7" height="5.4" fill="#E03434"/><rect x="699.4" y="374.4" width="12.7" height="15.6" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="189.7" x2="726.2" y2="203.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="719.9" y="198.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="719.9" y="379.7" width="12.7" height="10.3" fill="#1E9E5A" opacity="0.45"/><line x1="746.8" y1="183.0" x2="746.8" y2="209.6" stroke="#E03434" stroke-width="100%"/><rect x="740.4" y="193.0" width="12.7" height="8.3" fill="#E03434"/><rect x="740.4" y="371.9" width="12.7" height="18.1" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="184.7" x2="767.2" y2="203.0" stroke="#E03434" stroke-width="100%"/><rect x="760.9" y="194.7" width="12.7" height="2.5" fill="#E03434"/><rect x="760.9" y="377.1" width="12.7" height="12.9" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="190.1" x2="787.8" y2="207.1" stroke="#E03434" stroke-width="100%"/><rect x="781.4" y="193.8" width="12.7" height="1.0" fill="#E03434"/><rect x="781.4" y="379.8" width="12.7" height="10.2" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="182.2" x2="808.2" y2="205.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="801.9" y="194.7" width="12.7" height="8.3" fill="#1E9E5A"/><rect x="801.9" y="378.7" width="12.7" height="11.3" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="200.9" x2="828.8" y2="225.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="822.4" y="206.3" width="12.7" height="16.6" fill="#1E9E5A"/><rect x="822.4" y="378.1" width="12.7" height="11.9" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="118.2" x2="849.2" y2="118.2" stroke="#E03434" stroke-width="100%"/><rect x="842.9" y="118.2" width="12.7" height="1.0" fill="#E03434"/><rect x="842.9" y="377.5" width="12.7" height="12.5" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="41.4" x2="869.8" y2="110.8" stroke="#E03434" stroke-width="100%"/><rect x="863.4" y="77.5" width="12.7" height="15.8" fill="#E03434"/><rect x="863.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,213.0 90.8,209.8 111.2,203.8 131.8,204.5 152.2,203.2 172.8,200.0 193.2,204.0 213.8,212.6 234.2,216.7 254.8,217.2 275.2,217.4 295.8,209.6 316.2,197.3 336.8,184.9 357.2,187.7 377.8,187.4 398.2,185.9 418.8,188.4 439.2,194.4 459.8,201.6 480.2,208.8 500.8,222.5 521.2,233.3 541.8,242.3 562.2,239.1 582.8,239.5 603.2,236.6 623.8,233.6 644.2,233.6 664.8,226.8 685.2,220.0 705.8,213.0 726.2,208.0 746.8,198.5 767.2,197.3 787.8,195.9 808.2,196.8 828.8,201.5 849.2,186.5 869.8,163.1" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,213.0 90.8,209.8 111.2,203.8 131.8,204.5 152.2,203.2 172.8,202.2 193.2,205.7 213.8,209.3 234.2,211.3 254.8,210.2 275.2,209.1 295.8,207.3 316.2,204.7 336.8,201.9 357.2,202.7 377.8,202.3 398.2,201.0 418.8,200.1 439.2,199.9 459.8,202.4 480.2,203.4 500.8,205.5 521.2,207.9 541.8,209.6 562.2,211.4 582.8,213.3 603.2,213.6 623.8,213.1 644.2,213.8 664.8,213.8 685.2,213.9 705.8,214.5 726.2,215.8 746.8,217.2 767.2,216.2 787.8,216.1 808.2,217.2 828.8,219.1 849.2,215.2 869.8,206.6" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="849.2" cy="118.2" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="849.2" y="108.2" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">一字涨停</text><circle cx="869.8" cy="77.5" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="869.8" y="67.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量+机构4.5亿</text></svg>
+    </div>
+
+    <div class="next-hook">下一章 · 洗盘篇 —— 机构最残忍的一步，明天 10:30 解锁，别错过 🔥</div>
+  </div>
+</div>
+
+<!-- ==================== 第2章 洗盘篇 ==================== -->
+<div class="chapter locked theme-purple" id="ch2">
+  <div class="head" onclick="toggleChapter(2)">
+    <div>
+<h2>② 机构洗盘现形<br><span class="chtitle-sub">震出浮筹</span></h2>
+      <div class="hint" id="hint2">🔒 累计参与周年庆闭幕式活动1200人解锁</div>
+    </div>
+    <span class="badge" id="badge2">待解锁</span>
+    <div class="lock lock-pulse" id="lock2">🔒</div>
+  </div>
+  <div class="body">
+    <div class="baitou">比喻：种庄稼要除草。机构把"不坚定的浮筹"洗掉，留着后面好拉。</div>
+
+    <h4>一、洗盘的原理：机构为什么要"折磨人"</h4>
+    <p>建仓完成后，股价下面趴着一群"不坚定的人"。这些人有一个共同点：<b>拉升的时候他们会跑，一跑就是抛压</b>。机构必须把他们洗出去，才能在拉升时轻松推高。</p>
+    <ul>
+      <li><b>洗浮筹</b>：把不坚定的人洗掉，留下坚定的筹码</li>
+      <li><b>降成本</b>：洗盘时接到的便宜筹码，进一步摊低机构成本</li>
+      <li><b>造恐慌</b>：用"恐惧"和"不耐烦"逼散户交出筹码</li>
+      <li><b>为拉升清障</b>：浮筹越少，拉升越轻、越顺畅</li>
+    </ul>
+    <h5>洗盘要洗掉哪三种人</h5>
+    <table>
+      <tr><th>对象</th><th>是什么人</th><th>怎么洗</th></tr>
+      <tr><td><b>获利盘</b></td><td>建仓期低吸、已经有浮盈的人</td><td>打压到他们"见好就收"</td></tr>
+      <tr><td><b>套牢盘</b></td><td>前期高位买入、被套的人</td><td>拉到解套位附近，让他们"赶紧跑"</td></tr>
+      <tr><td><b>跟风盘</b></td><td>看热闹、追热点进来的人</td><td>震荡磨人，磨掉他们的耐心</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div>洗盘的本质 = <b>用"吓"和"磨"，把不坚定的人请下车</b>。</div>
+
+    <h4>二、机构在做什么（行为拆解）</h4>
+    <ul>
+      <li><b>故意打压吓人</b>：制造恐慌，让散户交出筹码</li>
+      <li><b>假跌破骗筹码</b>：跌破关键支撑，让技术派"止损"交筹码</li>
+      <li><b>长时间震荡磨人</b>：天天小涨小跌，磨掉耐心，让人"拿不住"</li>
+      <li><b>放量下跌制造恐慌</b>：用下跌的量能吓人（但机构自己的筹码没走）</li>
+      <li><b>配合利空洗盘</b>：放利空配合打压，把最后的浮筹洗掉</li>
+    </ul>
+    <h5>洗盘的技术细节</h5>
+    <ul>
+      <li><b>对倒制造量能</b>：自己卖给自己，做出"放量下跌"的假象吓人</li>
+      <li><b>借大盘环境</b>：专选大盘调整的日子洗盘，跌起来"名正言顺"</li>
+      <li><b>关键位护盘</b>：洗盘可以跌，但关键支撑位不能让破（破了就真崩了）</li>
+      <li>洗盘的"度"：洗到浮筹比例降到机构满意的水平（通常换手率降到地量）</li>
+    </ul>
+
+    <h4>三、洗盘的四种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>打压洗盘</b></td><td>急跌砸盘，砸出恐慌盘</td><td>急跌有量、跌完快速收回</td><td>急跌快收+量能不大</td></tr>
+      <tr><td><b>横盘洗盘</b></td><td>高位横盘不涨，磨走没耐心的人</td><td>横盘期间量能萎缩</td><td>横盘+缩量（没人卖了）</td></tr>
+      <tr><td><b>挖坑洗盘</b></td><td>跌破支撑"挖坑"，吓出止损盘再拉回</td><td>假破位3-5天又收回</td><td>假破位+快速收复</td></tr>
+      <tr><td><b>消息洗盘</b></td><td>配合利空消息砸价</td><td>利空砸完不跌、反而更稳</td><td>利空出尽+缩量企稳</td></tr>
+    </table>
+
+    <h4>四、洗盘期的量价关系（核心知识）</h4>
+    <ul>
+      <li><b>缩量回调</b>：跌的时候量不大 → 抛压不重，是"假跌"</li>
+      <li><b>假破位拉回</b>：跌破支撑又收回 → 是"挖坑"不是"逃跑"</li>
+      <li><b>利空不跌</b>：消息面失灵 → 机构控盘了，洗盘末期特征</li>
+      <li><b>长下影/假阴线</b>：盘中砸下去又被拉起来 → 有人护盘</li>
+    </ul>
+    <h5>换手率与分时的细节</h5>
+    <ul>
+      <li>洗盘末期换手率降到<b>极低（1%以下）</b> → 抛压枯竭，洗盘接近尾声</li>
+      <li>洗盘日的分时图常呈<b>"锯齿状"</b>：上下反复磨人，但收盘价不离均价线太远</li>
+      <li>下跌时缩量、反弹时也无量 → 多空都在观望，等待方向选择</li>
+    </ul>
+
+    <h4>五、盘面痕迹（怎么让洗盘"现形"）</h4>
+    <ul>
+      <li>跌破关键支撑又<b>快速拉回</b>（假破位）</li>
+      <li>利空不跌、利多不涨（<b>消息面失灵</b>）</li>
+      <li><b>缩量回调</b>（跌时量不大）</li>
+      <li>长下影线 / 假阴线（砸下去又收回来）</li>
+      <li>龙虎榜<b>机构筹码没动</b>（无大额卖出）</li>
+      <li>跌不深、急跌快收（机构在护盘）</li>
+    </ul>
+    <h5>盘口细节</h5>
+    <ul>
+      <li><b>护盘托单</b>：跌到关键位，买盘突然有大单托住</li>
+      <li><b>恐慌盘 vs 承接盘</b>：抛压大但接盘更大，跌不深</li>
+      <li>洗盘期的"假利空"：公告/消息出来股价不跌反稳 → 洗盘特征</li>
+    </ul>
+
+    <h4>六、核心能力：洗盘 vs 真出货（多维度对比）</h4>
+    <table>
+      <tr><th>维度</th><th>洗盘（假动作）</th><th>真出货（真逃跑）</th></tr>
+      <tr><td><b>位置</b></td><td>低位/中位（拉升前）</td><td>高位（涨过一大波后）</td></tr>
+      <tr><td><b>量能</b></td><td>缩量回调</td><td>放量下跌</td></tr>
+      <tr><td><b>破位</b></td><td>假破位、快速收回</td><td>真跌破、收不回</td></tr>
+      <tr><td><b>时间</b></td><td>短（几天到几周）</td><td>长（可能持续数月）</td></tr>
+      <tr><td><b>消息</b></td><td>利空砸完更稳</td><td>利好出货（见光死）</td></tr>
+      <tr><td><b>龙虎榜</b></td><td>机构筹码没动</td><td>机构专用大额净卖出</td></tr>
+      <tr><td><b>盘口</b></td><td>下跌有承接（护盘）</td><td>反弹无量（没人接）</td></tr>
+      <tr><td><b>均线</b></td><td>不破长期均线（如年线）</td><td>跌破关键均线后反弹无力</td></tr>
+      <tr><td><b>换手率</b></td><td>洗盘期持续走低</td><td>出货期持续高位</td></tr>
+      <tr><td><b>筹码</b></td><td>筹码没转移（还在机构手里）</td><td>筹码高位转移到散户手里</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div><b>洗盘 = 缩量 + 筹码没走；出货 = 放量 + 机构大额卖出。</b></div>
+
+    <h4>七、洗盘结束的信号</h4>
+    <ul class="checklist">
+      <li>✅ 缩量到极致（换手率降到1%以下，抛压枯竭）</li>
+      <li>✅ <b>重新放量</b>（资金回来，量能明显放大）</li>
+      <li>✅ <b>突破洗盘区间</b>（平台/箱体上沿，放量突破）</li>
+      <li>✅ 龙虎榜机构专用<b>买入</b>（机构重新行动）</li>
+      <li>✅ 利空出尽：消息面由"坏"转"稳"，股价开始走强</li>
+    </ul>
+
+    <h4>八、散户的坑（心理层面最"杀人"）</h4>
+    <ul>
+      <li><b>坑1 · 被吓出局</b>：一根大阴线就跑——正好被洗出去，机构接你的筹码后开始拉</li>
+      <li><b>坑2 · 以为趋势坏了</b>：破位就止损，卖在拉升前夜</li>
+      <li><b>坑3 · 把洗盘当出货</b>：洗盘时跑、真出货时反而拿着（搞反了，两头挨打）</li>
+      <li><b>坑4 · 频繁换股</b>：被磨得没耐心，换来换去，把好票换掉</li>
+      <li><b>坑5 · 情绪化操作</b>：洗盘时天天看盘，越看越慌，最后在最低点割肉</li>
+      <li><b>坑6 · 听信"利空消息"</b>：洗盘的假利空一出来就跑了，正好中计</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 缩量洗盘 → 放量突破</h4>
+      <ul>
+        <li><b>8.6-8.18 缩量震荡</b>（29.2-32.4，量能萎缩）</li>
+        <li><b>8.14 挖坑假破位</b> 砸到28.30但快速收回</li>
+        <li><b>8.19 放量突破</b> 32.50（3倍放量）</li>
+        <li><b>8.20-8.21 连续拉升</b> 35.30→37.05，机构买入<b>8.5亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">37.95</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">33.84</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">29.73</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">25.63</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">21.52</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="250.1" x2="70.2" y2="266.4" stroke="#E03434" stroke-width="100%"/><rect x="63.9" y="253.4" width="12.7" height="7.9" fill="#E03434"/><rect x="63.9" y="355.7" width="12.7" height="34.3" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="257.2" x2="90.8" y2="268.6" stroke="#E03434" stroke-width="100%"/><rect x="84.4" y="260.4" width="12.7" height="4.1" fill="#E03434"/><rect x="84.4" y="360.4" width="12.7" height="29.6" fill="#E03434" opacity="0.45"/><line x1="111.2" y1="252.3" x2="111.2" y2="266.0" stroke="#E03434" stroke-width="100%"/><rect x="104.9" y="258.7" width="12.7" height="3.0" fill="#E03434"/><rect x="104.9" y="362.4" width="12.7" height="27.6" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="234.8" x2="131.8" y2="253.1" stroke="#E03434" stroke-width="100%"/><rect x="125.4" y="243.8" width="12.7" height="5.8" fill="#E03434"/><rect x="125.4" y="331.8" width="12.7" height="58.2" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="208.8" x2="152.2" y2="229.8" stroke="#E03434" stroke-width="100%"/><rect x="145.9" y="214.9" width="12.7" height="10.5" fill="#E03434"/><rect x="145.9" y="306.0" width="12.7" height="84.0" fill="#E03434" opacity="0.45"/><line x1="172.8" y1="195.9" x2="172.8" y2="223.0" stroke="#E03434" stroke-width="100%"/><rect x="166.4" y="219.3" width="12.7" height="1.0" fill="#E03434"/><rect x="166.4" y="330.5" width="12.7" height="59.5" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="222.7" x2="193.2" y2="235.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="226.5" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="186.9" y="358.6" width="12.7" height="31.4" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="220.7" x2="213.8" y2="241.7" stroke="#E03434" stroke-width="100%"/><rect x="207.4" y="236.7" width="12.7" height="3.8" fill="#E03434"/><rect x="207.4" y="358.0" width="12.7" height="32.0" fill="#E03434" opacity="0.45"/><line x1="234.2" y1="235.1" x2="234.2" y2="252.8" stroke="#E03434" stroke-width="100%"/><rect x="227.9" y="239.6" width="12.7" height="4.6" fill="#E03434"/><rect x="227.9" y="352.7" width="12.7" height="37.3" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="214.0" x2="254.8" y2="244.1" stroke="#E03434" stroke-width="100%"/><rect x="248.4" y="229.2" width="12.7" height="7.0" fill="#E03434"/><rect x="248.4" y="347.6" width="12.7" height="42.4" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="235.6" x2="275.2" y2="245.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="268.9" y="238.5" width="12.7" height="5.9" fill="#1E9E5A"/><rect x="268.9" y="361.5" width="12.7" height="28.5" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="224.0" x2="295.8" y2="255.5" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="224.6" width="12.7" height="29.7" fill="#E03434"/><rect x="289.4" y="349.7" width="12.7" height="40.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="221.1" x2="316.2" y2="237.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="309.9" y="225.6" width="12.7" height="7.8" fill="#1E9E5A"/><rect x="309.9" y="361.0" width="12.7" height="29.0" fill="#1E9E5A" opacity="0.45"/><line x1="336.8" y1="221.0" x2="336.8" y2="239.3" stroke="#E03434" stroke-width="100%"/><rect x="330.4" y="232.3" width="12.7" height="5.6" fill="#E03434"/><rect x="330.4" y="359.9" width="12.7" height="30.1" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="235.5" x2="357.2" y2="255.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="239.1" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="350.9" y="344.3" width="12.7" height="45.7" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="235.5" x2="377.8" y2="250.8" stroke="#E03434" stroke-width="100%"/><rect x="371.4" y="237.4" width="12.7" height="11.7" fill="#E03434"/><rect x="371.4" y="352.8" width="12.7" height="37.2" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="212.2" x2="398.2" y2="237.7" stroke="#E03434" stroke-width="100%"/><rect x="391.9" y="215.4" width="12.7" height="19.3" fill="#E03434"/><rect x="391.9" y="338.1" width="12.7" height="51.9" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="188.3" x2="418.8" y2="210.2" stroke="#E03434" stroke-width="100%"/><rect x="412.4" y="192.1" width="12.7" height="18.1" fill="#E03434"/><rect x="412.4" y="318.6" width="12.7" height="71.4" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="181.6" x2="439.2" y2="198.2" stroke="#E03434" stroke-width="100%"/><rect x="432.9" y="191.8" width="12.7" height="2.4" fill="#E03434"/><rect x="432.9" y="333.2" width="12.7" height="56.8" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="200.3" x2="459.8" y2="215.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="207.1" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="453.4" y="345.8" width="12.7" height="44.2" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="203.6" x2="480.2" y2="214.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="473.9" y="205.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="473.9" y="361.9" width="12.7" height="28.1" fill="#1E9E5A" opacity="0.45"/><line x1="500.8" y1="203.3" x2="500.8" y2="217.0" stroke="#E03434" stroke-width="100%"/><rect x="494.4" y="204.2" width="12.7" height="11.0" fill="#E03434"/><rect x="494.4" y="363.2" width="12.7" height="26.8" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="188.0" x2="521.2" y2="211.1" stroke="#E03434" stroke-width="100%"/><rect x="514.9" y="193.1" width="12.7" height="16.9" fill="#E03434"/><rect x="514.9" y="357.3" width="12.7" height="32.7" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="173.8" x2="541.8" y2="189.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="535.4" y="185.2" width="12.7" height="2.4" fill="#1E9E5A"/><rect x="535.4" y="347.0" width="12.7" height="43.0" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="171.8" x2="562.2" y2="187.7" stroke="#E03434" stroke-width="100%"/><rect x="555.9" y="179.9" width="12.7" height="7.6" fill="#E03434"/><rect x="555.9" y="350.6" width="12.7" height="39.4" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="180.2" x2="582.8" y2="197.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="576.4" y="182.9" width="12.7" height="5.0" fill="#1E9E5A"/><rect x="576.4" y="363.1" width="12.7" height="26.9" fill="#1E9E5A" opacity="0.45"/><line x1="603.2" y1="186.3" x2="603.2" y2="198.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="596.9" y="191.0" width="12.7" height="5.9" fill="#1E9E5A"/><rect x="596.9" y="360.0" width="12.7" height="30.0" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="167.9" x2="623.8" y2="196.5" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="168.5" width="12.7" height="23.7" fill="#E03434"/><rect x="617.4" y="337.5" width="12.7" height="52.5" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="141.5" x2="644.2" y2="162.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="637.9" y="144.4" width="12.7" height="8.7" fill="#1E9E5A"/><rect x="637.9" y="324.7" width="12.7" height="65.3" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="145.0" x2="664.8" y2="158.6" stroke="#E03434" stroke-width="100%"/><rect x="658.4" y="145.2" width="12.7" height="10.2" fill="#E03434"/><rect x="658.4" y="348.0" width="12.7" height="42.0" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="123.6" x2="685.2" y2="151.7" stroke="#E03434" stroke-width="100%"/><rect x="678.9" y="130.1" width="12.7" height="13.2" fill="#E03434"/><rect x="678.9" y="336.9" width="12.7" height="53.1" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="113.7" x2="705.8" y2="152.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="699.4" y="119.0" width="12.7" height="32.7" fill="#1E9E5A"/><rect x="699.4" y="325.3" width="12.7" height="64.7" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="131.2" x2="726.2" y2="149.7" stroke="#E03434" stroke-width="100%"/><rect x="719.9" y="137.0" width="12.7" height="12.8" fill="#E03434"/><rect x="719.9" y="345.6" width="12.7" height="44.4" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="129.8" x2="746.8" y2="161.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="740.4" y="131.9" width="12.7" height="28.2" fill="#1E9E5A"/><rect x="740.4" y="342.6" width="12.7" height="47.4" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="160.1" x2="767.2" y2="176.8" stroke="#E03434" stroke-width="100%"/><rect x="760.9" y="162.5" width="12.7" height="12.8" fill="#E03434"/><rect x="760.9" y="359.3" width="12.7" height="30.7" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="145.6" x2="787.8" y2="156.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="781.4" y="149.6" width="12.7" height="1.4" fill="#1E9E5A"/><rect x="781.4" y="361.7" width="12.7" height="28.3" fill="#1E9E5A" opacity="0.45"/><line x1="808.2" y1="137.7" x2="808.2" y2="152.3" stroke="#E03434" stroke-width="100%"/><rect x="801.9" y="143.2" width="12.7" height="3.2" fill="#E03434"/><rect x="801.9" y="357.6" width="12.7" height="32.4" fill="#E03434" opacity="0.45"/><line x1="828.8" y1="107.3" x2="828.8" y2="157.1" stroke="#E03434" stroke-width="100%"/><rect x="822.4" y="112.9" width="12.7" height="43.5" fill="#E03434"/><rect x="822.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="849.2" y1="63.3" x2="849.2" y2="91.6" stroke="#E03434" stroke-width="100%"/><rect x="842.9" y="70.3" width="12.7" height="17.8" fill="#E03434"/><rect x="842.9" y="295.7" width="12.7" height="94.3" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="41.4" x2="869.8" y2="77.9" stroke="#E03434" stroke-width="100%"/><rect x="863.4" y="43.6" width="12.7" height="18.3" fill="#E03434"/><rect x="863.4" y="309.7" width="12.7" height="80.3" fill="#E03434" opacity="0.45"/><polyline points="70.2,253.4 90.8,256.9 111.2,257.5 131.8,254.1 152.2,246.3 172.8,239.4 193.2,234.3 213.8,229.9 234.2,229.0 254.8,231.9 275.2,236.9 295.8,234.9 316.2,234.2 336.8,232.8 357.2,236.4 377.8,235.0 398.2,233.2 418.8,224.9 439.2,216.8 459.8,210.2 480.2,204.0 500.8,201.8 521.2,202.0 541.8,201.2 562.2,194.3 582.8,190.6 603.2,189.1 623.8,184.2 644.2,177.3 664.8,170.3 685.2,158.8 705.8,149.7 726.2,143.4 746.8,144.8 767.2,148.3 787.8,152.5 808.2,150.8 828.8,145.9 849.2,128.0 869.8,104.2" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,253.4 90.8,256.9 111.2,257.5 131.8,254.1 152.2,246.3 172.8,241.7 193.2,240.8 213.8,240.2 234.2,240.2 254.8,239.1 275.2,239.6 295.8,238.3 316.2,237.9 336.8,237.5 357.2,238.2 377.8,238.1 398.2,236.8 418.8,234.3 439.2,232.1 459.8,231.2 480.2,228.9 500.8,226.0 521.2,222.8 541.8,220.0 562.2,218.2 582.8,216.6 603.2,214.7 623.8,211.3 644.2,207.0 664.8,202.8 685.2,197.1 705.8,193.5 726.2,188.6 746.8,185.0 767.2,180.8 787.8,176.5 808.2,172.8 828.8,168.9 849.2,162.8 869.8,154.3" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="767.2" cy="162.5" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="767.2" y="152.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">挖坑28.3</text><circle cx="828.8" cy="112.9" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="828.8" y="102.9" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量突破</text></svg>
+    </div>
+
+    <div class="next-hook">下一章 · 试盘篇 —— 机构投石问路，明天 10:30 解锁 🔥</div>
+  </div>
+</div>
+
+<!-- ==================== 第3章 试盘篇 ==================== -->
+<div class="chapter locked theme-teal" id="ch3">
+  <div class="head" onclick="toggleChapter(3)">
+    <div>
+<h2>③ 机构试盘现形<br><span class="chtitle-sub">投石问路</span></h2>
+      <div class="hint" id="hint3">🔒 累计参与周年庆闭幕式活动1800人解锁</div>
+    </div>
+    <span class="badge" id="badge3">待解锁</span>
+    <div class="lock lock-pulse" id="lock3">🔒</div>
+  </div>
+  <div class="body">
+    <div class="baitou">比喻：过河先投石问路——试水深浅，再决定怎么过。</div>
+
+    <h4>一、试盘的本质：机构为什么"先试再拉"</h4>
+    <p>拉升是重头戏，机构不会盲目动手。拉升前，它要先<b>用最小的成本摸清市场的底细</b>——这就是试盘。一次成功的试盘，能帮机构避免拉升时"踩雷"。</p>
+    <ul>
+      <li><b>测抛压</b>：上方有多少人想卖（抛压重，就继续洗）</li>
+      <li><b>测跟风</b>：有多少人想买（跟风足，拉升更省力）</li>
+      <li><b>测压力</b>：上方套牢盘、压力位重不重（压力大，就换拉升方式）</li>
+      <li><b>定节奏</b>：根据试盘结果，决定拉升的时机和方式</li>
+    </ul>
+    <div class="box green"><div class="t">💡 一句话记牢</div>试盘的本质 = <b>用"小动作"测"大反应"，摸清底细再动手</b>。</div>
+
+    <h4>二、机构在做什么（行为拆解）</h4>
+    <ul>
+      <li><b>突然拉升试盘</b>：快速拉一把，看抛压（抛压重会快速回落）</li>
+      <li><b>突然砸盘试盘</b>：快速砸一下，看承接（承接强会快速收回）</li>
+      <li><b>关键位试探</b>：反复测试压力位/支撑位的反应</li>
+      <li><b>盘口试探</b>：挂大买单看上方抛压、挂大卖单看下方承接</li>
+      <li><b>选时试盘</b>：选尾盘/早盘等特定时段测试，影响次日预期</li>
+    </ul>
+
+    <h4>三、试盘的几种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>拉升试盘</b></td><td>突然拉一根大阳/快速拉升</td><td>冲高后回落，留下上影线</td><td>无消息冲高+快速回落</td></tr>
+      <tr><td><b>打压试盘</b></td><td>突然砸盘/急跌</td><td>急跌后快速收回，留下下影线</td><td>无消息砸盘+快速收回</td></tr>
+      <tr><td><b>盘口试盘</b></td><td>大单挂买/挂卖试探</td><td>挂单突然出现又撤掉</td><td>大单挂撤异常</td></tr>
+      <tr><td><b>缺口试盘</b></td><td>故意留缺口/回补缺口</td><td>缺口出现又快速回补</td><td>缺口+快速回补</td></tr>
+      <tr><td><b>尾盘试盘</b></td><td>尾盘拉/砸</td><td>尾盘异动，次日回归</td><td>尾盘异动+次日无延续</td></tr>
+    </table>
+
+    <h4>四、试盘期的量价关系（核心知识）</h4>
+    <ul>
+      <li><b>脉冲量能</b>：突然放量又快速萎缩（试探性动作的典型特征）</li>
+      <li><b>拉了又回</b>：试盘的价格会回到原区间（不是真启动）</li>
+      <li><b>关键区别</b>：试盘的量小（试探）、拉升的量大（真金白银）</li>
+      <li>试盘后量能萎缩到极低 → 多空平衡，准备行动</li>
+    </ul>
+
+    <h4>五、盘面痕迹（怎么让试盘"现形"）</h4>
+    <ul>
+      <li><b>突然异动</b>：无消息突然拉升/砸盘，然后又回到原区间</li>
+      <li><b>上下影线</b>：长上影（拉升试盘遇抛压）/ 长下影（砸盘试盘有承接）</li>
+      <li><b>脉冲量能</b>：单日突然放量，随后缩量（试盘动作）</li>
+      <li><b>关键位反复测试</b>：压力位/支撑位反复试探</li>
+      <li><b>盘口大单异常</b>：突然挂大单又撤（试探动作）</li>
+    </ul>
+
+    <h4>六、关键区分：试盘 vs 拉升 / 试盘 vs 出货</h4>
+    <table>
+      <tr><th>维度</th><th>试盘</th><th>真拉升</th></tr>
+      <tr><td><b>持续性</b></td><td>拉了又回（脉冲）</td><td>拉了不回（持续）</td></tr>
+      <tr><td><b>量能</b></td><td>量小（试探）</td><td>量大（真金白银）</td></tr>
+      <tr><td><b>位置</b></td><td>低位/中位</td><td>启动后连续上攻</td></tr>
+      <tr><td><b>消息</b></td><td>无消息异动</td><td>配合板块/消息</td></tr>
+    </table>
+    <table>
+      <tr><th>维度</th><th>试盘</th><th>出货</th></tr>
+      <tr><td><b>位置</b></td><td>低位/中位（拉升前）</td><td>高位（涨幅巨大后）</td></tr>
+      <tr><td><b>量能</b></td><td>脉冲放量后萎缩</td><td>持续放量</td></tr>
+      <tr><td><b>价格</b></td><td>回落到原区间</td><td>高位滞涨/下跌</td></tr>
+      <tr><td><b>意图</b></td><td>试探（还会拉）</td><td>派发（要跑）</td></tr>
+    </table>
+
+    <h4>七、试盘结束的信号（拉升前兆）</h4>
+    <ul class="checklist">
+      <li>✅ 试盘<b>抛压轻</b>：拉升试探后回落幅度小</li>
+      <li>✅ 试盘<b>承接强</b>：砸盘试探后快速收回</li>
+      <li>✅ 量能萎缩到极低（多空平衡）</li>
+      <li>✅ <b>关键位放量突破</b>（试盘确认后正式突破）</li>
+      <li>✅ 龙虎榜机构专用<b>买入</b>（机构开始真动作）</li>
+    </ul>
+
+    <h4>八、散户的坑（试盘期最容易被"骗"）</h4>
+    <ul>
+      <li><b>坑1 · 把试盘的拉升当"启动"追进去</b>：冲进去就被"拉了又回"套在试盘高位</li>
+      <li><b>坑2 · 把试盘的砸盘当"破位"割肉</b>：砸盘就割，卖在拉升前夜</li>
+      <li><b>坑3 · 试盘期频繁进出</b>：来回折腾，被"假动作"来回打脸</li>
+      <li><b>坑4 · 不识别试盘</b>：把"试盘回落"当成趋势结束，提前下车</li>
+      <li><b>坑5 · 把试盘当"出货"恐慌</b>：误判成出货，在启动前被吓走</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 放量异动 → 冲高回落（试盘特征）</h4>
+      <ul>
+        <li><b>8.6-8.19 地量横盘</b>（每天仅12-27万手，建仓区）</li>
+        <li><b>8.20 突然8倍放量</b> 冲到14.47（拉升试盘：试探上方抛压）</li>
+        <li><b>8.21 冲高回落</b> 冲13.58后收13.03（试盘遇抛压回落，确认压力）</li>
+      </ul>
+      <p style="font-size:16px;color:var(--gray);">判读：无消息突然放量冲高→冲高回落回踩——典型的<b>拉升试盘</b>动作（试探上方抛压和跟风盘）。试盘后若缩量企稳、再次放量突破，就是拉升前兆。</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例二</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">14.66</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">13.62</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">12.59</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">11.55</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">10.51</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="197.5" x2="70.2" y2="268.6" stroke="#E03434" stroke-width="100%"/><rect x="63.9" y="215.6" width="12.7" height="40.4" fill="#E03434"/><rect x="63.9" y="368.3" width="12.7" height="21.7" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="212.0" x2="90.8" y2="234.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="84.4" y="215.0" width="12.7" height="15.1" fill="#1E9E5A"/><rect x="84.4" y="377.0" width="12.7" height="13.0" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="190.9" x2="111.2" y2="242.1" stroke="#E03434" stroke-width="100%"/><rect x="104.9" y="193.9" width="12.7" height="37.4" fill="#E03434"/><rect x="104.9" y="367.6" width="12.7" height="22.4" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="174.6" x2="131.8" y2="207.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="125.4" y="196.9" width="12.7" height="9.6" fill="#1E9E5A"/><rect x="125.4" y="373.3" width="12.7" height="16.7" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="190.3" x2="152.2" y2="211.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="145.9" y="197.5" width="12.7" height="2.4" fill="#1E9E5A"/><rect x="145.9" y="375.9" width="12.7" height="14.1" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="181.2" x2="172.8" y2="206.5" stroke="#E03434" stroke-width="100%"/><rect x="166.4" y="192.1" width="12.7" height="11.5" fill="#E03434"/><rect x="166.4" y="371.3" width="12.7" height="18.7" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="199.3" x2="193.2" y2="225.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="199.3" width="12.7" height="24.1" fill="#1E9E5A"/><rect x="186.9" y="375.4" width="12.7" height="14.6" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="215.6" x2="213.8" y2="235.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="207.4" y="225.2" width="12.7" height="4.8" fill="#1E9E5A"/><rect x="207.4" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="215.6" x2="234.2" y2="239.7" stroke="#E03434" stroke-width="100%"/><rect x="227.9" y="228.8" width="12.7" height="6.6" fill="#E03434"/><rect x="227.9" y="378.8" width="12.7" height="11.2" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="187.9" x2="254.8" y2="241.5" stroke="#E03434" stroke-width="100%"/><rect x="248.4" y="199.3" width="12.7" height="33.2" fill="#E03434"/><rect x="248.4" y="369.2" width="12.7" height="20.8" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="187.3" x2="275.2" y2="204.7" stroke="#E03434" stroke-width="100%"/><rect x="268.9" y="197.5" width="12.7" height="1.8" fill="#E03434"/><rect x="268.9" y="371.5" width="12.7" height="18.5" fill="#E03434" opacity="0.45"/><line x1="295.8" y1="160.1" x2="295.8" y2="204.1" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="177.6" width="12.7" height="22.3" fill="#E03434"/><rect x="289.4" y="367.9" width="12.7" height="22.1" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="139.0" x2="316.2" y2="189.7" stroke="#E03434" stroke-width="100%"/><rect x="309.9" y="149.9" width="12.7" height="34.4" fill="#E03434"/><rect x="309.9" y="361.3" width="12.7" height="28.7" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="131.2" x2="336.8" y2="169.8" stroke="#E03434" stroke-width="100%"/><rect x="330.4" y="139.0" width="12.7" height="21.1" fill="#E03434"/><rect x="330.4" y="365.3" width="12.7" height="24.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="136.6" x2="357.2" y2="182.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="144.5" width="12.7" height="37.4" fill="#1E9E5A"/><rect x="350.9" y="365.7" width="12.7" height="24.3" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="161.3" x2="377.8" y2="187.9" stroke="#E03434" stroke-width="100%"/><rect x="371.4" y="164.3" width="12.7" height="19.9" fill="#E03434"/><rect x="371.4" y="371.5" width="12.7" height="18.5" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="145.1" x2="398.2" y2="176.4" stroke="#E03434" stroke-width="100%"/><rect x="391.9" y="171.6" width="12.7" height="1.0" fill="#E03434"/><rect x="391.9" y="371.8" width="12.7" height="18.2" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="156.5" x2="418.8" y2="180.6" stroke="#E03434" stroke-width="100%"/><rect x="412.4" y="169.8" width="12.7" height="7.2" fill="#E03434"/><rect x="412.4" y="374.7" width="12.7" height="15.3" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="171.0" x2="439.2" y2="190.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="432.9" y="176.4" width="12.7" height="1.8" fill="#1E9E5A"/><rect x="432.9" y="378.2" width="12.7" height="11.8" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="175.8" x2="459.8" y2="207.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="183.0" width="12.7" height="24.1" fill="#1E9E5A"/><rect x="453.4" y="378.9" width="12.7" height="11.1" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="183.0" x2="480.2" y2="213.2" stroke="#E03434" stroke-width="100%"/><rect x="473.9" y="184.2" width="12.7" height="19.3" fill="#E03434"/><rect x="473.9" y="378.5" width="12.7" height="11.5" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="170.4" x2="500.8" y2="189.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="494.4" y="184.8" width="12.7" height="1.8" fill="#1E9E5A"/><rect x="494.4" y="380.4" width="12.7" height="9.6" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="172.8" x2="521.2" y2="191.5" stroke="#E03434" stroke-width="100%"/><rect x="514.9" y="173.4" width="12.7" height="12.7" fill="#E03434"/><rect x="514.9" y="377.7" width="12.7" height="12.3" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="156.5" x2="541.8" y2="181.2" stroke="#E03434" stroke-width="100%"/><rect x="535.4" y="163.7" width="12.7" height="17.5" fill="#E03434"/><rect x="535.4" y="375.3" width="12.7" height="14.7" fill="#E03434" opacity="0.45"/><line x1="562.2" y1="154.7" x2="562.2" y2="171.0" stroke="#E03434" stroke-width="100%"/><rect x="555.9" y="157.1" width="12.7" height="10.9" fill="#E03434"/><rect x="555.9" y="377.8" width="12.7" height="12.2" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="155.3" x2="582.8" y2="164.3" stroke="#E03434" stroke-width="100%"/><rect x="576.4" y="157.7" width="12.7" height="1.0" fill="#E03434"/><rect x="576.4" y="381.7" width="12.7" height="8.3" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="146.3" x2="603.2" y2="163.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="596.9" y="156.5" width="12.7" height="6.0" fill="#1E9E5A"/><rect x="596.9" y="379.0" width="12.7" height="11.0" fill="#1E9E5A" opacity="0.45"/><line x1="623.8" y1="155.3" x2="623.8" y2="168.0" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="161.3" width="12.7" height="3.6" fill="#E03434"/><rect x="617.4" y="380.2" width="12.7" height="9.8" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="156.5" x2="644.2" y2="179.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="637.9" y="160.7" width="12.7" height="15.7" fill="#1E9E5A"/><rect x="637.9" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="664.8" y1="137.8" x2="664.8" y2="180.6" stroke="#E03434" stroke-width="100%"/><rect x="658.4" y="139.0" width="12.7" height="38.0" fill="#E03434"/><rect x="658.4" y="365.1" width="12.7" height="24.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="134.2" x2="685.2" y2="149.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="678.9" y="140.8" width="12.7" height="4.2" fill="#1E9E5A"/><rect x="678.9" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="127.6" x2="705.8" y2="150.5" stroke="#E03434" stroke-width="100%"/><rect x="699.4" y="143.8" width="12.7" height="5.4" fill="#E03434"/><rect x="699.4" y="373.6" width="12.7" height="16.4" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="135.4" x2="726.2" y2="152.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="719.9" y="147.5" width="12.7" height="3.0" fill="#1E9E5A"/><rect x="719.9" y="379.2" width="12.7" height="10.8" fill="#1E9E5A" opacity="0.45"/><line x1="746.8" y1="128.8" x2="746.8" y2="164.3" stroke="#E03434" stroke-width="100%"/><rect x="740.4" y="143.2" width="12.7" height="8.4" fill="#E03434"/><rect x="740.4" y="369.6" width="12.7" height="20.4" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="120.9" x2="767.2" y2="152.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="760.9" y="145.1" width="12.7" height="3.6" fill="#1E9E5A"/><rect x="760.9" y="371.8" width="12.7" height="18.2" fill="#1E9E5A" opacity="0.45"/><line x1="787.8" y1="148.1" x2="787.8" y2="169.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="781.4" y="148.7" width="12.7" height="10.2" fill="#1E9E5A"/><rect x="781.4" y="373.4" width="12.7" height="16.6" fill="#1E9E5A" opacity="0.45"/><line x1="808.2" y1="151.1" x2="808.2" y2="170.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="801.9" y="160.7" width="12.7" height="6.6" fill="#1E9E5A"/><rect x="801.9" y="378.3" width="12.7" height="11.7" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="163.7" x2="828.8" y2="190.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="822.4" y="172.2" width="12.7" height="14.5" fill="#1E9E5A"/><rect x="822.4" y="375.6" width="12.7" height="14.4" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="41.4" x2="849.2" y2="99.2" stroke="#E03434" stroke-width="100%"/><rect x="842.9" y="41.4" width="12.7" height="57.9" fill="#E03434"/><rect x="842.9" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="95.0" x2="869.8" y2="141.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="863.4" y="117.9" width="12.7" height="10.2" fill="#1E9E5A"/><rect x="863.4" y="313.5" width="12.7" height="76.5" fill="#1E9E5A" opacity="0.45"/><polyline points="70.2,215.6 90.8,222.8 111.2,213.2 131.8,211.5 152.2,209.2 172.8,204.5 193.2,203.2 213.8,210.4 234.2,214.9 254.8,214.7 275.2,215.8 295.8,206.7 316.2,190.6 336.8,172.7 357.2,169.2 377.8,162.5 398.2,161.2 418.8,165.2 439.2,173.0 459.8,178.1 480.2,182.1 500.8,185.2 521.2,185.9 541.8,183.0 562.2,173.0 582.8,167.6 603.2,162.8 623.8,160.4 644.2,162.9 664.8,159.3 685.2,156.9 705.8,153.1 726.2,151.0 746.8,144.3 767.2,146.3 787.8,149.0 808.2,153.7 828.8,161.0 849.2,140.6 869.8,136.5" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,215.6 90.8,222.8 111.2,213.2 131.8,211.5 152.2,209.2 172.8,206.3 193.2,208.8 213.8,211.4 234.2,213.4 254.8,212.0 275.2,210.7 295.8,207.9 316.2,203.4 336.8,198.8 357.2,197.7 377.8,195.6 398.2,194.2 418.8,192.8 439.2,192.0 459.8,192.8 480.2,191.2 500.8,189.1 521.2,188.0 541.8,185.9 562.2,183.8 582.8,182.0 603.2,179.0 623.8,175.5 644.2,172.9 664.8,169.9 685.2,167.3 705.8,165.6 726.2,165.6 746.8,165.8 767.2,164.2 787.8,163.9 808.2,163.7 828.8,164.6 849.2,157.7 869.8,153.8" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="849.2" cy="41.4" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="849.2" y="31.4" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">8倍放量</text></svg>
+    </div>
+
+    <div class="next-hook">下一章 · 拉升篇 —— 机构抬轿子的时机，明天 10:30 解锁 🔥</div>
+  </div>
+</div>
+
+<!-- ==================== 第4章 拉升篇 ==================== -->
+<div class="chapter locked theme-red" id="ch4">
+  <div class="head" onclick="toggleChapter(4)">
+    <div>
+<h2>④ 机构拉升现形<br><span class="chtitle-sub">抬轿子</span></h2>
+      <div class="hint" id="hint4">🔒 累计参与周年庆闭幕式活动2400人解锁</div>
+    </div>
+    <span class="badge" id="badge4">待解锁</span>
+    <div class="lock lock-pulse" id="lock4">🔒</div>
+  </div>
+  <div class="body">
+    <div class="baitou">比喻：粮食囤够了，开始开仓抬价。</div>
+
+    <h4>一、拉升的原理：机构为什么"肯拉"</h4>
+    <p>建仓、洗盘、试盘花了那么大功夫，为的就是<b>把股价推高，给后面的出货创造空间</b>。筹码控盘度高了，浮筹少了，拉升的阻力就小。</p>
+    <ul>
+      <li><b>创造出货空间</b>：拉得越高，出货的空间越大、利润越厚</li>
+      <li><b>吸引跟风盘</b>：用"赚钱效应"把场外资金吸引进来（这些人就是将来接盘的种子）</li>
+      <li><b>验证控盘</b>：拉升时抛压小，说明洗盘洗得干净、试盘试得准</li>
+      <li><b>节奏可控</b>：机构掌控节奏，边拉边洗，防止跟风盘获利太多</li>
+    </ul>
+    <h5>拉升的三股力量（不是机构一个人在拉）</h5>
+    <table>
+      <tr><th>力量</th><th>角色</th><th>怎么配合</th></tr>
+      <tr><td><b>机构</b></td><td>主拉</td><td>用大资金推高股价，控节奏</td></tr>
+      <tr><td><b>游资</b></td><td>助推</td><td>打板、抢热点，放大赚钱效应</td></tr>
+      <tr><td><b>跟风盘</b></td><td>跟抬</td><td>看到涨了追进来，推波助澜</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div>拉升的本质 = <b>用"赚钱效应"把股价推高，为出货铺路</b>。</div>
+
+    <h4>二、机构在做什么（行为拆解）</h4>
+    <ul>
+      <li><b>放量拉升</b>：真金白银把股价往上推，量价齐升</li>
+      <li><b>突破关键位</b>：突破平台、压力位、历史高点，打开上涨空间</li>
+      <li><b>龙头带板块</b>：一只龙头把整个板块带起来（机构抱团方向）</li>
+      <li><b>机构+游资合力</b>：龙虎榜上机构专用席位和游资席位同时出现</li>
+      <li><b>边拉边洗</b>：每上一个台阶就歇一歇，洗掉短线客</li>
+    </ul>
+    <h5>拉升的技术细节</h5>
+    <ul>
+      <li><b>关键位放量突破</b>：突破时用大单直接扫掉压力位卖单（干净利落）</li>
+      <li><b>尾盘拉抬</b>：尾盘拉升收出大阳线，给第二天"造势"</li>
+      <li><b>涨停封板</b>：强势股直接封涨停，制造稀缺和赚钱效应</li>
+      <li><b>板块轮动</b>：龙头涨完歇一歇，跟风股补涨，维持板块热度</li>
+    </ul>
+
+    <h4>三、拉升的三种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>特征</th><th>识别要点</th><th>风险与机会</th></tr>
+      <tr><td><b>台阶式拉升</b></td><td>拉一波→横一横→再拉，稳步上台阶</td><td>台阶式高低点清晰、缩量横盘</td><td>最稳健、回调即机会</td></tr>
+      <tr><td><b>火箭式拉升</b></td><td>连续大阳/涨停，一气呵成</td><td>连板/大阳+巨量</td><td>强势题材股，追高风险大</td></tr>
+      <tr><td><b>震荡式拉升</b></td><td>边震荡边抬高，低点不断上移</td><td>低点抬高+震荡向上</td><td>边拉边换手，洗短线客</td></tr>
+    </table>
+
+    <h4>四、拉升期的量价关系（核心知识）</h4>
+    <ul>
+      <li><b>放量突破</b>：突破平台/压力位时放量（量能验证突破有效性）</li>
+      <li><b>缩量回调</b>：拉升途中回调时缩量（抛压小，属正常）</li>
+      <li><b>量价齐升</b>：健康拉升的标志</li>
+      <li><b>放量滞涨</b>：危险信号——可能是拉升末端、出货起点</li>
+    </ul>
+    <h5>"空中加油"（拉升中的二次洗盘）</h5>
+    <ul>
+      <li>拉升途中突然横盘/回调几天（<b>缩量</b>），洗掉短线获利盘</li>
+      <li>洗完后<b>再次放量突破</b>，继续拉升（加油成功）</li>
+      <li>若"加油"后无法再次放量突破 → 拉升动能衰竭，警惕见顶</li>
+    </ul>
+    <div class="box green"><div class="t">💡 关键口诀</div>健康拉升 = <b>放量涨、缩量调</b>；一旦"放量不涨"，就要警惕了。</div>
+
+    <h4>五、盘面痕迹（怎么让拉升"现形"）</h4>
+    <ul>
+      <li><b>放量突破</b>：突破平台/压力位时明显放量</li>
+      <li><b>涨停潮 / 连板</b>：龙头股连续涨停，带动板块</li>
+      <li>龙虎榜<b>机构专用大额买入</b>：机构席位开始大笔进场</li>
+      <li><b>板块联动</b>：同板块个股集体走强（机构抱团方向）</li>
+      <li><b>低点不断抬高</b>：回调一次比一次浅</li>
+      <li><b>试盘结束信号</b>：试盘后量能萎缩企稳、重新放量（正式启动）</li>
+    </ul>
+    <h5>盘口细节</h5>
+    <ul>
+      <li><b>大单扫货</b>：买盘频繁出现大单直接吃卖一（主动买盘强）</li>
+      <li><b>封单</b>：涨停板上封单巨大（资金态度坚决）</li>
+      <li><b>分时强势</b>：分时图沿均价线上方运行，回调不破均价线</li>
+    </ul>
+
+    <h4>六、拉升结束的信号（与出货的衔接）</h4>
+    <ul class="checklist">
+      <li>✅ <b>高位放量滞涨</b>（量巨大、价不涨）</li>
+      <li>✅ <b>龙头股滞涨/跳水</b>（板块风向标倒了）</li>
+      <li>✅ <b>板块分化</b>（龙头涨、跟风跌）</li>
+      <li>✅ 利好兑现（<b>见光死</b>）</li>
+      <li>✅ 龙虎榜机构专用开始<b>净卖出</b></li>
+      <li>✅ 高位出现长上影/巨量阴线（上方抛压沉重）</li>
+    </ul>
+    <div class="box"><div class="t">⚠️ 记住</div>拉升的<b>末端就是出货的起点</b>——赚钱效应最热的时候，往往是机构开始卖的时候。</div>
+
+    <h4>七、散户的坑（"看得见吃不着"）</h4>
+    <ul>
+      <li><b>坑1 · 不敢追</b>：涨太快怕高，眼睁睁看着涨上去</li>
+      <li><b>坑2 · 追在最高点</b>：犹豫半天，忍不住追进去——正好在顶部</li>
+      <li><b>坑3 · 拿不住</b>：刚启动就卖，赚一点就跑，错过主升段</li>
+      <li><b>坑4 · 拉升末端追加</b>：看到赚钱效应冲进去，正好接机构的货</li>
+      <li><b>坑5 · 满仓追龙头</b>：重仓追最热的票，一旦龙头见顶，损失惨重</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 高位洗盘 → 放量再突破</h4>
+      <ul>
+        <li>8月上旬上涨 15.9→18.8（第一波）</li>
+        <li><b>8.13 冲高回落</b> 20.72→18.94（开始洗盘）</li>
+        <li><b>8.14-8.18 高位震荡洗盘</b>（缩量换手）</li>
+        <li><b>8.21 放量突破新高</b> 21.20，机构买入<b>5.6亿</b></li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">37.53</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">31.22</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">24.91</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">18.60</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">12.29</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="41.4" x2="70.2" y2="79.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="63.9" y="45.1" width="12.7" height="27.7" fill="#1E9E5A"/><rect x="63.9" y="342.2" width="12.7" height="47.8" fill="#1E9E5A" opacity="0.45"/><line x1="90.8" y1="59.3" x2="90.8" y2="90.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="84.4" y="63.0" width="12.7" height="17.8" fill="#1E9E5A"/><rect x="84.4" y="350.1" width="12.7" height="39.9" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="78.9" x2="111.2" y2="112.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="104.9" y="86.5" width="12.7" height="22.1" fill="#1E9E5A"/><rect x="104.9" y="342.7" width="12.7" height="47.3" fill="#1E9E5A" opacity="0.45"/><line x1="131.8" y1="116.4" x2="131.8" y2="138.0" stroke="#1E9E5A" stroke-width="100%"/><rect x="125.4" y="124.8" width="12.7" height="13.2" fill="#1E9E5A"/><rect x="125.4" y="354.3" width="12.7" height="35.7" fill="#1E9E5A" opacity="0.45"/><line x1="152.2" y1="133.9" x2="152.2" y2="150.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="145.9" y="141.0" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="145.9" y="352.4" width="12.7" height="37.6" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="140.5" x2="172.8" y2="168.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="166.4" y="141.9" width="12.7" height="20.8" fill="#1E9E5A"/><rect x="166.4" y="355.2" width="12.7" height="34.8" fill="#1E9E5A" opacity="0.45"/><line x1="193.2" y1="160.5" x2="193.2" y2="176.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="164.0" width="12.7" height="8.3" fill="#1E9E5A"/><rect x="186.9" y="362.3" width="12.7" height="27.7" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="165.0" x2="213.8" y2="180.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="207.4" y="165.1" width="12.7" height="12.7" fill="#1E9E5A"/><rect x="207.4" y="362.4" width="12.7" height="27.6" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="169.5" x2="234.2" y2="186.8" stroke="#E03434" stroke-width="100%"/><rect x="227.9" y="171.0" width="12.7" height="3.5" fill="#E03434"/><rect x="227.9" y="351.5" width="12.7" height="38.5" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="161.0" x2="254.8" y2="183.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="248.4" y="170.6" width="12.7" height="12.5" fill="#1E9E5A"/><rect x="248.4" y="351.1" width="12.7" height="38.9" fill="#1E9E5A" opacity="0.45"/><line x1="275.2" y1="185.3" x2="275.2" y2="204.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="268.9" y="187.1" width="12.7" height="17.8" fill="#1E9E5A"/><rect x="268.9" y="354.6" width="12.7" height="35.4" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="195.1" x2="295.8" y2="212.4" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="195.1" width="12.7" height="9.7" fill="#E03434"/><rect x="289.4" y="358.1" width="12.7" height="31.9" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="184.5" x2="316.2" y2="200.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="309.9" y="186.2" width="12.7" height="13.8" fill="#1E9E5A"/><rect x="309.9" y="358.7" width="12.7" height="31.3" fill="#1E9E5A" opacity="0.45"/><line x1="336.8" y1="199.6" x2="336.8" y2="216.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="330.4" y="204.7" width="12.7" height="8.8" fill="#1E9E5A"/><rect x="330.4" y="358.6" width="12.7" height="31.4" fill="#1E9E5A" opacity="0.45"/><line x1="357.2" y1="209.5" x2="357.2" y2="232.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="213.2" width="12.7" height="18.6" fill="#1E9E5A"/><rect x="350.9" y="359.9" width="12.7" height="30.1" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="214.7" x2="377.8" y2="243.0" stroke="#1E9E5A" stroke-width="100%"/><rect x="371.4" y="224.8" width="12.7" height="9.8" fill="#1E9E5A"/><rect x="371.4" y="341.5" width="12.7" height="48.5" fill="#1E9E5A" opacity="0.45"/><line x1="398.2" y1="229.9" x2="398.2" y2="251.4" stroke="#E03434" stroke-width="100%"/><rect x="391.9" y="231.1" width="12.7" height="1.8" fill="#E03434"/><rect x="391.9" y="331.6" width="12.7" height="58.4" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="226.8" x2="418.8" y2="240.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="412.4" y="236.7" width="12.7" height="2.0" fill="#1E9E5A"/><rect x="412.4" y="344.2" width="12.7" height="45.8" fill="#1E9E5A" opacity="0.45"/><line x1="439.2" y1="227.2" x2="439.2" y2="241.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="432.9" y="236.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="432.9" y="346.3" width="12.7" height="43.7" fill="#1E9E5A" opacity="0.45"/><line x1="459.8" y1="237.6" x2="459.8" y2="246.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="242.1" width="12.7" height="4.1" fill="#1E9E5A"/><rect x="453.4" y="364.7" width="12.7" height="25.3" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="230.6" x2="480.2" y2="247.2" stroke="#E03434" stroke-width="100%"/><rect x="473.9" y="237.6" width="12.7" height="7.5" fill="#E03434"/><rect x="473.9" y="339.5" width="12.7" height="50.5" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="237.1" x2="500.8" y2="250.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="494.4" y="244.5" width="12.7" height="3.8" fill="#1E9E5A"/><rect x="494.4" y="351.1" width="12.7" height="38.9" fill="#1E9E5A" opacity="0.45"/><line x1="521.2" y1="248.2" x2="521.2" y2="261.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="514.9" y="248.7" width="12.7" height="6.1" fill="#1E9E5A"/><rect x="514.9" y="355.6" width="12.7" height="34.4" fill="#1E9E5A" opacity="0.45"/><line x1="541.8" y1="251.4" x2="541.8" y2="268.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="535.4" y="256.6" width="12.7" height="8.4" fill="#1E9E5A"/><rect x="535.4" y="357.9" width="12.7" height="32.1" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="251.4" x2="562.2" y2="264.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="555.9" y="257.1" width="12.7" height="6.3" fill="#1E9E5A"/><rect x="555.9" y="336.4" width="12.7" height="53.6" fill="#1E9E5A" opacity="0.45"/><line x1="582.8" y1="263.0" x2="582.8" y2="268.0" stroke="#E03434" stroke-width="100%"/><rect x="576.4" y="264.5" width="12.7" height="2.0" fill="#E03434"/><rect x="576.4" y="362.8" width="12.7" height="27.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="255.3" x2="603.2" y2="263.3" stroke="#E03434" stroke-width="100%"/><rect x="596.9" y="257.1" width="12.7" height="4.3" fill="#E03434"/><rect x="596.9" y="354.3" width="12.7" height="35.7" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="242.7" x2="623.8" y2="260.3" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="242.7" width="12.7" height="17.4" fill="#E03434"/><rect x="617.4" y="355.1" width="12.7" height="34.9" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="235.8" x2="644.2" y2="245.9" stroke="#E03434" stroke-width="100%"/><rect x="637.9" y="238.1" width="12.7" height="6.1" fill="#E03434"/><rect x="637.9" y="335.7" width="12.7" height="54.3" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="229.2" x2="664.8" y2="240.0" stroke="#E03434" stroke-width="100%"/><rect x="658.4" y="230.8" width="12.7" height="4.6" fill="#E03434"/><rect x="658.4" y="343.1" width="12.7" height="46.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="224.6" x2="685.2" y2="236.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="678.9" y="228.2" width="12.7" height="1.5" fill="#1E9E5A"/><rect x="678.9" y="349.6" width="12.7" height="40.4" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="227.1" x2="705.8" y2="236.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="699.4" y="230.9" width="12.7" height="1.2" fill="#1E9E5A"/><rect x="699.4" y="359.6" width="12.7" height="30.4" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="215.1" x2="726.2" y2="233.4" stroke="#E03434" stroke-width="100%"/><rect x="719.9" y="215.1" width="12.7" height="15.3" fill="#E03434"/><rect x="719.9" y="368.4" width="12.7" height="21.6" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="196.5" x2="746.8" y2="216.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="740.4" y="196.9" width="12.7" height="17.2" fill="#1E9E5A"/><rect x="740.4" y="302.4" width="12.7" height="87.6" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="204.1" x2="767.2" y2="222.9" stroke="#E03434" stroke-width="100%"/><rect x="760.9" y="207.1" width="12.7" height="8.2" fill="#E03434"/><rect x="760.9" y="312.4" width="12.7" height="77.6" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="198.9" x2="787.8" y2="213.3" stroke="#E03434" stroke-width="100%"/><rect x="781.4" y="200.7" width="12.7" height="7.1" fill="#E03434"/><rect x="781.4" y="319.3" width="12.7" height="70.7" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="200.0" x2="808.2" y2="211.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="801.9" y="203.5" width="12.7" height="5.3" fill="#1E9E5A"/><rect x="801.9" y="342.4" width="12.7" height="47.6" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="213.3" x2="828.8" y2="228.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="822.4" y="220.3" width="12.7" height="7.9" fill="#1E9E5A"/><rect x="822.4" y="350.3" width="12.7" height="39.7" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="210.9" x2="849.2" y2="231.6" stroke="#E03434" stroke-width="100%"/><rect x="842.9" y="210.9" width="12.7" height="13.5" fill="#E03434"/><rect x="842.9" y="330.4" width="12.7" height="59.6" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="191.8" x2="869.8" y2="208.9" stroke="#E03434" stroke-width="100%"/><rect x="863.4" y="191.8" width="12.7" height="11.3" fill="#E03434"/><rect x="863.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,72.9 90.8,76.8 111.2,87.4 131.8,100.1 152.2,109.9 172.8,127.9 193.2,146.2 213.8,160.1 234.2,166.7 254.8,173.4 275.2,181.8 295.8,186.4 316.2,190.8 336.8,199.3 357.2,209.1 377.8,215.0 398.2,222.2 418.8,230.0 439.2,234.8 459.8,237.6 480.2,238.2 500.8,241.7 521.2,244.9 541.8,250.4 562.2,253.9 582.8,259.2 603.2,261.0 623.8,258.6 644.2,253.2 664.8,246.6 685.2,239.7 705.8,234.7 726.2,229.2 746.8,224.4 767.2,219.6 787.8,213.8 808.2,209.2 828.8,211.8 849.2,211.2 869.8,208.1" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,72.9 90.8,76.8 111.2,87.4 131.8,100.1 152.2,109.9 172.8,118.7 193.2,126.4 213.8,132.8 234.2,137.1 254.8,141.7 275.2,147.4 295.8,151.4 316.2,155.1 336.8,159.3 357.2,164.1 377.8,168.5 398.2,172.2 418.8,175.9 439.2,179.2 459.8,182.5 480.2,190.7 500.8,199.1 521.2,206.4 541.8,212.8 562.2,218.5 582.8,223.6 603.2,227.8 623.8,231.1 644.2,234.4 664.8,236.8 685.2,238.0 705.8,239.9 726.2,240.6 746.8,240.7 767.2,239.4 787.8,237.7 808.2,236.6 828.8,236.1 849.2,234.8 869.8,232.1" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="828.8" cy="228.2" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="828.8" y="218.2" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">洗盘低点</text><circle cx="869.8" cy="191.8" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="869.8" y="181.8" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">突破新高</text></svg>
+    </div>
+    <div class="case">
+      <h4>🎯 真实案例二 · 低位横盘 → 放量拉升</h4>
+      <ul><li>低位横盘4.6-5.4 → <b>8.17 放量启动</b>（3倍量）→ 8.18 板块爆发收6.23 → 8.19 冲高6.78回落</li></ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例二</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">6.93</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">6.11</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">5.30</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">4.49</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">3.67</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="222.6" x2="70.2" y2="237.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="63.9" y="228.7" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="63.9" y="381.5" width="12.7" height="8.5" fill="#1E9E5A" opacity="0.45"/><line x1="90.8" y1="227.2" x2="90.8" y2="237.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="84.4" y="229.5" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="84.4" y="381.5" width="12.7" height="8.5" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="205.7" x2="111.2" y2="232.5" stroke="#E03434" stroke-width="100%"/><rect x="104.9" y="214.1" width="12.7" height="13.8" fill="#E03434"/><rect x="104.9" y="374.0" width="12.7" height="16.0" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="176.5" x2="131.8" y2="215.7" stroke="#E03434" stroke-width="100%"/><rect x="125.4" y="208.0" width="12.7" height="6.1" fill="#E03434"/><rect x="125.4" y="367.3" width="12.7" height="22.7" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="207.2" x2="152.2" y2="223.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="145.9" y="207.2" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="145.9" y="374.6" width="12.7" height="15.4" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="212.6" x2="172.8" y2="225.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="166.4" y="218.0" width="12.7" height="6.9" fill="#1E9E5A"/><rect x="166.4" y="378.7" width="12.7" height="11.3" fill="#1E9E5A" opacity="0.45"/><line x1="193.2" y1="224.1" x2="193.2" y2="240.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="226.4" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="186.9" y="379.7" width="12.7" height="10.3" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="235.6" x2="213.8" y2="244.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="207.4" y="239.5" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="207.4" y="381.6" width="12.7" height="8.4" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="240.2" x2="234.2" y2="252.5" stroke="#E03434" stroke-width="100%"/><rect x="227.9" y="245.6" width="12.7" height="1.5" fill="#E03434"/><rect x="227.9" y="381.8" width="12.7" height="8.2" fill="#E03434" opacity="0.45"/><line x1="254.8" y1="228.7" x2="254.8" y2="251.7" stroke="#E03434" stroke-width="100%"/><rect x="248.4" y="235.6" width="12.7" height="9.2" fill="#E03434"/><rect x="248.4" y="375.8" width="12.7" height="14.2" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="232.5" x2="275.2" y2="249.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="268.9" y="235.6" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="268.9" y="379.1" width="12.7" height="10.9" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="224.1" x2="295.8" y2="244.8" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="232.5" width="12.7" height="12.3" fill="#E03434"/><rect x="289.4" y="366.7" width="12.7" height="23.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="225.6" x2="316.2" y2="243.3" stroke="#E03434" stroke-width="100%"/><rect x="309.9" y="233.3" width="12.7" height="7.7" fill="#E03434"/><rect x="309.9" y="369.5" width="12.7" height="20.5" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="224.1" x2="336.8" y2="240.2" stroke="#E03434" stroke-width="100%"/><rect x="330.4" y="231.0" width="12.7" height="7.7" fill="#E03434"/><rect x="330.4" y="373.3" width="12.7" height="16.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="227.2" x2="357.2" y2="251.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="233.3" width="12.7" height="14.6" fill="#1E9E5A"/><rect x="350.9" y="373.9" width="12.7" height="16.1" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="237.9" x2="377.8" y2="256.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="371.4" y="248.7" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="371.4" y="374.5" width="12.7" height="15.5" fill="#1E9E5A" opacity="0.45"/><line x1="398.2" y1="247.9" x2="398.2" y2="268.6" stroke="#E03434" stroke-width="100%"/><rect x="391.9" y="249.4" width="12.7" height="5.4" fill="#E03434"/><rect x="391.9" y="373.5" width="12.7" height="16.5" fill="#E03434" opacity="0.45"/><line x1="418.8" y1="241.0" x2="418.8" y2="255.6" stroke="#E03434" stroke-width="100%"/><rect x="412.4" y="241.8" width="12.7" height="9.2" fill="#E03434"/><rect x="412.4" y="375.7" width="12.7" height="14.3" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="222.6" x2="439.2" y2="247.9" stroke="#E03434" stroke-width="100%"/><rect x="432.9" y="224.9" width="12.7" height="19.2" fill="#E03434"/><rect x="432.9" y="369.8" width="12.7" height="20.2" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="223.3" x2="459.8" y2="247.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="228.7" width="12.7" height="18.4" fill="#1E9E5A"/><rect x="453.4" y="373.8" width="12.7" height="16.2" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="234.9" x2="480.2" y2="251.7" stroke="#E03434" stroke-width="100%"/><rect x="473.9" y="236.4" width="12.7" height="13.1" fill="#E03434"/><rect x="473.9" y="378.7" width="12.7" height="11.3" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="224.1" x2="500.8" y2="238.7" stroke="#E03434" stroke-width="100%"/><rect x="494.4" y="231.8" width="12.7" height="5.4" fill="#E03434"/><rect x="494.4" y="376.4" width="12.7" height="13.6" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="222.6" x2="521.2" y2="234.9" stroke="#E03434" stroke-width="100%"/><rect x="514.9" y="225.6" width="12.7" height="7.7" fill="#E03434"/><rect x="514.9" y="374.5" width="12.7" height="15.5" fill="#E03434" opacity="0.45"/><line x1="541.8" y1="211.1" x2="541.8" y2="233.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="535.4" y="227.2" width="12.7" height="5.4" fill="#1E9E5A"/><rect x="535.4" y="372.4" width="12.7" height="17.6" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="220.3" x2="562.2" y2="235.6" stroke="#E03434" stroke-width="100%"/><rect x="555.9" y="221.8" width="12.7" height="13.8" fill="#E03434"/><rect x="555.9" y="375.4" width="12.7" height="14.6" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="207.2" x2="582.8" y2="221.8" stroke="#E03434" stroke-width="100%"/><rect x="576.4" y="208.0" width="12.7" height="7.7" fill="#E03434"/><rect x="576.4" y="368.3" width="12.7" height="21.7" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="205.7" x2="603.2" y2="214.9" stroke="#E03434" stroke-width="100%"/><rect x="596.9" y="206.4" width="12.7" height="3.1" fill="#E03434"/><rect x="596.9" y="373.5" width="12.7" height="16.5" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="200.3" x2="623.8" y2="210.3" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="203.4" width="12.7" height="3.8" fill="#E03434"/><rect x="617.4" y="374.6" width="12.7" height="15.4" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="151.2" x2="644.2" y2="209.5" stroke="#E03434" stroke-width="100%"/><rect x="637.9" y="170.4" width="12.7" height="33.0" fill="#E03434"/><rect x="637.9" y="338.4" width="12.7" height="51.6" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="178.8" x2="664.8" y2="198.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="658.4" y="181.1" width="12.7" height="3.8" fill="#1E9E5A"/><rect x="658.4" y="344.4" width="12.7" height="45.6" fill="#1E9E5A" opacity="0.45"/><line x1="685.2" y1="181.9" x2="685.2" y2="191.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="678.9" y="185.7" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="678.9" y="361.9" width="12.7" height="28.1" fill="#1E9E5A" opacity="0.45"/><line x1="705.8" y1="185.7" x2="705.8" y2="195.7" stroke="#1E9E5A" stroke-width="100%"/><rect x="699.4" y="189.6" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="699.4" y="371.2" width="12.7" height="18.8" fill="#1E9E5A" opacity="0.45"/><line x1="726.2" y1="186.5" x2="726.2" y2="197.2" stroke="#E03434" stroke-width="100%"/><rect x="719.9" y="188.0" width="12.7" height="6.1" fill="#E03434"/><rect x="719.9" y="371.2" width="12.7" height="18.8" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="184.9" x2="746.8" y2="196.5" stroke="#1E9E5A" stroke-width="100%"/><rect x="740.4" y="191.1" width="12.7" height="1.5" fill="#1E9E5A"/><rect x="740.4" y="370.4" width="12.7" height="19.6" fill="#1E9E5A" opacity="0.45"/><line x1="767.2" y1="191.1" x2="767.2" y2="208.0" stroke="#1E9E5A" stroke-width="100%"/><rect x="760.9" y="191.9" width="12.7" height="11.5" fill="#1E9E5A"/><rect x="760.9" y="371.9" width="12.7" height="18.1" fill="#1E9E5A" opacity="0.45"/><line x1="787.8" y1="143.5" x2="787.8" y2="190.3" stroke="#E03434" stroke-width="100%"/><rect x="781.4" y="163.4" width="12.7" height="15.4" fill="#E03434"/><rect x="781.4" y="327.0" width="12.7" height="63.0" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="83.6" x2="808.2" y2="155.0" stroke="#E03434" stroke-width="100%"/><rect x="801.9" y="83.6" width="12.7" height="66.0" fill="#E03434"/><rect x="801.9" y="306.5" width="12.7" height="83.5" fill="#E03434" opacity="0.45"/><line x1="828.8" y1="41.4" x2="828.8" y2="101.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="822.4" y="69.8" width="12.7" height="13.1" fill="#1E9E5A"/><rect x="822.4" y="295.0" width="12.7" height="95.0" fill="#1E9E5A" opacity="0.45"/><line x1="849.2" y1="50.6" x2="849.2" y2="133.5" stroke="#E03434" stroke-width="100%"/><rect x="842.9" y="75.1" width="12.7" height="31.5" fill="#E03434"/><rect x="842.9" y="312.3" width="12.7" height="77.7" fill="#E03434" opacity="0.45"/><line x1="869.8" y1="89.7" x2="869.8" y2="135.8" stroke="#1E9E5A" stroke-width="100%"/><rect x="863.4" y="95.1" width="12.7" height="37.6" fill="#1E9E5A"/><rect x="863.4" y="332.9" width="12.7" height="57.1" fill="#1E9E5A" opacity="0.45"/><polyline points="70.2,229.5 90.8,229.9 111.2,224.6 131.8,220.5 152.2,220.4 172.8,219.5 193.2,221.3 213.8,227.3 234.2,234.9 254.8,237.9 275.2,242.7 295.8,241.3 316.2,239.2 336.8,236.2 357.2,238.7 377.8,239.6 398.2,243.0 418.8,244.7 439.2,243.5 459.8,243.3 480.2,239.9 500.8,236.4 521.2,233.2 541.8,234.7 562.2,229.6 582.8,223.9 603.2,218.9 623.8,214.4 644.2,202.0 664.8,194.6 685.2,190.3 705.8,187.9 726.2,184.8 746.8,189.2 767.2,192.9 787.8,188.3 808.2,166.2 828.8,145.2 849.2,121.7 869.8,107.5" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,229.5 90.8,229.9 111.2,224.6 131.8,220.5 152.2,220.4 172.8,221.2 193.2,223.8 213.8,226.3 234.2,228.5 254.8,229.2 275.2,230.9 295.8,231.1 316.2,231.2 336.8,231.2 357.2,232.3 377.8,233.7 398.2,234.6 418.8,235.0 439.2,234.4 459.8,235.1 480.2,235.4 500.8,235.5 521.2,236.1 541.8,237.3 562.2,237.4 582.8,236.5 603.2,234.9 623.8,232.9 644.2,229.1 664.8,226.6 685.2,223.5 705.8,221.5 726.2,219.3 746.8,217.3 767.2,215.1 787.8,210.6 808.2,202.3 828.8,194.4 849.2,186.9 869.8,181.2" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="787.8" cy="163.4" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="787.8" y="153.4" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">放量启动</text><circle cx="808.2" cy="83.6" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="808.2" y="73.6" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">板块爆发</text></svg>
+    </div>
+
+    <div class="next-hook">下一章 · 出货篇 —— 机构最后的收割，明天 10:30 解锁 🔥</div>
+  </div>
+</div>
+
+<!-- ==================== 第5章 出货篇 ==================== -->
+<div class="chapter locked theme-gray" id="ch5">
+  <div class="head" onclick="toggleChapter(5)">
+    <div>
+<h2>⑤ 机构出货现形<br><span class="chtitle-sub">派发离场</span></h2>
+      <div class="hint" id="hint5">🔒 累计参与周年庆闭幕式活动3000人解锁</div>
+    </div>
+    <span class="badge" id="badge5">待解锁</span>
+    <div class="lock lock-pulse" id="lock5">🔒</div>
+  </div>
+  <div class="body">
+    <div class="baitou">比喻：收割完庄稼，把货卖给接盘的人。</div>
+
+    <h4>一、出货的原理：为什么散户会"心甘情愿"接盘</h4>
+    <p>前面建仓、洗盘、试盘、拉升，最终都是为了这一步：<b>把筹码卖给散户，兑现利润离场</b>。散户为什么愿意接？因为机构制造了三个幻觉：</p>
+    <ul>
+      <li><b>惯性幻觉</b>："它一直在涨，还能涨"——散户拿惯了，舍不得走</li>
+      <li><b>错过幻觉</b>："再不买就买不到了"——赚钱效应让人怕错过</li>
+      <li><b>利好幻觉</b>："利好出来了，肯定还要涨"——消息面配合出货</li>
+    </ul>
+    <h5>出货的对象是谁（谁在接机构的货）</h5>
+    <table>
+      <tr><th>接盘者</th><th>为什么接</th></tr>
+      <tr><td><b>追涨散户</b></td><td>看到涨、看到利好，冲进来"上车"</td></tr>
+      <tr><td><b>补仓散户</b></td><td>持仓下跌不甘心，越跌越补（摊平）</td></tr>
+      <tr><td><b>新进场资金</b></td><td>看到板块赚钱效应，从其他票换过来</td></tr>
+    </table>
+    <div class="box green"><div class="t">💡 一句话记牢</div>出货的本质 = <b>用"还能涨"的假象，把筹码转移给散户</b>。</div>
+
+    <h4>二、机构在做什么（行为拆解）</h4>
+    <ul>
+      <li><b>高位放量滞涨</b>：涨不动了，但成交量巨大（边拉边出）</li>
+      <li><b>大单卖、小单买</b>：大单悄悄出货，小单维持"还在买"的人气</li>
+      <li><b>对倒维持</b>：自己跟自己交易，做出"还在涨"的假象</li>
+      <li><b>利好出货</b>：趁利好消息、市场狂热，把货卖给冲进来的人</li>
+      <li><b>尾盘拉升</b>：盘中跌、尾盘拉，做出"强势"假象</li>
+    </ul>
+    <h5>出货的隐蔽手法（怎么看穿）</h5>
+    <ul>
+      <li><b>托盘出货</b>：卖盘挂大单压着，买盘假装接，其实在悄悄卖</li>
+      <li><b>拉高诱多</b>：尾盘拉一下，让散户以为"又走强了"，第二天接着卖</li>
+      <li><b>边拉边出</b>：用小幅上涨掩盖大额卖出（卖的量大于买的量）</li>
+      <li><b>借利好出</b>：公告/消息一出，趁散户兴奋进场，正好派发</li>
+    </ul>
+
+    <h4>三、出货的四种方式（详解）</h4>
+    <table>
+      <tr><th>方式</th><th>怎么运作</th><th>盘面特征</th><th>识别要点</th></tr>
+      <tr><td><b>高位震荡出货</b></td><td>高位横盘、巨量滞涨，慢慢派发</td><td>横盘放量不涨（量能异常大）</td><td>高位横盘+巨量+不涨</td></tr>
+      <tr><td><b>拉高出货</b></td><td>最后猛拉一波吸引追高盘，边拉边卖</td><td>急拉后放量滞涨/长上影</td><td>末段急拉+放量滞涨</td></tr>
+      <tr><td><b>杀跌出货</b></td><td>直接放量砸盘，恐慌出逃</td><td>放量下跌、反弹无量</td><td>放量下跌+反弹无量</td></tr>
+      <tr><td><b>利好出货</b></td><td>利好公布、见光死，趁机派发</td><td>利好不涨反跌（见光死）</td><td>利好兑现日放量下跌</td></tr>
+    </table>
+
+    <h4>四、出货的完整识别体系</h4>
+    <ul>
+      <li><b>量价背离</b>：放量不涨（滞涨）——最典型的信号</li>
+      <li><b>位置</b>：高位（涨过一大波之后）</li>
+      <li><b>龙虎榜</b>：机构专用<b>大额净卖出</b></li>
+      <li><b>消息</b>：利好不涨 / 见光死</li>
+      <li><b>盘口</b>：大单卖、小单买；反弹无量</li>
+      <li><b>形态</b>：长上影、冲高回落、高位放量阴线</li>
+      <li><b>时间</b>：连续多日高位放量滞涨（不是一天）</li>
+    </ul>
+    <h5>筹码与换手的细节</h5>
+    <ul>
+      <li><b>换手率持续高位</b>（10%+连续多日）→ 筹码在高位大量换手（有人接走了）</li>
+      <li><b>筹码高位堆积</b>：筹码分布图显示高位筹码峰变大 → 套牢盘在生成</li>
+      <li><b>上涨斜率变缓</b>：从陡峭上涨变成"涨不动"（动能衰竭）</li>
+    </ul>
+
+    <h4>五、出货 vs 洗盘（终极区分）</h4>
+    <table>
+      <tr><th>维度</th><th>洗盘（还会拉）</th><th>出货（真要跑）</th></tr>
+      <tr><td><b>位置</b></td><td>低位/中位</td><td>高位（涨幅巨大后）</td></tr>
+      <tr><td><b>量能</b></td><td>缩量</td><td>放量/巨量</td></tr>
+      <tr><td><b>反弹</b></td><td>反弹有量</td><td>反弹无量</td></tr>
+      <tr><td><b>破位</b></td><td>假破位收回</td><td>真跌破收不回</td></tr>
+      <tr><td><b>龙虎榜</b></td><td>筹码没动</td><td>机构大额净卖出</td></tr>
+      <tr><td><b>消息</b></td><td>利空砸完更稳</td><td>利好不涨（见光死）</td></tr>
+      <tr><td><b>换手率</b></td><td>持续走低</td><td>持续高位</td></tr>
+      <tr><td><b>时间</b></td><td>几天到几周</td><td>可能持续数月</td></tr>
+    </table>
+    <div class="box"><div class="t">⚠️ 关键</div><b>同一个"横盘"，低位是洗盘、高位是出货——位置决定性质。</b></div>
+
+    <h4>六、出货后的走势（预警，别接飞刀）</h4>
+    <ul>
+      <li><b>破位下跌</b>：跌破平台/均线后加速</li>
+      <li><b>阴跌</b>：无量阴跌，磨人但持续</li>
+      <li><b>回光返照</b>：最后拉一波（诱多）再跌</li>
+      <li><b>反弹无量</b>：每次反弹都无量，高点越来越低</li>
+    </ul>
+    <h5>出货的不同节奏（急跌 vs 慢出）</h5>
+    <ul>
+      <li><b>急跌出货</b>：杀跌式，几天内放量砸完（常见于题材退潮）</li>
+      <li><b>慢牛出货</b>：高位震荡慢慢派发，历时数月（常见于大票/白马）</li>
+      <li>慢牛出货最隐蔽：表面"横盘整理"，实际筹码在悄悄转移</li>
+    </ul>
+
+    <h4>七、散户的坑（这个阶段最"致命"）</h4>
+    <ul>
+      <li><b>坑1 · 看到利好冲进去</b>：利好一出冲进去——正好接机构的货</li>
+      <li><b>坑2 · 觉得还能涨</b>：高位放量滞涨还自我安慰"是洗盘"，一路站岗</li>
+      <li><b>坑3 · 装死不止损</b>：下跌初期不当回事，跌深了才割，割在最低点</li>
+      <li><b>坑4 · 摊平补仓</b>：下跌时补仓，越补越多、越套越深</li>
+      <li><b>坑5 · 追"回光返照"</b>：出货后的反弹以为是"第二波"，冲进去接最后一棒</li>
+    </ul>
+
+    <div class="case">
+      <h4>🎯 真实案例一 · 连板暴涨 → 高位放量滞涨</h4>
+      <ul>
+        <li>8月上旬连板暴涨 <b>89%</b>（9.58→14.03）</li>
+        <li><b>8.13 见顶</b> 冲15.09回落（天量滞涨）</li>
+        <li><b>8.14-8.21 高位巨量滞涨</b>（每天105-122万手，不再创新高）</li>
+        <li><b>8.21 冲高回落</b> 13.25，跌破平台</li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 900 430" style="background:#fff;border:1px solid #eee;border-radius:8px;"><text x="60" y="20" font-size="16" font-weight="bold" fill="#C8102E">案例一</text><text x="880" y="20" font-size="13" fill="#999" text-anchor="end">近40个交易日 K线</text><line x1="60" y1="30.0" x2="880" y2="30.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="34.0" font-size="11" fill="#aaa" text-anchor="end">15.53</text><line x1="60" y1="92.5" x2="880" y2="92.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="96.5" font-size="11" fill="#aaa" text-anchor="end">13.10</text><line x1="60" y1="155.0" x2="880" y2="155.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="159.0" font-size="11" fill="#aaa" text-anchor="end">10.67</text><line x1="60" y1="217.5" x2="880" y2="217.5" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="221.5" font-size="11" fill="#aaa" text-anchor="end">8.24</text><line x1="60" y1="280.0" x2="880" y2="280.0" stroke="#f0ece4" stroke-width="100%"/><text x="54" y="284.0" font-size="11" fill="#aaa" text-anchor="end">5.81</text><text x="70" y="406" font-size="11" fill="#aaa" text-anchor="middle">06-29</text><text x="234" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-09</text><text x="398" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-21</text><text x="562" y="406" font-size="11" fill="#aaa" text-anchor="middle">07-31</text><text x="726" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-12</text><text x="870" y="406" font-size="11" fill="#aaa" text-anchor="middle">08-21</text><line x1="70.2" y1="253.7" x2="70.2" y2="268.6" stroke="#E03434" stroke-width="100%"/><rect x="63.9" y="255.8" width="12.7" height="7.5" fill="#E03434"/><rect x="63.9" y="383.2" width="12.7" height="6.8" fill="#E03434" opacity="0.45"/><line x1="90.8" y1="255.8" x2="90.8" y2="261.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="84.4" y="258.4" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="84.4" y="385.3" width="12.7" height="4.7" fill="#1E9E5A" opacity="0.45"/><line x1="111.2" y1="253.5" x2="111.2" y2="262.0" stroke="#E03434" stroke-width="100%"/><rect x="104.9" y="253.7" width="12.7" height="6.7" fill="#E03434"/><rect x="104.9" y="383.7" width="12.7" height="6.3" fill="#E03434" opacity="0.45"/><line x1="131.8" y1="248.6" x2="131.8" y2="255.8" stroke="#E03434" stroke-width="100%"/><rect x="125.4" y="251.9" width="12.7" height="3.9" fill="#E03434"/><rect x="125.4" y="384.3" width="12.7" height="5.7" fill="#E03434" opacity="0.45"/><line x1="152.2" y1="249.1" x2="152.2" y2="256.3" stroke="#1E9E5A" stroke-width="100%"/><rect x="145.9" y="249.9" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="145.9" y="385.2" width="12.7" height="4.8" fill="#1E9E5A" opacity="0.45"/><line x1="172.8" y1="245.5" x2="172.8" y2="253.0" stroke="#E03434" stroke-width="100%"/><rect x="166.4" y="248.8" width="12.7" height="3.9" fill="#E03434"/><rect x="166.4" y="383.6" width="12.7" height="6.4" fill="#E03434" opacity="0.45"/><line x1="193.2" y1="249.9" x2="193.2" y2="257.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="186.9" y="249.9" width="12.7" height="4.6" fill="#1E9E5A"/><rect x="186.9" y="385.0" width="12.7" height="5.0" fill="#1E9E5A" opacity="0.45"/><line x1="213.8" y1="254.2" x2="213.8" y2="259.6" stroke="#1E9E5A" stroke-width="100%"/><rect x="207.4" y="256.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="207.4" y="386.9" width="12.7" height="3.1" fill="#1E9E5A" opacity="0.45"/><line x1="234.2" y1="255.5" x2="234.2" y2="263.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="227.9" y="258.9" width="12.7" height="2.1" fill="#1E9E5A"/><rect x="227.9" y="385.7" width="12.7" height="4.3" fill="#1E9E5A" opacity="0.45"/><line x1="254.8" y1="252.4" x2="254.8" y2="265.3" stroke="#E03434" stroke-width="100%"/><rect x="248.4" y="254.5" width="12.7" height="8.0" fill="#E03434"/><rect x="248.4" y="382.8" width="12.7" height="7.2" fill="#E03434" opacity="0.45"/><line x1="275.2" y1="251.7" x2="275.2" y2="257.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="268.9" y="254.8" width="12.7" height="1.0" fill="#1E9E5A"/><rect x="268.9" y="385.5" width="12.7" height="4.5" fill="#1E9E5A" opacity="0.45"/><line x1="295.8" y1="252.2" x2="295.8" y2="259.4" stroke="#E03434" stroke-width="100%"/><rect x="289.4" y="252.4" width="12.7" height="4.6" fill="#E03434"/><rect x="289.4" y="384.7" width="12.7" height="5.3" fill="#E03434" opacity="0.45"/><line x1="316.2" y1="234.7" x2="316.2" y2="253.2" stroke="#E03434" stroke-width="100%"/><rect x="309.9" y="234.7" width="12.7" height="17.5" fill="#E03434"/><rect x="309.9" y="378.2" width="12.7" height="11.8" fill="#E03434" opacity="0.45"/><line x1="336.8" y1="215.4" x2="336.8" y2="233.2" stroke="#E03434" stroke-width="100%"/><rect x="330.4" y="215.7" width="12.7" height="17.0" fill="#E03434"/><rect x="330.4" y="353.3" width="12.7" height="36.7" fill="#E03434" opacity="0.45"/><line x1="357.2" y1="224.2" x2="357.2" y2="237.0" stroke="#1E9E5A" stroke-width="100%"/><rect x="350.9" y="229.8" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="350.9" y="373.7" width="12.7" height="16.3" fill="#1E9E5A" opacity="0.45"/><line x1="377.8" y1="239.1" x2="377.8" y2="254.0" stroke="#E03434" stroke-width="100%"/><rect x="371.4" y="242.7" width="12.7" height="5.7" fill="#E03434"/><rect x="371.4" y="371.9" width="12.7" height="18.1" fill="#E03434" opacity="0.45"/><line x1="398.2" y1="245.0" x2="398.2" y2="261.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="391.9" y="245.8" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="391.9" y="372.3" width="12.7" height="17.7" fill="#1E9E5A" opacity="0.45"/><line x1="418.8" y1="247.0" x2="418.8" y2="256.3" stroke="#E03434" stroke-width="100%"/><rect x="412.4" y="254.2" width="12.7" height="1.8" fill="#E03434"/><rect x="412.4" y="377.2" width="12.7" height="12.8" fill="#E03434" opacity="0.45"/><line x1="439.2" y1="250.4" x2="439.2" y2="259.4" stroke="#E03434" stroke-width="100%"/><rect x="432.9" y="250.6" width="12.7" height="6.2" fill="#E03434"/><rect x="432.9" y="378.5" width="12.7" height="11.5" fill="#E03434" opacity="0.45"/><line x1="459.8" y1="249.1" x2="459.8" y2="260.4" stroke="#1E9E5A" stroke-width="100%"/><rect x="453.4" y="252.4" width="12.7" height="7.2" fill="#1E9E5A"/><rect x="453.4" y="380.3" width="12.7" height="9.7" fill="#1E9E5A" opacity="0.45"/><line x1="480.2" y1="244.2" x2="480.2" y2="264.8" stroke="#E03434" stroke-width="100%"/><rect x="473.9" y="249.4" width="12.7" height="11.3" fill="#E03434"/><rect x="473.9" y="377.3" width="12.7" height="12.7" fill="#E03434" opacity="0.45"/><line x1="500.8" y1="242.7" x2="500.8" y2="251.7" stroke="#E03434" stroke-width="100%"/><rect x="494.4" y="247.6" width="12.7" height="2.8" fill="#E03434"/><rect x="494.4" y="378.4" width="12.7" height="11.6" fill="#E03434" opacity="0.45"/><line x1="521.2" y1="241.9" x2="521.2" y2="250.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="514.9" y="244.0" width="12.7" height="3.9" fill="#1E9E5A"/><rect x="514.9" y="380.6" width="12.7" height="9.4" fill="#1E9E5A" opacity="0.45"/><line x1="541.8" y1="245.8" x2="541.8" y2="254.2" stroke="#1E9E5A" stroke-width="100%"/><rect x="535.4" y="248.3" width="12.7" height="4.9" fill="#1E9E5A"/><rect x="535.4" y="381.6" width="12.7" height="8.4" fill="#1E9E5A" opacity="0.45"/><line x1="562.2" y1="248.3" x2="562.2" y2="253.2" stroke="#E03434" stroke-width="100%"/><rect x="555.9" y="248.6" width="12.7" height="3.1" fill="#E03434"/><rect x="555.9" y="383.3" width="12.7" height="6.7" fill="#E03434" opacity="0.45"/><line x1="582.8" y1="243.7" x2="582.8" y2="248.8" stroke="#E03434" stroke-width="100%"/><rect x="576.4" y="244.2" width="12.7" height="4.6" fill="#E03434"/><rect x="576.4" y="382.8" width="12.7" height="7.2" fill="#E03434" opacity="0.45"/><line x1="603.2" y1="225.7" x2="603.2" y2="225.7" stroke="#E03434" stroke-width="100%"/><rect x="596.9" y="225.7" width="12.7" height="1.0" fill="#E03434"/><rect x="596.9" y="384.5" width="12.7" height="5.5" fill="#E03434" opacity="0.45"/><line x1="623.8" y1="205.4" x2="623.8" y2="214.4" stroke="#E03434" stroke-width="100%"/><rect x="617.4" y="205.4" width="12.7" height="1.0" fill="#E03434"/><rect x="617.4" y="368.6" width="12.7" height="21.4" fill="#E03434" opacity="0.45"/><line x1="644.2" y1="183.0" x2="644.2" y2="199.2" stroke="#E03434" stroke-width="100%"/><rect x="637.9" y="183.0" width="12.7" height="1.0" fill="#E03434"/><rect x="637.9" y="325.4" width="12.7" height="64.6" fill="#E03434" opacity="0.45"/><line x1="664.8" y1="158.3" x2="664.8" y2="169.7" stroke="#E03434" stroke-width="100%"/><rect x="658.4" y="158.3" width="12.7" height="7.5" fill="#E03434"/><rect x="658.4" y="359.1" width="12.7" height="30.9" fill="#E03434" opacity="0.45"/><line x1="685.2" y1="131.3" x2="685.2" y2="131.3" stroke="#E03434" stroke-width="100%"/><rect x="678.9" y="131.3" width="12.7" height="1.0" fill="#E03434"/><rect x="678.9" y="387.4" width="12.7" height="2.6" fill="#E03434" opacity="0.45"/><line x1="705.8" y1="101.5" x2="705.8" y2="106.2" stroke="#E03434" stroke-width="100%"/><rect x="699.4" y="101.5" width="12.7" height="1.0" fill="#E03434"/><rect x="699.4" y="355.7" width="12.7" height="34.3" fill="#E03434" opacity="0.45"/><line x1="726.2" y1="68.6" x2="726.2" y2="88.2" stroke="#E03434" stroke-width="100%"/><rect x="719.9" y="68.6" width="12.7" height="16.7" fill="#E03434"/><rect x="719.9" y="322.0" width="12.7" height="68.0" fill="#E03434" opacity="0.45"/><line x1="746.8" y1="41.4" x2="746.8" y2="95.1" stroke="#E03434" stroke-width="100%"/><rect x="740.4" y="56.5" width="12.7" height="23.1" fill="#E03434"/><rect x="740.4" y="295.0" width="12.7" height="95.0" fill="#E03434" opacity="0.45"/><line x1="767.2" y1="56.8" x2="767.2" y2="87.4" stroke="#E03434" stroke-width="100%"/><rect x="760.9" y="74.3" width="12.7" height="5.1" fill="#E03434"/><rect x="760.9" y="328.3" width="12.7" height="61.7" fill="#E03434" opacity="0.45"/><line x1="787.8" y1="61.7" x2="787.8" y2="93.0" stroke="#E03434" stroke-width="100%"/><rect x="781.4" y="68.9" width="12.7" height="5.7" fill="#E03434"/><rect x="781.4" y="330.0" width="12.7" height="60.0" fill="#E03434" opacity="0.45"/><line x1="808.2" y1="58.6" x2="808.2" y2="86.9" stroke="#1E9E5A" stroke-width="100%"/><rect x="801.9" y="72.0" width="12.7" height="10.3" fill="#1E9E5A"/><rect x="801.9" y="335.6" width="12.7" height="54.4" fill="#1E9E5A" opacity="0.45"/><line x1="828.8" y1="58.8" x2="828.8" y2="99.0" stroke="#E03434" stroke-width="100%"/><rect x="822.4" y="76.6" width="12.7" height="18.5" fill="#E03434"/><rect x="822.4" y="327.0" width="12.7" height="63.0" fill="#E03434" opacity="0.45"/><line x1="849.2" y1="58.1" x2="849.2" y2="87.1" stroke="#1E9E5A" stroke-width="100%"/><rect x="842.9" y="64.2" width="12.7" height="13.9" fill="#1E9E5A"/><rect x="842.9" y="327.2" width="12.7" height="62.8" fill="#1E9E5A" opacity="0.45"/><line x1="869.8" y1="79.7" x2="869.8" y2="113.4" stroke="#E03434" stroke-width="100%"/><rect x="863.4" y="88.7" width="12.7" height="9.3" fill="#E03434"/><rect x="863.4" y="334.0" width="12.7" height="56.0" fill="#E03434" opacity="0.45"/><polyline points="70.2,255.8 90.8,257.5 111.2,256.2 131.8,255.1 152.2,254.2 172.8,252.8 193.2,251.9 213.8,252.6 234.2,254.4 254.8,255.2 275.2,256.6 295.8,256.2 316.2,251.7 336.8,242.6 357.2,239.1 377.8,236.5 398.2,236.6 418.8,240.5 439.2,247.5 459.8,252.0 480.2,253.4 500.8,252.3 521.2,251.0 541.8,251.5 562.2,249.3 582.8,248.3 603.2,243.9 623.8,235.4 644.2,221.4 664.8,203.3 685.2,180.8 705.8,155.9 726.2,128.6 746.8,103.3 767.2,86.5 787.8,74.0 808.2,70.1 828.8,71.7 849.2,76.0 869.8,78.9" fill="none" stroke="#D4A017" stroke-width="1.4"/><polyline points="70.2,255.8 90.8,257.5 111.2,256.2 131.8,255.1 152.2,254.2 172.8,253.3 193.2,253.5 213.8,253.9 234.2,254.7 254.8,254.7 275.2,254.8 295.8,254.6 316.2,253.1 336.8,250.4 357.2,249.5 377.8,249.1 398.2,249.3 418.8,249.6 439.2,249.6 459.8,250.1 480.2,249.8 500.8,249.2 521.2,248.9 541.8,249.0 562.2,248.9 582.8,248.7 603.2,247.2 623.8,244.6 644.2,240.8 664.8,235.9 685.2,229.7 705.8,222.2 726.2,213.9 746.8,205.9 767.2,197.8 787.8,189.1 808.2,180.6 828.8,171.7 849.2,163.0 869.8,154.5" fill="none" stroke="#1F5FA8" stroke-width="1.4"/><text x="68" y="44" font-size="11" fill="#D4A017">MA5</text><text x="108" y="44" font-size="11" fill="#1F5FA8">MA20</text><circle cx="746.8" cy="56.5" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="746.8" y="46.5" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">见顶15.09</text><circle cx="869.8" cy="88.7" r="5" fill="none" stroke="#C8102E" stroke-width="100%"/><text x="869.8" y="78.7" font-size="12" font-weight="bold" fill="#C8102E" text-anchor="middle">滞涨回落</text></svg>
+    </div>
+
+    <div class="next-hook">🎓 五章全部解锁 —— 恭喜你，已经掌握"机构的一生"！</div>
+  </div>
+</div>
+
+<div class="compliance">⚠️ <b>合规声明：</b>本图鉴为投资教育内容，仅作学习参考，<b>不构成任何投资建议、不推荐具体股票、不指导具体交易、不承诺任何收益</b>。市场有风险，投资需谨慎。</div>
+<footer>弘历 · 机构现形记 · 周年庆闭幕式</footer>
+
+<div class="demo">
+  <span>参与人数：</span>
+  <input id="countInput" type="number" min="0" max="3600" value="0" oninput="setCount(this.value)" style="width:70px;padding:4px 8px;border-radius:8px;border:none;font-size:14px;">
+  <button onclick="setCount(600)">600</button>
+  <button onclick="setCount(1200)">1200</button>
+  <button onclick="setCount(1800)">1800</button>
+  <button onclick="setCount(2400)">2400</button>
+  <button onclick="setCount(3000)">3000</button>
+  <button class="blue" onclick="setCount(3600)">满档3600</button>
+  <button class="reset" onclick="setCount(0)">重置</button>
+  <span class="note">正式版：接入平台"周年庆钜惠收官"累计参与人数实时同步</span>
+</div>
+
+<script>
+var thresholds = {1:600,2:1200,3:1800,4:2400,5:3000};
+var currentCount = 0;
+var unlocked = {1:false,2:false,3:false,4:false,5:false};
+var stampsHtml = '';
+for (var i=1;i<=5;i++) stampsHtml += '<div class="stamp" id="stamp'+i+'">🔒</div>';
+document.getElementById('stamps').innerHTML = stampsHtml;
+
+function applyUnlock(i){
+  var ch=document.getElementById('ch'+i);
+  if(unlocked[i]){
+    ch.classList.remove('locked'); ch.classList.add('open');
+    document.getElementById('lock'+i).textContent='🔓';
+    document.getElementById('lock'+i).classList.remove('lock-pulse');
+    document.getElementById('hint'+i).textContent='已解锁 · 点击展开/收起';
+    document.getElementById('badge'+i).textContent='已解锁';
+    document.getElementById('badge'+i).style.background='linear-gradient(135deg,#1E9E5A,#17804A)';
+    document.getElementById('stamp'+i).textContent='✓'; document.getElementById('stamp'+i).classList.add('on');
+    document.getElementById('navlock'+i).textContent='🔓';
+  } else {
+    ch.classList.add('locked'); ch.classList.remove('open');
+    document.getElementById('lock'+i).textContent='🔒';
+    document.getElementById('lock'+i).classList.add('lock-pulse');
+    document.getElementById('hint'+i).textContent='🔒 累计参与周年庆闭幕式活动'+thresholds[i]+'人解锁';
+    document.getElementById('badge'+i).textContent='待解锁';
+    document.getElementById('badge'+i).style.background='';
+    document.getElementById('stamp'+i).textContent='🔒'; document.getElementById('stamp'+i).classList.remove('on');
+    document.getElementById('navlock'+i).textContent='🔒';
+  }
+  var n=0; for(var k=1;k<=5;k++){ if(unlocked[k]) n++; }
+  document.getElementById('barFill').style.width=Math.min(currentCount/3000*100,100)+'%';
+  document.getElementById('progNum').textContent=n+'/5';
+  document.getElementById('countNum').textContent=currentCount;
+
+}
+function refresh(){
+  for(var i=1;i<=5;i++){ unlocked[i] = (currentCount >= thresholds[i]); }
+  for(var i=1;i<=5;i++){ applyUnlock(i); }
+}
+function setCount(n){
+  currentCount = Math.max(0, parseInt(n) || 0);
+  if(document.getElementById('countInput')) document.getElementById('countInput').value=currentCount;
+  refresh();
+}
+function jumpTo(i){
+  var el=document.getElementById('ch'+i);
+  if(!el) return;
+  if(typeof el.scrollIntoView==='function'){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  else if(window.scrollTo){ window.scrollTo(0, el.offsetTop - 20); }
+}
+function toggleChapter(i){
+  var ch=document.getElementById('ch'+i);
+  if(!unlocked[i]){
+    alert('🔒 第'+i+'章尚未解锁，解锁条件：累计参与周年庆闭幕式活动 '+thresholds[i]+' 人');
+    return;
+  }
+  var isOpen = ch.classList.contains('open');
+  ch.classList.toggle('open');
+  document.getElementById('hint'+i).textContent = isOpen ? '已解锁 · 点击展开' : '已解锁 · 点击收起';
+}
+function demoAll(){ setCount(3000); }
+function demoReset(){ setCount(0); }
+
+refresh();
+</script>
+</div>
+</body>
+</html>
