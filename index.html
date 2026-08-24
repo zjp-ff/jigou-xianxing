@@ -245,13 +245,13 @@
   header .kicker{font-size:11px;letter-spacing:3px;}
   header .sub{font-size:13px;letter-spacing:2px;}
   header .tag{font-size:11px;padding:4px 12px;}
-  .progress{padding:12px 14px;gap:10px;border-radius:12px;}
-  .progress .label{font-size:13px;}
-  .progress .num{font-size:18px;}
-  .bar{height:14px;min-width:140px;}
+  .progress{padding:12px 14px;gap:10px;border-radius:12px;flex-direction:column;align-items:stretch;}
+  .progress .label{font-size:13px;text-align:center;}
+  .progress .num{font-size:18px;text-align:center;}
+  .bar{height:14px;width:100%;}
   .stamps{gap:6px;width:100%;justify-content:center;}
   .stamps .stamp{width:42px;height:42px;font-size:12px;}
-  .jump-row{padding:8px 10px;gap:6px;}
+  .jump-row{padding:8px 10px;gap:6px;flex-wrap:wrap;}
   .jump-row .label{font-size:12px;}
   .jump-row button{padding:6px 10px;font-size:12px;border-radius:14px;}
   .chapter{margin-bottom:14px;border-radius:14px;}
@@ -280,6 +280,7 @@
   .body{padding:10px 12px;}
   .body h4{font-size:14px;}
   table{font-size:12px;}
+  .stamps .stamp{width:36px;height:36px;font-size:11px;}
 }
 
 </style>
