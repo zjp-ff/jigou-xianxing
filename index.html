@@ -856,9 +856,16 @@ function refresh(){
 }
 
 function setCount(n){
-  currentCount = Math.max(0, parseInt(n) || 0);
-  if(document.getElementById('countInput')) document.getElementById('countInput').value=currentCount;
+  var currentCount = Math.max(0, parseInt(n) || 0);
+  if(document.getElementById('countInput')){
+    document.getElementById('countInput').value = currentCount;
+  }
   refresh();
+  // admin模式：保存到localStorage，方便调试
+  try {
+    localStorage.setItem('adminUnlockCount', String(currentCount));
+    localStorage.setItem('adminUnlockTime', String(Date.now()));
+  } catch(e){}
 }
 function jumpTo(i){
   var el=document.getElementById('ch'+i);
@@ -886,6 +893,26 @@ refresh();
 if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode')==='1'){
   var p=document.getElementById('adminPanel');if(p)p.style.display='';
 }
+</script>
+
+<script>
+// 客户端：从 unlock.json 拉取参与人数（每30秒一次）
+(function(){
+  if(window.location.search.indexOf('admin=1')>=0) return; // admin模式不自动拉取
+  
+  function fetchCount(){
+    fetch('unlock.json?t='+Date.now())
+      .then(r=>r.json())
+      .then(d=>{
+        if(typeof d.count==='number'){
+          setCount(d.count);
+        }
+      })
+      .catch(()=>{});
+  }
+  fetchCount();
+  setInterval(fetchCount, 30000);
+})();
 </script>
 </body>
 </html>

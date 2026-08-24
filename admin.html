@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>机构现形图鉴 · 运营控制台</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+    color:#fff;min-height:100vh;padding:30px 20px;}
+  .wrap{max-width:680px;margin:0 auto;}
+  h1{font-size:28px;text-align:center;margin-bottom:8px;color:#FFD700;}
+  .sub{text-align:center;color:#aaa;margin-bottom:30px;font-size:13px;}
+  .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:20px 22px;margin-bottom:18px;
+    backdrop-filter:blur(10px);}
+  .card h3{font-size:16px;margin-bottom:14px;color:#FFD700;display:flex;align-items:center;gap:8px;}
+  .big-input{width:100%;font-size:48px;font-weight:900;text-align:center;padding:14px;
+    background:rgba(0,0,0,.3);border:2px solid #FFD700;border-radius:12px;color:#FFD700;
+    margin:14px 0;font-style:italic;}
+  .btn-row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0;}
+  .btn{padding:12px;border:none;border-radius:10px;font-size:14px;font-weight:800;
+    cursor:pointer;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;
+    transition:transform .15s;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{padding:14px 20px;background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:#fff;font-size:16px;font-weight:900;}
+  .status{padding:10px;border-radius:8px;font-size:13px;margin-top:10px;display:none;}
+  .status.ok{display:block;background:rgba(46,213,115,.15);border:1px solid rgba(46,213,115,.3);color:#2ed573;}
+  .status.err{display:block;background:rgba(255,71,87,.15);border:1px solid rgba(255,71,87,.3);color:#ff4757;}
+  .info{font-size:12px;color:#888;margin-top:8px;line-height:1.6;}
+  .token-row{margin-top:14px;}
+  .token-row input{width:100%;padding:8px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);
+    border-radius:6px;color:#fff;font-size:12px;font-family:monospace;}
+  .token-row label{font-size:12px;color:#FFD700;display:block;margin-bottom:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎛️ 机构现形图鉴 · 运营控制台</h1>
+  <div class="sub">在这里设置参与人数 → 30秒内所有客户端同步解锁</div>
+
+  <div class="card">
+    <h3>📊 参与人数控制</h3>
+    <input type="number" id="count" class="big-input" min="0" max="3600" value="0" step="100">
+    <div class="btn-row">
+      <button class="btn" onclick="setCount(0)">0</button>
+      <button class="btn" onclick="setCount(600)">600</button>
+      <button class="btn" onclick="setCount(1200)">1200</button>
+      <button class="btn" onclick="setCount(1800)">1800</button>
+      <button class="btn" onclick="setCount(2400)">2400</button>
+      <button class="btn" onclick="setCount(3000)">3000</button>
+    </div>
+    <button class="btn-primary" style="width:100%;" onclick="publish()">
+      🚀 推送到所有客户端
+    </button>
+    <div class="info">
+      ⚠️ 解锁阈值：600→1章 / 1200→2章 / 1800→3章 / 2400→4章 / 满3000→5章
+    </div>
+    <div id="status" class="status"></div>
+  </div>
+
+  <div class="card">
+    <h3>🔑 GitHub Token（首次需要）</h3>
+    <div class="token-row">
+      <label>Personal Access Token（保存在浏览器本地）</label>
+      <input type="password" id="token" placeholder="ghp_xxxxxxxx...">
+    </div>
+    <div class="info">
+      💡 首次填入token会自动保存；以后打开页面无需再填
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📋 客户端链接</h3>
+    <div class="info">
+      <strong>展示版（发给客户）：</strong><br>
+      👉 <a href="https://zjp-ff.github.io/jigou-xianxing/" style="color:#FFD700;">https://zjp-ff.github.io/jigou-xianxing/</a><br><br>
+      <strong>调试版（你演示用）：</strong><br>
+      👉 <a href="https://zjp-ff.github.io/jigou-xianxing/?admin=1" style="color:#FFD700;">https://zjp-ff.github.io/jigou-xianxing/?admin=1</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const REPO = 'zjp-ff/jigou-xianxing';
+const FILE = 'unlock.json';
+
+// 加载token
+document.getElementById('token').value = localStorage.getItem('ghToken') || '';
+
+// 输入框同步快捷按钮
+function setCount(n){
+  document.getElementById('count').value = n;
+}
+
+// 显示状态
+function showStatus(msg, ok){
+  const el = document.getElementById('status');
+  el.className = 'status ' + (ok ? 'ok' : 'err');
+  el.textContent = msg;
+}
+
+// 推送到GitHub
+async function publish(){
+  const count = parseInt(document.getElementById('count').value) || 0;
+  const token = document.getElementById('token').value.trim();
+  if(!token){
+    showStatus('❌ 请先填写GitHub Token', false);
+    return;
+  }
+  localStorage.setItem('ghToken', token);
+  
+  const content = JSON.stringify({
+    count: count,
+    updated: new Date().toISOString(),
+    note: '运营修改这个数字即可同步全网客户端'
+  }, null, 2);
+  
+  showStatus('⏳ 推送中...', true);
+  
+  try {
+    // 1. 获取当前文件sha
+    const r1 = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, {
+      headers: {'Authorization': `token ${token}`}
+    });
+    const meta = await r1.json();
+    const sha = meta.sha;
+    
+    // 2. 推送新内容
+    const r2 = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `set count=${count}`,
+        content: btoa(unescape(encodeURIComponent(content))),
+        sha: sha
+      })
+    });
+    
+    if(r2.ok){
+      showStatus(`✅ 推送成功！count=${count}，客户端约30秒内自动同步`, true);
+    } else {
+      const err = await r2.json();
+      showStatus(`❌ 推送失败：${err.message || '未知错误'}`, false);
+    }
+  } catch(e){
+    showStatus(`❌ 网络错误：${e.message}`, false);
+  }
+}
+</script>
+</body>
+</html>
