@@ -292,39 +292,9 @@
 }
 
 
-.chapter .body{position:relative;overflow:visible;}
-.chapter .body::before{
-  content:"本页内容仅供参考 不构成投资建议 据此操作 风险自担";
-  position:absolute;
-  top:60px;
-  left:30px;
-  font-size:14px;
-  font-weight:700;
-  color:rgba(200,16,46,0.20);
-  font-family:"Microsoft YaHei",sans-serif;
-  white-space:nowrap;
-  pointer-events:none;
-  z-index:0;
-  transform:rotate(-12deg);
-  letter-spacing:0;
-}
-.chapter .body::after{
-  content:"本页内容仅供参考 不构成投资建议 据此操作 风险自担";
-  position:absolute;
-  top:40%;
-  left:30px;
-  font-size:14px;
-  font-weight:700;
-  color:rgba(200,16,46,0.20);
-  font-family:"Microsoft YaHei",sans-serif;
-  white-space:nowrap;
-  pointer-events:none;
-  z-index:0;
-  transform:rotate(-12deg);
-  letter-spacing:0;
-}
+
 .chapter .body > *{position:relative;z-index:1;}
-.chapter .body > *{position:relative;z-index:1;}
+
 </style>
 </head>
 <body>
@@ -949,6 +919,22 @@ if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode
   }
   fetchCount();
   setInterval(fetchCount, 30000);
+})();
+</script>
+<script>
+(function(){
+  // SVG每250px平铺一次,里面3条水印
+  const wmSvg = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='300'><g font-family='Microsoft YaHei' font-weight='700' font-size='24' fill='%23c8102e' fill-opacity='0.22'><text x='60' y='80' transform='rotate(-12 60 80)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text><text x='60' y='180' transform='rotate(-12 60 180)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text><text x='60' y='280' transform='rotate(-12 60 280)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text></g></svg>\")";
+  function add(){
+    document.querySelectorAll('.chapter .body').forEach(b => {
+      b.style.backgroundImage = wmSvg;
+      b.style.backgroundRepeat = 'repeat';
+      b.style.backgroundPosition = 'center top';
+      b.style.backgroundSize = '100% auto';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add);
+  else add();
 })();
 </script>
 </body>
