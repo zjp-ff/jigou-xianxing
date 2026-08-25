@@ -933,14 +933,14 @@ if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode
       const wm1 = document.createElement('div');
       wm1.className = 'compliance-watermark';
       wm1.textContent = '本页内容仅供参考 不构成投资建议 据此操作 风险自担';
-      wm1.style.cssText = 'position:absolute;top:30px;left:0;right:0;text-align:center;font-size:18px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
+      wm1.style.cssText = 'position:absolute;top:30px;left:0;right:0;text-align:center;font-size:15px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
       body.insertBefore(wm1, body.firstChild);
       
       // 第2条: 章节中间偏下(避开文字密集区)
       const wm2 = document.createElement('div');
       wm2.className = 'compliance-watermark';
       wm2.textContent = '本页内容仅供参考 不构成投资建议 据此操作 风险自担';
-      wm2.style.cssText = 'position:absolute;top:60%;left:0;right:0;text-align:center;font-size:18px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
+      wm2.style.cssText = 'position:absolute;top:60%;left:0;right:0;text-align:center;font-size:15px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
       body.appendChild(wm2);
     });
   }
