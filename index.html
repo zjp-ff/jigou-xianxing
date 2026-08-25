@@ -291,41 +291,39 @@
   .stamps .stamp{width:36px;height:36px;font-size:11px;}
 }
 
-.chapter .body{
-  position:relative;
-}
+
+.chapter .body{position:relative;overflow:visible;}
 .chapter .body::before{
-  content:"本页内容仅供参考，不构成任何投资建议，据此操作，风险自担";
+  content:"本页内容仅供参考 不构成投资建议 据此操作 风险自担";
   position:absolute;
   top:60px;
-  left:-20px;
-  right:-20px;
-  font-size:22px;
+  left:30px;
+  font-size:14px;
   font-weight:700;
-  color:rgba(200,16,46,0.10);
+  color:rgba(200,16,46,0.20);
   font-family:"Microsoft YaHei",sans-serif;
   white-space:nowrap;
   pointer-events:none;
   z-index:0;
   transform:rotate(-12deg);
-  letter-spacing:4px;
+  letter-spacing:0;
 }
 .chapter .body::after{
-  content:"本页内容仅供参考，不构成任何投资建议，据此操作，风险自担";
+  content:"本页内容仅供参考 不构成投资建议 据此操作 风险自担";
   position:absolute;
-  top:65%;
-  left:-30px;
-  right:-30px;
-  font-size:22px;
+  top:40%;
+  left:30px;
+  font-size:14px;
   font-weight:700;
-  color:rgba(200,16,46,0.10);
+  color:rgba(200,16,46,0.20);
   font-family:"Microsoft YaHei",sans-serif;
   white-space:nowrap;
   pointer-events:none;
   z-index:0;
   transform:rotate(-12deg);
-  letter-spacing:4px;
+  letter-spacing:0;
 }
+.chapter .body > *{position:relative;z-index:1;}
 .chapter .body > *{position:relative;z-index:1;}
 </style>
 </head>
