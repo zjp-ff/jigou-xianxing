@@ -923,14 +923,25 @@ if(window.location.search.indexOf('admin=1')>=0||localStorage.getItem('adminMode
 </script>
 <script>
 (function(){
-  // SVG每250px平铺一次,里面3条水印
-  const wmSvg = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='300'><g font-family='Microsoft YaHei' font-weight='700' font-size='24' fill='%23c8102e' fill-opacity='0.22'><text x='60' y='80' transform='rotate(-12 60 80)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text><text x='60' y='180' transform='rotate(-12 60 180)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text><text x='60' y='280' transform='rotate(-12 60 280)'>本页内容仅供参考 不构成投资建议 据此操作 风险自担</text></g></svg>\")";
   function add(){
-    document.querySelectorAll('.chapter .body').forEach(b => {
-      b.style.backgroundImage = wmSvg;
-      b.style.backgroundRepeat = 'repeat';
-      b.style.backgroundPosition = 'center top';
-      b.style.backgroundSize = '100% auto';
+    document.querySelectorAll('.chapter .body').forEach(body => {
+      if (body.querySelector('.compliance-watermark')) return;
+      body.style.position = 'relative';
+      body.style.overflow = 'visible';
+      
+      // 第1条: 章节开头(避开表格,放在最顶端h2标题前)
+      const wm1 = document.createElement('div');
+      wm1.className = 'compliance-watermark';
+      wm1.textContent = '本页内容仅供参考 不构成投资建议 据此操作 风险自担';
+      wm1.style.cssText = 'position:absolute;top:30px;left:0;right:0;text-align:center;font-size:18px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
+      body.insertBefore(wm1, body.firstChild);
+      
+      // 第2条: 章节中间偏下(避开文字密集区)
+      const wm2 = document.createElement('div');
+      wm2.className = 'compliance-watermark';
+      wm2.textContent = '本页内容仅供参考 不构成投资建议 据此操作 风险自担';
+      wm2.style.cssText = 'position:absolute;top:60%;left:0;right:0;text-align:center;font-size:18px;font-weight:700;color:rgba(200,16,46,0.18);font-family:"Microsoft YaHei",sans-serif;white-space:nowrap;pointer-events:none;z-index:1;transform:rotate(-8deg);letter-spacing:0;';
+      body.appendChild(wm2);
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add);
